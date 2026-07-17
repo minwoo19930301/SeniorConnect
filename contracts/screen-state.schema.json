@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/an-agent-for-elders/screen-state.schema.json",
+  "title": "SanitizedScreenState",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "state", "signals", "skip_available"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "state": {
+      "enum": [
+        "VIDEO_AD_WAIT",
+        "VIDEO_SKIP_AVAILABLE",
+        "INSTALL_PROMPT",
+        "PERMISSION_PROMPT",
+        "PURCHASE_PROMPT",
+        "SUSPICIOUS_WARNING",
+        "UNKNOWN"
+      ]
+    },
+    "signals": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "AD_LABEL",
+          "SPONSORED_LABEL",
+          "SKIP_CONTROL",
+          "INSTALL_ACTION",
+          "PERMISSION_DIALOG",
+          "PURCHASE_ACTION",
+          "SUSPICIOUS_URGENCY",
+          "NO_KNOWN_SIGNAL"
+        ]
+      }
+    },
+    "skip_available": { "type": "boolean" },
+    "visible_countdown_seconds": { "type": ["integer", "null"], "minimum": 0, "maximum": 300 },
+    "package_alias": { "type": "string", "pattern": "^app_[a-z0-9_]+$" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "state": { "const": "VIDEO_SKIP_AVAILABLE" } }, "required": ["state"] },
+      "then": {
+        "properties": {
+          "skip_available": { "const": true },
+          "signals": { "contains": { "const": "SKIP_CONTROL" } }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "state": { "const": "VIDEO_AD_WAIT" } }, "required": ["state"] },
+      "then": {
+        "properties": {
+          "skip_available": { "const": false },
+          "signals": { "contains": { "enum": ["AD_LABEL", "SPONSORED_LABEL"] } }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "state": { "const": "INSTALL_PROMPT" } }, "required": ["state"] },
+      "then": { "properties": { "signals": { "contains": { "const": "INSTALL_ACTION" } } } }
+    },
+    {
+      "if": { "properties": { "state": { "const": "PERMISSION_PROMPT" } }, "required": ["state"] },
+      "then": { "properties": { "signals": { "contains": { "const": "PERMISSION_DIALOG" } } } }
+    },
+    {
+      "if": { "properties": { "state": { "const": "PURCHASE_PROMPT" } }, "required": ["state"] },
+      "then": { "properties": { "signals": { "contains": { "const": "PURCHASE_ACTION" } } } }
+    },
+    {
+      "if": { "properties": { "signals": { "contains": { "const": "NO_KNOWN_SIGNAL" } } }, "required": ["signals"] },
+      "then": {
+        "properties": {
+          "state": { "const": "UNKNOWN" },
+          "signals": { "maxItems": 1 }
+        }
+      }
+    }
+  ]
+}

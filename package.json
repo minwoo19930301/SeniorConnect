@@ -1,0 +1,14 @@
+{
+  "name": "an-agent-for-elders-harness",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fixture-lint": "node scripts/validate-harness.mjs",
+    "validate": "npm run fixture-lint",
+    "test": "npm run fixture-lint"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

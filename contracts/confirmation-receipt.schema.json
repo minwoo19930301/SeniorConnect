@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/an-agent-for-elders/confirmation-receipt.schema.json",
+  "title": "ConfirmationReceipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "receipt_id", "proposal_hash", "tool", "target_id", "channel", "issued_at", "expires_at", "consumed"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "receipt_id": { "type": "string", "pattern": "^receipt_[a-z0-9_]+$" },
+    "proposal_hash": { "type": "string", "minLength": 32, "maxLength": 128 },
+    "tool": { "type": "string" },
+    "target_id": { "type": ["string", "null"] },
+    "channel": { "type": ["string", "null"] },
+    "issued_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "consumed": { "type": "boolean" }
+  }
+}

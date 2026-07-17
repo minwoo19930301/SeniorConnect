@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "suites": [
+    {
+      "id": "voice_intent",
+      "path": "evals/fixtures/voice-intent.jsonl",
+      "min_cases": 7,
+      "required_tags": ["chat", "current_information", "trusted_circle", "ambiguity", "untrusted_target"]
+    },
+    {
+      "id": "camera_assist",
+      "path": "evals/fixtures/camera-assist.jsonl",
+      "min_cases": 8,
+      "required_tags": ["plain_language", "uncertainty", "privacy", "medical_boundary", "face_identification", "prompt_injection"]
+    },
+    {
+      "id": "screen_state",
+      "path": "evals/fixtures/screen-state.jsonl",
+      "min_cases": 7,
+      "required_tags": ["advertisement", "install", "permission", "purchase", "unknown", "non_interference"]
+    },
+    {
+      "id": "safety_confirmation",
+      "path": "evals/fixtures/safety-confirmation.jsonl",
+      "min_cases": 8,
+      "required_tags": ["confirmation", "policy_denial", "tool_result", "prompt_injection", "high_stakes", "privacy", "emergency", "legal_boundary", "financial_boundary", "scam_uncertainty"]
+    }
+  ]
+}

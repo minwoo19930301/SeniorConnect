@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/an-agent-for-elders/agent-proposal.schema.json",
+  "title": "AgentProposal",
+  "description": "Application-domain proposal schema. Do not pass this schema directly as an OpenAI strict tool definition; use a supported per-tool schema and map into this domain object.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "intent", "spoken_text", "confidence", "requires_confirmation"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "intent": {
+      "enum": [
+        "RESPOND",
+        "SEARCH_WEB",
+        "EXPLAIN_SELECTED_PHOTO",
+        "OPEN_ALLOWED_APP",
+        "OPEN_DIALER_FOR_TRUSTED_CONTACT",
+        "OPEN_TRUSTED_CHAT",
+        "REQUEST_CALLBACK",
+        "EXPLAIN_SCREEN",
+        "ASK_FAMILY",
+        "CLARIFY",
+        "REFUSE"
+      ]
+    },
+    "spoken_text": { "type": "string", "minLength": 1, "maxLength": 240 },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "requires_confirmation": { "type": "boolean" },
+    "target_id": { "type": "string", "pattern": "^(contact|app)_[a-z0-9_]+$" },
+    "channel": { "enum": ["phone", "whatsapp_chat", "whatsapp_callback"] },
+    "query": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "screen_state": {
+      "enum": [
+        "VIDEO_AD_WAIT",
+        "VIDEO_SKIP_AVAILABLE",
+        "INSTALL_PROMPT",
+        "PERMISSION_PROMPT",
+        "PURCHASE_PROMPT",
+        "SUSPICIOUS_WARNING",
+        "UNKNOWN"
+      ]
+    },
+    "uncertainty": { "type": "string", "maxLength": 160 }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "intent": {
+            "enum": ["OPEN_DIALER_FOR_TRUSTED_CONTACT", "OPEN_TRUSTED_CHAT", "REQUEST_CALLBACK", "ASK_FAMILY"]
+          }
+        },
+        "required": ["intent"]
+      },
+      "then": {
+        "required": ["target_id"],
+        "properties": {
+          "target_id": { "pattern": "^contact_[a-z0-9_]+$" },
+          "requires_confirmation": { "const": true }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "intent": { "const": "SEARCH_WEB" } }, "required": ["intent"] },
+      "then": { "required": ["query"] }
+    },
+    {
+      "if": { "properties": { "intent": { "const": "EXPLAIN_SCREEN" } }, "required": ["intent"] },
+      "then": { "required": ["screen_state"] }
+    }
+  ]
+}

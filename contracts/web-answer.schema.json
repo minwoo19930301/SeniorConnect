@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/an-agent-for-elders/web-answer.schema.json",
+  "title": "GroundedWebAnswer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spoken_answer", "checked_at", "sources", "uncertainty"],
+  "properties": {
+    "spoken_answer": { "type": "string", "minLength": 1, "maxLength": 280 },
+    "checked_at": { "type": "string", "format": "date-time" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "url"],
+        "properties": {
+          "title": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "uncertainty": { "type": "string", "maxLength": 160 }
+  }
+}

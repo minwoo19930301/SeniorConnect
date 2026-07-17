@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/an-agent-for-elders/image-analysis.schema.json",
+  "title": "ImageAnalysis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["summary", "visible_details", "uncertainty", "next_step", "risk_flag"],
+  "properties": {
+    "summary": { "type": "string", "minLength": 1, "maxLength": 240 },
+    "visible_details": { "type": "array", "maxItems": 5, "items": { "type": "string", "maxLength": 120 } },
+    "uncertainty": { "type": "string", "maxLength": 160 },
+    "next_step": { "type": "string", "maxLength": 120 },
+    "risk_flag": { "enum": ["NONE", "SENSITIVE_DATA", "MEDICAL", "FINANCIAL", "PHYSICAL_SAFETY", "UNREADABLE", "UNTRUSTED_LINK"] }
+  }
+}

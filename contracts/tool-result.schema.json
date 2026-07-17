@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/an-agent-for-elders/tool-result.schema.json",
+  "title": "ToolResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "tool", "status", "result_code", "target_id"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "tool": { "type": "string" },
+    "status": { "enum": ["success", "failed", "cancelled"] },
+    "result_code": {
+      "enum": ["DIALER_OPENED", "APP_OPENED", "PHOTO_CAPTURED", "REQUEST_DELIVERED", "FAILED", "CANCELLED"]
+    },
+    "target_id": { "type": ["string", "null"] },
+    "error_code": { "type": ["string", "null"], "maxLength": 80 }
+  }
+}

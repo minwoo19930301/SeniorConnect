@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "allowed_tools": {
+    "search_web": { "status": "MVP", "confirmation": "NONE", "external_action": false },
+    "open_allowed_app": { "status": "MVP", "confirmation": "EXPLICIT_REQUEST", "external_action": true },
+    "open_dialer_for_trusted_contact": { "status": "MVP", "confirmation": "ELDER", "external_action": true },
+    "open_trusted_chat": { "status": "MVP", "confirmation": "ELDER", "external_action": true },
+    "request_callback": { "status": "FUTURE", "confirmation": "ELDER", "external_action": true },
+    "capture_photo": { "status": "MVP", "confirmation": "EXPLICIT_REQUEST", "external_action": false },
+    "analyze_selected_photo": { "status": "MVP", "confirmation": "BEFORE_UPLOAD", "external_action": true },
+    "share_selected_photo": { "status": "FUTURE", "confirmation": "ELDER", "external_action": true },
+    "ask_family": { "status": "MVP", "confirmation": "ELDER", "external_action": true },
+    "go_home": { "status": "MVP", "confirmation": "EXPLICIT_REQUEST", "external_action": false },
+    "speak_explanation": { "status": "MVP", "confirmation": "NONE", "external_action": false }
+  },
+  "forbidden_tools": [
+    "discover_family",
+    "call_arbitrary_number",
+    "send_without_confirmation",
+    "tap_arbitrary_control",
+    "install_app",
+    "make_purchase",
+    "approve_permission",
+    "block_ad",
+    "auto_skip_ad",
+    "identify_face",
+    "diagnose_medical_condition",
+    "dispatch_emergency_service"
+  ]
+}
