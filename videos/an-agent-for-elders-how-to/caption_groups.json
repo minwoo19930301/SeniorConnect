@@ -1,0 +1,844 @@
+{
+  "total_duration_s": 33.878,
+  "width": 1080,
+  "height": 1920,
+  "groups": [
+    {
+      "id": "caption-group-0",
+      "frame": 1,
+      "start": 0.03,
+      "end": 0.53,
+      "text": "Too many",
+      "words": [
+        {
+          "id": "caption-word-0-0",
+          "text": "Too",
+          "start": 0.03,
+          "end": 0.23
+        },
+        {
+          "id": "caption-word-0-1",
+          "text": "many",
+          "start": 0.23,
+          "end": 0.53
+        }
+      ]
+    },
+    {
+      "id": "caption-group-1",
+      "frame": 1,
+      "start": 0.53,
+      "end": 0.98,
+      "text": "apps,",
+      "words": [
+        {
+          "id": "caption-word-1-0",
+          "text": "apps,",
+          "start": 0.53,
+          "end": 0.98
+        }
+      ]
+    },
+    {
+      "id": "caption-group-2",
+      "frame": 1,
+      "start": 0.98,
+      "end": 2.03,
+      "text": "tiny buttons,",
+      "words": [
+        {
+          "id": "caption-word-2-0",
+          "text": "tiny",
+          "start": 0.98,
+          "end": 1.28
+        },
+        {
+          "id": "caption-word-2-1",
+          "text": "buttons,",
+          "start": 1.28,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "id": "caption-group-3",
+      "frame": 1,
+      "start": 2.03,
+      "end": 3.19,
+      "text": "one wrong tap,",
+      "words": [
+        {
+          "id": "caption-word-3-0",
+          "text": "one",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "id": "caption-word-3-1",
+          "text": "wrong",
+          "start": 2.31,
+          "end": 2.82
+        },
+        {
+          "id": "caption-word-3-2",
+          "text": "tap,",
+          "start": 2.82,
+          "end": 3.16
+        }
+      ]
+    },
+    {
+      "id": "caption-group-4",
+      "frame": 1,
+      "start": 3.19,
+      "end": 3.45,
+      "text": "and a",
+      "words": [
+        {
+          "id": "caption-word-4-0",
+          "text": "and",
+          "start": 3.19,
+          "end": 3.38
+        },
+        {
+          "id": "caption-word-4-1",
+          "text": "a",
+          "start": 3.38,
+          "end": 3.45
+        }
+      ]
+    },
+    {
+      "id": "caption-group-5",
+      "frame": 1,
+      "start": 3.45,
+      "end": 4.75,
+      "text": "simple phone becomes",
+      "words": [
+        {
+          "id": "caption-word-5-0",
+          "text": "simple",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "id": "caption-word-5-1",
+          "text": "phone",
+          "start": 3.88,
+          "end": 4.26
+        },
+        {
+          "id": "caption-word-5-2",
+          "text": "becomes",
+          "start": 4.26,
+          "end": 4.67
+        }
+      ]
+    },
+    {
+      "id": "caption-group-6",
+      "frame": 1,
+      "start": 4.75,
+      "end": 5.392,
+      "text": "a maze.",
+      "words": [
+        {
+          "id": "caption-word-6-0",
+          "text": "a",
+          "start": 4.75,
+          "end": 4.85
+        },
+        {
+          "id": "caption-word-6-1",
+          "text": "maze.",
+          "start": 4.93,
+          "end": 5.4
+        }
+      ]
+    },
+    {
+      "id": "caption-group-7",
+      "frame": 2,
+      "start": 5.392,
+      "end": 6.822,
+      "text": "Imagine an agent",
+      "words": [
+        {
+          "id": "caption-word-7-0",
+          "text": "Imagine",
+          "start": 5.392,
+          "end": 6.032
+        },
+        {
+          "id": "caption-word-7-1",
+          "text": "an",
+          "start": 6.032,
+          "end": 6.232
+        },
+        {
+          "id": "caption-word-7-2",
+          "text": "agent",
+          "start": 6.232,
+          "end": 6.732
+        }
+      ]
+    },
+    {
+      "id": "caption-group-8",
+      "frame": 2,
+      "start": 6.822,
+      "end": 7.812,
+      "text": "for elders,",
+      "words": [
+        {
+          "id": "caption-word-8-0",
+          "text": "for",
+          "start": 6.822,
+          "end": 7.062
+        },
+        {
+          "id": "caption-word-8-1",
+          "text": "elders,",
+          "start": 7.062,
+          "end": 7.732
+        }
+      ]
+    },
+    {
+      "id": "caption-group-9",
+      "frame": 2,
+      "start": 7.812,
+      "end": 9.132,
+      "text": "one simple front",
+      "words": [
+        {
+          "id": "caption-word-9-0",
+          "text": "one",
+          "start": 7.812,
+          "end": 8.032
+        },
+        {
+          "id": "caption-word-9-1",
+          "text": "simple",
+          "start": 8.032,
+          "end": 8.502
+        },
+        {
+          "id": "caption-word-9-2",
+          "text": "front",
+          "start": 8.652,
+          "end": 9.132
+        }
+      ]
+    },
+    {
+      "id": "caption-group-10",
+      "frame": 2,
+      "start": 9.132,
+      "end": 9.412,
+      "text": "door",
+      "words": [
+        {
+          "id": "caption-word-10-0",
+          "text": "door",
+          "start": 9.132,
+          "end": 9.292
+        }
+      ]
+    },
+    {
+      "id": "caption-group-11",
+      "frame": 2,
+      "start": 9.642,
+      "end": 10.682,
+      "text": "installed with help",
+      "words": [
+        {
+          "id": "caption-word-11-0",
+          "text": "installed",
+          "start": 9.642,
+          "end": 10.182
+        },
+        {
+          "id": "caption-word-11-1",
+          "text": "with",
+          "start": 10.182,
+          "end": 10.302
+        },
+        {
+          "id": "caption-word-11-2",
+          "text": "help",
+          "start": 10.322,
+          "end": 10.562
+        }
+      ]
+    },
+    {
+      "id": "caption-group-12",
+      "frame": 2,
+      "start": 10.712,
+      "end": 11.482,
+      "text": "from family.",
+      "words": [
+        {
+          "id": "caption-word-12-0",
+          "text": "from",
+          "start": 10.712,
+          "end": 10.822
+        },
+        {
+          "id": "caption-word-12-1",
+          "text": "family.",
+          "start": 10.822,
+          "end": 11.362
+        }
+      ]
+    },
+    {
+      "id": "caption-group-13",
+      "frame": 3,
+      "start": 11.527,
+      "end": 12.657,
+      "text": "Choose one trusted",
+      "words": [
+        {
+          "id": "caption-word-13-0",
+          "text": "Choose",
+          "start": 11.527,
+          "end": 11.917
+        },
+        {
+          "id": "caption-word-13-1",
+          "text": "one",
+          "start": 11.917,
+          "end": 12.137
+        },
+        {
+          "id": "caption-word-13-2",
+          "text": "trusted",
+          "start": 12.137,
+          "end": 12.657
+        }
+      ]
+    },
+    {
+      "id": "caption-group-14",
+      "frame": 3,
+      "start": 12.657,
+      "end": 13.677,
+      "text": "person and the",
+      "words": [
+        {
+          "id": "caption-word-14-0",
+          "text": "person",
+          "start": 12.657,
+          "end": 12.997
+        },
+        {
+          "id": "caption-word-14-1",
+          "text": "and",
+          "start": 13.157,
+          "end": 13.347
+        },
+        {
+          "id": "caption-word-14-2",
+          "text": "the",
+          "start": 13.417,
+          "end": 13.677
+        }
+      ]
+    },
+    {
+      "id": "caption-group-15",
+      "frame": 3,
+      "start": 13.677,
+      "end": 14.267,
+      "text": "apps it",
+      "words": [
+        {
+          "id": "caption-word-15-0",
+          "text": "apps",
+          "start": 13.677,
+          "end": 14.037
+        },
+        {
+          "id": "caption-word-15-1",
+          "text": "it",
+          "start": 14.047,
+          "end": 14.187
+        }
+      ]
+    },
+    {
+      "id": "caption-group-16",
+      "frame": 3,
+      "start": 14.267,
+      "end": 14.967,
+      "text": "may open.",
+      "words": [
+        {
+          "id": "caption-word-16-0",
+          "text": "may",
+          "start": 14.267,
+          "end": 14.347
+        },
+        {
+          "id": "caption-word-16-1",
+          "text": "open.",
+          "start": 14.347,
+          "end": 14.967
+        }
+      ]
+    },
+    {
+      "id": "caption-group-17",
+      "frame": 3,
+      "start": 14.967,
+      "end": 16.572,
+      "text": "Nothing connects silently.",
+      "words": [
+        {
+          "id": "caption-word-17-0",
+          "text": "Nothing",
+          "start": 14.967,
+          "end": 15.377
+        },
+        {
+          "id": "caption-word-17-1",
+          "text": "connects",
+          "start": 15.377,
+          "end": 15.907
+        },
+        {
+          "id": "caption-word-17-2",
+          "text": "silently.",
+          "start": 15.907,
+          "end": 16.657
+        }
+      ]
+    },
+    {
+      "id": "caption-group-18",
+      "frame": 4,
+      "start": 16.572,
+      "end": 16.962,
+      "text": "Say,",
+      "words": [
+        {
+          "id": "caption-word-18-0",
+          "text": "Say,",
+          "start": 16.572,
+          "end": 16.962
+        }
+      ]
+    },
+    {
+      "id": "caption-group-19",
+      "frame": 4,
+      "start": 16.962,
+      "end": 18.052,
+      "text": "call Mina.",
+      "words": [
+        {
+          "id": "caption-word-19-0",
+          "text": "call",
+          "start": 16.962,
+          "end": 17.332
+        },
+        {
+          "id": "caption-word-19-1",
+          "text": "Mina.",
+          "start": 17.332,
+          "end": 17.992
+        }
+      ]
+    },
+    {
+      "id": "caption-group-20",
+      "frame": 4,
+      "start": 18.052,
+      "end": 18.802,
+      "text": "It confirms",
+      "words": [
+        {
+          "id": "caption-word-20-0",
+          "text": "It",
+          "start": 18.052,
+          "end": 18.132
+        },
+        {
+          "id": "caption-word-20-1",
+          "text": "confirms",
+          "start": 18.202,
+          "end": 18.742
+        }
+      ]
+    },
+    {
+      "id": "caption-group-21",
+      "frame": 4,
+      "start": 18.802,
+      "end": 19.952,
+      "text": "the right person,",
+      "words": [
+        {
+          "id": "caption-word-21-0",
+          "text": "the",
+          "start": 18.802,
+          "end": 18.982
+        },
+        {
+          "id": "caption-word-21-1",
+          "text": "right",
+          "start": 18.982,
+          "end": 19.362
+        },
+        {
+          "id": "caption-word-21-2",
+          "text": "person,",
+          "start": 19.362,
+          "end": 19.952
+        }
+      ]
+    },
+    {
+      "id": "caption-group-22",
+      "frame": 4,
+      "start": 19.952,
+      "end": 20.512,
+      "text": "then opens",
+      "words": [
+        {
+          "id": "caption-word-22-0",
+          "text": "then",
+          "start": 19.952,
+          "end": 20.192
+        },
+        {
+          "id": "caption-word-22-1",
+          "text": "opens",
+          "start": 20.192,
+          "end": 20.512
+        }
+      ]
+    },
+    {
+      "id": "caption-group-23",
+      "frame": 4,
+      "start": 20.512,
+      "end": 21.762,
+      "text": "the phone dialer.",
+      "words": [
+        {
+          "id": "caption-word-23-0",
+          "text": "the",
+          "start": 20.512,
+          "end": 20.692
+        },
+        {
+          "id": "caption-word-23-1",
+          "text": "phone",
+          "start": 20.842,
+          "end": 21.122
+        },
+        {
+          "id": "caption-word-23-2",
+          "text": "dialer.",
+          "start": 21.122,
+          "end": 21.642
+        }
+      ]
+    },
+    {
+      "id": "caption-group-24",
+      "frame": 5,
+      "start": 21.909,
+      "end": 22.069,
+      "text": "When a",
+      "words": [
+        {
+          "id": "caption-word-24-0",
+          "text": "When",
+          "start": 21.909,
+          "end": 22.009
+        },
+        {
+          "id": "caption-word-24-1",
+          "text": "a",
+          "start": 22.009,
+          "end": 22.059
+        }
+      ]
+    },
+    {
+      "id": "caption-group-25",
+      "frame": 5,
+      "start": 22.069,
+      "end": 23.539,
+      "text": "video turns confusing,",
+      "words": [
+        {
+          "id": "caption-word-25-0",
+          "text": "video",
+          "start": 22.069,
+          "end": 22.409
+        },
+        {
+          "id": "caption-word-25-1",
+          "text": "turns",
+          "start": 22.409,
+          "end": 22.749
+        },
+        {
+          "id": "caption-word-25-2",
+          "text": "confusing,",
+          "start": 22.749,
+          "end": 23.539
+        }
+      ]
+    },
+    {
+      "id": "caption-group-26",
+      "frame": 5,
+      "start": 23.539,
+      "end": 24.459,
+      "text": "it says,",
+      "words": [
+        {
+          "id": "caption-word-26-0",
+          "text": "it",
+          "start": 23.539,
+          "end": 23.789
+        },
+        {
+          "id": "caption-word-26-1",
+          "text": "says,",
+          "start": 23.789,
+          "end": 24.339
+        }
+      ]
+    },
+    {
+      "id": "caption-group-27",
+      "frame": 5,
+      "start": 24.509,
+      "end": 24.969,
+      "text": "this is",
+      "words": [
+        {
+          "id": "caption-word-27-0",
+          "text": "this",
+          "start": 24.509,
+          "end": 24.759
+        },
+        {
+          "id": "caption-word-27-1",
+          "text": "is",
+          "start": 24.759,
+          "end": 24.969
+        }
+      ]
+    },
+    {
+      "id": "caption-group-28",
+      "frame": 5,
+      "start": 24.969,
+      "end": 25.729,
+      "text": "an ad,",
+      "words": [
+        {
+          "id": "caption-word-28-0",
+          "text": "an",
+          "start": 24.969,
+          "end": 25.179
+        },
+        {
+          "id": "caption-word-28-1",
+          "text": "ad,",
+          "start": 25.179,
+          "end": 25.609
+        }
+      ]
+    },
+    {
+      "id": "caption-group-29",
+      "frame": 5,
+      "start": 25.759,
+      "end": 26.799,
+      "text": "just wait.",
+      "words": [
+        {
+          "id": "caption-word-29-0",
+          "text": "just",
+          "start": 25.759,
+          "end": 26.069
+        },
+        {
+          "id": "caption-word-29-1",
+          "text": "wait.",
+          "start": 26.069,
+          "end": 26.679
+        }
+      ]
+    },
+    {
+      "id": "caption-group-30",
+      "frame": 5,
+      "start": 27.049,
+      "end": 27.369,
+      "text": "Before a",
+      "words": [
+        {
+          "id": "caption-word-30-0",
+          "text": "Before",
+          "start": 27.049,
+          "end": 27.299
+        },
+        {
+          "id": "caption-word-30-1",
+          "text": "a",
+          "start": 27.299,
+          "end": 27.369
+        }
+      ]
+    },
+    {
+      "id": "caption-group-31",
+      "frame": 5,
+      "start": 27.369,
+      "end": 28.349,
+      "text": "game installs,",
+      "words": [
+        {
+          "id": "caption-word-31-0",
+          "text": "game",
+          "start": 27.369,
+          "end": 27.649
+        },
+        {
+          "id": "caption-word-31-1",
+          "text": "installs,",
+          "start": 27.649,
+          "end": 28.349
+        }
+      ]
+    },
+    {
+      "id": "caption-group-32",
+      "frame": 5,
+      "start": 28.349,
+      "end": 29.339,
+      "text": "it warns you.",
+      "words": [
+        {
+          "id": "caption-word-32-0",
+          "text": "it",
+          "start": 28.349,
+          "end": 28.489
+        },
+        {
+          "id": "caption-word-32-1",
+          "text": "warns",
+          "start": 28.489,
+          "end": 28.839
+        },
+        {
+          "id": "caption-word-32-2",
+          "text": "you.",
+          "start": 28.839,
+          "end": 29.219
+        }
+      ]
+    },
+    {
+      "id": "caption-group-33",
+      "frame": 6,
+      "start": 29.492,
+      "end": 30.922,
+      "text": "TalkSee family,",
+      "words": [
+        {
+          "id": "caption-word-33-0",
+          "text": "TalkSee",
+          "start": 29.492,
+          "end": 30.082
+        },
+        {
+          "id": "caption-word-33-1",
+          "text": "family,",
+          "start": 30.212,
+          "end": 30.922
+        }
+      ]
+    },
+    {
+      "id": "caption-group-34",
+      "frame": 6,
+      "start": 30.922,
+      "end": 31.402,
+      "text": "help,",
+      "words": [
+        {
+          "id": "caption-word-34-0",
+          "text": "help,",
+          "start": 30.922,
+          "end": 31.382
+        }
+      ]
+    },
+    {
+      "id": "caption-group-35",
+      "frame": 6,
+      "start": 31.402,
+      "end": 32.702,
+      "text": "technology that helps",
+      "words": [
+        {
+          "id": "caption-word-35-0",
+          "text": "technology",
+          "start": 31.402,
+          "end": 32.112
+        },
+        {
+          "id": "caption-word-35-1",
+          "text": "that",
+          "start": 32.122,
+          "end": 32.262
+        },
+        {
+          "id": "caption-word-35-2",
+          "text": "helps",
+          "start": 32.262,
+          "end": 32.632
+        }
+      ]
+    },
+    {
+      "id": "caption-group-36",
+      "frame": 6,
+      "start": 32.702,
+      "end": 33.912,
+      "text": "without taking over.",
+      "words": [
+        {
+          "id": "caption-word-36-0",
+          "text": "without",
+          "start": 32.702,
+          "end": 33.122
+        },
+        {
+          "id": "caption-word-36-1",
+          "text": "taking",
+          "start": 33.122,
+          "end": 33.512
+        },
+        {
+          "id": "caption-word-36-2",
+          "text": "over.",
+          "start": 33.512,
+          "end": 33.792
+        }
+      ]
+    }
+  ]
+}

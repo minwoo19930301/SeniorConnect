@@ -6,6 +6,21 @@ The app gives one clear answer or one clear next step. When it is unsure, it hel
 
 This project is still in the planning stage. There is no working app yet.
 
+## What the planned home screen looks like
+
+![Concept home screen with four large buttons: Talk, See, Family, and Help](assets/planned-home-screen.svg)
+
+This is a concept image, not a screenshot from a working app. The large buttons
+show the simple home screen we plan to build.
+
+## Watch the concept trailer
+
+This 9:16 video shows how the app could help an older person. It is a concept demonstration, not footage of a finished app.
+
+[![Watch the vertical concept trailer](assets/an-agent-for-elders-trailer-poster.jpg)](assets/an-agent-for-elders-trailer.mp4)
+
+[Watch the vertical concept trailer](assets/an-agent-for-elders-trailer.mp4)
+
 ## Why we want to build it
 
 Phone screens can have small buttons, unclear messages, advertisements, and choices that are easy to press by mistake.

@@ -6,3 +6,11 @@ node_modules/
 *.log
 coverage/
 build/
+
+# Local HyperFrames caches and verification output
+videos/**/.hyperframes/
+videos/**/.media/
+videos/**/.thumbnails/
+videos/**/.waveform-cache/
+videos/**/renders/
+videos/**/snapshots/

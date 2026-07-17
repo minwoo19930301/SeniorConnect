@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>One Front Door</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Space Grotesk";
+          src: url("assets/fonts/space-grotesk-500.ttf") format("truetype");
+          font-weight: 500;
+          font-style: normal;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "Space Grotesk";
+          src: url("assets/fonts/space-grotesk-600.ttf") format("truetype");
+          font-weight: 600;
+          font-style: normal;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "Space Grotesk";
+          src: url("assets/fonts/space-grotesk-700.ttf") format("truetype");
+          font-weight: 700;
+          font-style: normal;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "Inter";
+          src: url("assets/fonts/inter-400.ttf") format("truetype");
+          font-weight: 400;
+          font-style: normal;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "Inter";
+          src: url("assets/fonts/inter-600.ttf") format("truetype");
+          font-weight: 600;
+          font-style: normal;
+          font-display: block;
+        }
+
+        #root {
+          position: relative;
+          width: 1080px;
+          height: 1920px;
+          overflow: hidden;
+          color: #111111;
+          container-type: size;
+        }
+
+        .f02-ground {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background:
+            linear-gradient(180deg, rgba(30, 43, 250, 0.04) 0%, rgba(30, 43, 250, 0) 29%),
+            #fdfae7;
+          z-index: 0;
+        }
+
+        .f02-ground::before {
+          content: "";
+          position: absolute;
+          left: 74px;
+          top: 92px;
+          width: 4px;
+          height: 1370px;
+          border-radius: 6px;
+          background: #1e2bfa;
+          opacity: 0.18;
+        }
+
+        .f02-ground::after {
+          content: "";
+          position: absolute;
+          top: -300px;
+          right: -520px;
+          width: 980px;
+          height: 1020px;
+          border-radius: 50%;
+          border: 2px solid rgba(30, 43, 250, 0.11);
+          outline: 2px solid rgba(30, 43, 250, 0.035);
+          outline-offset: 78px;
+        }
+
+        .f02-scene {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          z-index: 1;
+          font-family: "Inter";
+        }
+
+        .f02-chrome {
+          position: absolute;
+          top: 70px;
+          left: 104px;
+          right: 104px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-family: "Space Grotesk";
+          font-size: 18px;
+          font-weight: 600;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #1e2bfa;
+        }
+
+        .f02-chrome-note {
+          color: #6b6b6b;
+          letter-spacing: 0.1em;
+        }
+
+        .f02-victim-shell {
+          position: absolute;
+          top: 235px;
+          left: 100px;
+          width: 880px;
+          z-index: 2;
+          will-change: transform, opacity;
+        }
+
+        .f02-listing {
+          width: 880px;
+          min-height: 320px;
+          box-sizing: border-box;
+          display: grid;
+          grid-template-columns: 128px minmax(0, 1fr) 116px;
+          gap: 32px;
+          align-items: center;
+          padding: 44px;
+          border: 1.5px solid rgba(30, 43, 250, 0.2);
+          border-radius: 14px;
+          background: rgba(30, 43, 250, 0.04);
+          will-change: transform, opacity;
+        }
+
+        .f02-mini-mark {
+          width: 128px;
+          height: 128px;
+          position: relative;
+          display: grid;
+          place-items: center;
+          flex: none;
+          border-radius: 28px;
+          background: #1e2bfa;
+        }
+
+        .f02-mini-door {
+          width: 54px;
+          height: 68px;
+          box-sizing: border-box;
+          position: relative;
+          border: 9px solid #fdfae7;
+          border-bottom: 0;
+          border-radius: 25px 25px 0 0;
+        }
+
+        .f02-mini-door::after {
+          content: "";
+          position: absolute;
+          right: 8px;
+          bottom: 13px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #fdfae7;
+        }
+
+        .f02-listing-copy {
+          min-width: 0;
+        }
+
+        .f02-kicker {
+          margin-bottom: 16px;
+          font-family: "Space Grotesk";
+          font-size: 19px;
+          font-weight: 600;
+          letter-spacing: 0.13em;
+          text-transform: uppercase;
+          color: #1e2bfa;
+        }
+
+        .f02-typed-row {
+          height: 108px;
+          display: flex;
+          align-items: flex-start;
+          max-width: 475px;
+          font-family: "Space Grotesk";
+          font-size: 47px;
+          font-weight: 700;
+          line-height: 1.08;
+          letter-spacing: -0.03em;
+          color: #111111;
+        }
+
+        .f02-type-cursor {
+          display: inline-block;
+          width: 5px;
+          height: 52px;
+          margin: 4px 0 0 9px;
+          border-radius: 5px;
+          background: #1e2bfa;
+        }
+
+        .f02-publish-note {
+          margin-top: 14px;
+          font-family: "Inter";
+          font-size: 21px;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          color: #6b6b6b;
+        }
+
+        .f02-download {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .f02-download-ring {
+          width: 92px;
+          height: 92px;
+          position: relative;
+          display: grid;
+          place-items: center;
+          box-sizing: border-box;
+          border: 6px solid rgba(30, 43, 250, 0.15);
+          border-radius: 50%;
+          color: #1e2bfa;
+          font-family: "Space Grotesk";
+          font-size: 31px;
+          font-weight: 700;
+        }
+
+        .f02-progress-orbit {
+          position: absolute;
+          inset: -6px;
+          border-radius: 50%;
+          will-change: transform, opacity;
+        }
+
+        .f02-progress-dot {
+          position: absolute;
+          top: -1px;
+          left: 38px;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background: #1e2bfa;
+        }
+
+        #f02-download-arrow {
+          display: block;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          will-change: transform, opacity;
+        }
+
+        .f02-check {
+          position: absolute;
+          display: grid;
+          place-items: center;
+          inset: 0;
+          font-size: 36px;
+          opacity: 0;
+          will-change: transform, opacity;
+        }
+
+        .f02-download-label {
+          width: 118px;
+          font-family: "Space Grotesk";
+          font-size: 15px;
+          font-weight: 600;
+          line-height: 1.25;
+          letter-spacing: 0.09em;
+          text-align: center;
+          text-transform: uppercase;
+          color: #1e2bfa;
+        }
+
+        .f02-ticker-block {
+          width: 760px;
+          margin: 74px auto 0;
+          display: grid;
+          place-items: center;
+          text-align: center;
+          will-change: transform, opacity;
+        }
+
+        .f02-ticker-lead {
+          margin-bottom: 20px;
+          font-family: "Space Grotesk";
+          font-size: 24px;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #6b6b6b;
+        }
+
+        .f02-ticker-window {
+          width: 760px;
+          height: 112px;
+          position: relative;
+          overflow: hidden;
+          border-top: 2px solid rgba(30, 43, 250, 0.2);
+          border-bottom: 2px solid rgba(30, 43, 250, 0.2);
+        }
+
+        .f02-ticker-stack {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          will-change: transform;
+        }
+
+        .f02-ticker-item {
+          width: 100%;
+          height: 112px;
+          flex: 0 0 112px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: "Space Grotesk";
+          font-size: 66px;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: -0.025em;
+          color: #1e2bfa;
+        }
+
+        .f02-hero-motion {
+          position: absolute;
+          top: 305px;
+          left: 100px;
+          width: 880px;
+          height: 650px;
+          z-index: 4;
+          display: grid;
+          place-items: start center;
+          opacity: 0;
+          will-change: transform, opacity, filter;
+          filter: url(#f02-hero-streak-filter);
+        }
+
+        .f02-hero-hold {
+          width: 880px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          transform-origin: 50% 36%;
+          will-change: transform;
+        }
+
+        .f02-app-mark {
+          width: 288px;
+          height: 288px;
+          position: relative;
+          display: grid;
+          place-items: center;
+          border-radius: 66px;
+          background: #1e2bfa;
+        }
+
+        .f02-door {
+          width: 126px;
+          height: 158px;
+          box-sizing: border-box;
+          position: relative;
+          border: 20px solid #fdfae7;
+          border-bottom: 0;
+          border-radius: 58px 58px 0 0;
+        }
+
+        .f02-door::before {
+          content: "";
+          position: absolute;
+          left: -38px;
+          right: -38px;
+          bottom: -15px;
+          height: 20px;
+          border-radius: 100px;
+          background: #fdfae7;
+        }
+
+        .f02-door::after {
+          content: "";
+          position: absolute;
+          right: 19px;
+          bottom: 33px;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background: #fdfae7;
+        }
+
+        .f02-project-name {
+          margin-top: 34px;
+          font-family: "Space Grotesk";
+          font-size: 64px;
+          font-weight: 700;
+          line-height: 1.06;
+          letter-spacing: -0.035em;
+          color: #111111;
+        }
+
+        .f02-concept-pill {
+          margin-top: 24px;
+          padding: 13px 25px 12px;
+          border: 1.5px solid rgba(30, 43, 250, 0.2);
+          border-radius: 100px;
+          background: rgba(30, 43, 250, 0.08);
+          font-family: "Space Grotesk";
+          font-size: 18px;
+          font-weight: 600;
+          letter-spacing: 0.11em;
+          text-transform: uppercase;
+          color: #1e2bfa;
+        }
+
+        .f02-payoff {
+          position: absolute;
+          top: 975px;
+          left: 112px;
+          width: 856px;
+          height: 500px;
+          z-index: 5;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .f02-payoff-word {
+          display: block;
+          width: 100%;
+          font-family: "Space Grotesk";
+          font-weight: 700;
+          line-height: 0.88;
+          letter-spacing: -0.055em;
+          color: #111111;
+          will-change: transform, opacity;
+        }
+
+        .f02-payoff-one {
+          font-size: 138px;
+        }
+
+        .f02-payoff-simple {
+          font-size: 154px;
+        }
+
+        .f02-payoff-front {
+          font-size: 120px;
+        }
+
+        .f02-support-line {
+          margin-top: 32px;
+          font-family: "Inter";
+          font-size: 32px;
+          font-weight: 400;
+          line-height: 1.35;
+          color: #6b6b6b;
+          will-change: transform, opacity;
+        }
+
+        .f02-payoff-rule {
+          width: 160px;
+          height: 6px;
+          margin-top: 30px;
+          border-radius: 6px;
+          background: #1e2bfa;
+          transform-origin: 0 50%;
+          will-change: transform, opacity;
+        }
+
+        .f02-caption-clear {
+          position: absolute;
+          left: 100px;
+          right: 100px;
+          top: 1570px;
+          height: 1px;
+          background: rgba(30, 43, 250, 0.08);
+        }
+      </style>
+
+      <div data-hf-id="hf-9ezv" id="root" data-composition-id="02-one-front-door" data-start="0" data-width="1080" data-height="1920" data-duration="6.665">
+        <div data-hf-id="hf-o7tw" id="f02-background" class="clip f02-ground" data-start="0" data-duration="6.665" data-track-index="0" aria-hidden="true"></div>
+
+        <section data-hf-id="hf-gvu0" id="f02-content" class="clip f02-scene" data-start="0" data-duration="6.665" data-track-index="1">
+          <svg data-hf-id="hf-p3r6" width="0" height="0" aria-hidden="true" style="position: absolute">
+            <defs data-hf-id="hf-mh0t">
+              <filter data-hf-id="hf-phh1" id="f02-hero-streak-filter" x="-50%" y="-50%" width="200%" height="200%">
+                <fegaussianblur data-hf-id="hf-12zq" id="f02-hero-streak-blur" in="SourceGraphic" stdDeviation="0 18" />
+              </filter>
+            </defs>
+          </svg>
+
+          <div data-hf-id="hf-8gg7" class="f02-chrome">
+            <span data-hf-id="hf-43og">Concept trailer</span>
+            <span data-hf-id="hf-8koc" class="f02-chrome-note">Vertical demo</span>
+          </div>
+
+          <div data-hf-id="hf-oi56" id="f02-victim-shell" class="f02-victim-shell">
+            <div data-hf-id="hf-744w" id="f02-listing" class="f02-listing">
+              <div data-hf-id="hf-59ot" class="f02-mini-mark" aria-hidden="true">
+                <div data-hf-id="hf-u9ax" class="f02-mini-door"></div>
+              </div>
+
+              <div data-hf-id="hf-7can" class="f02-listing-copy">
+                <div data-hf-id="hf-5c4a" class="f02-kicker">Concept download</div>
+                <div data-hf-id="hf-4ccs" class="f02-typed-row">
+                  <span data-hf-id="hf-ibny" id="f02-typed-title">An Agent for Elders</span>
+                  <span data-hf-id="hf-xs4o" id="f02-type-cursor" class="f02-type-cursor" aria-hidden="true"></span>
+                </div>
+                <div data-hf-id="hf-s287" id="f02-publish-note" class="f02-publish-note">NOT YET PUBLISHED</div>
+              </div>
+
+              <div data-hf-id="hf-evwx" class="f02-download" aria-label="Concept download progress">
+                <div data-hf-id="hf-8na4" class="f02-download-ring">
+                  <span data-hf-id="hf-e9yj" id="f02-download-arrow" aria-hidden="true">↓</span>
+                  <div data-hf-id="hf-c5s3" id="f02-progress-orbit" class="f02-progress-orbit" aria-hidden="true">
+                    <span data-hf-id="hf-ujkf" class="f02-progress-dot"></span>
+                  </div>
+                  <span data-hf-id="hf-0z1v" id="f02-check" class="f02-check" aria-hidden="true">✓</span>
+                </div>
+                <div data-hf-id="hf-wx5e" class="f02-download-label">Concept only</div>
+              </div>
+            </div>
+
+            <div data-hf-id="hf-spie" id="f02-ticker-block" class="f02-ticker-block">
+              <div data-hf-id="hf-gszr" class="f02-ticker-lead">Help with</div>
+              <div data-hf-id="hf-q9ys" class="f02-ticker-window">
+                <div data-hf-id="hf-f7em" id="f02-ticker-stack" class="f02-ticker-stack">
+                  <div data-hf-id="hf-u3mt" class="f02-ticker-item">Apps</div>
+                  <div data-hf-id="hf-ujr5" class="f02-ticker-item">Family</div>
+                  <div data-hf-id="hf-olu5" class="f02-ticker-item">Phone tasks</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-pfqu" id="f02-hero-motion" class="f02-hero-motion">
+            <div data-hf-id="hf-t4cw" id="f02-hero-hold" class="f02-hero-hold">
+              <div data-hf-id="hf-fqbd" class="f02-app-mark" aria-hidden="true">
+                <div data-hf-id="hf-duwh" class="f02-door"></div>
+              </div>
+              <div data-hf-id="hf-0vyu" class="f02-project-name">An Agent for Elders</div>
+              <div data-hf-id="hf-3r0v" class="f02-concept-pill">Concept · Not yet published</div>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-4uko" class="f02-payoff">
+            <div data-hf-id="hf-wtfr" id="f02-payoff-one" class="f02-payoff-word f02-payoff-one">ONE</div>
+            <div data-hf-id="hf-f5vt" id="f02-payoff-simple" class="f02-payoff-word f02-payoff-simple">SIMPLE</div>
+            <div data-hf-id="hf-x77o" id="f02-payoff-front" class="f02-payoff-word f02-payoff-front">FRONT DOOR</div>
+            <div data-hf-id="hf-qq0v" id="f02-support-line" class="f02-support-line">Set up with family.</div>
+            <div data-hf-id="hf-nfap" id="f02-payoff-rule" class="f02-payoff-rule" aria-hidden="true"></div>
+          </div>
+
+          <div data-hf-id="hf-b1im" class="f02-caption-clear" aria-hidden="true"></div>
+        </section>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+      <script>
+        window.__timelines = window.__timelines || {};
+
+        const tl = gsap.timeline({ paused: true });
+        const duration = 6.165;
+
+        const typedTitle = document.getElementById("f02-typed-title");
+        const cursor = document.getElementById("f02-type-cursor");
+        const fullTitle = "An Agent for Elders";
+        const typeDriver = { value: 0 };
+        typedTitle.textContent = "";
+
+        tl.fromTo(
+          "#f02-listing",
+          { opacity: 0, y: 36, scale: 0.985 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.46, ease: "power3.out" },
+          0.08,
+        );
+
+        tl.to(
+          typeDriver,
+          {
+            value: fullTitle.length,
+            duration: 0.98,
+            ease: "power1.inOut",
+            onUpdate: () => {
+              typedTitle.textContent = fullTitle.slice(0, Math.floor(typeDriver.value));
+            },
+          },
+          0.22,
+        );
+
+        const cursorPhase = { value: 0 };
+        tl.to(
+          cursorPhase,
+          {
+            value: Math.PI * 6,
+            duration: 1.32,
+            ease: "none",
+            onUpdate: () => {
+              cursor.style.opacity = Math.sin(cursorPhase.value) >= 0 ? "1" : "0.18";
+            },
+          },
+          0.08,
+        );
+
+        tl.fromTo(
+          "#f02-progress-orbit",
+          { rotation: -120, opacity: 0.25 },
+          { rotation: 228, opacity: 1, duration: 0.84, ease: "power2.inOut" },
+          0.2,
+        );
+        tl.fromTo(
+          "#f02-publish-note",
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.38, ease: "power3.out" },
+          0.68,
+        );
+        tl.to("#f02-download-arrow", { opacity: 0, scale: 0.75, duration: 0.16, ease: "power2.in" }, 1.04);
+        tl.to("#f02-progress-orbit", { opacity: 0, duration: 0.16, ease: "none" }, 1.04);
+        tl.fromTo(
+          "#f02-check",
+          { opacity: 0, scale: 0.55 },
+          { opacity: 1, scale: 1, duration: 0.36, ease: "power4.out" },
+          1.08,
+        );
+
+        tl.fromTo(
+          "#f02-ticker-block",
+          { opacity: 0, y: 48 },
+          { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" },
+          1.34,
+        );
+
+        const tickerStack = document.getElementById("f02-ticker-stack");
+        const itemHeight = 112;
+        const tickerSprings = [{ p: 0 }, { p: 0 }];
+        const applyTicker = () => {
+          const total = tickerSprings.reduce((sum, spring) => sum + spring.p, 0);
+          tickerStack.style.transform = `translate3d(0, ${-total * itemHeight}px, 0)`;
+        };
+        applyTicker();
+
+        tickerSprings.forEach((spring, index) => {
+          tl.to(
+            spring,
+            {
+              p: 1,
+              duration: 0.48,
+              ease: "power4.out",
+              onUpdate: applyTicker,
+            },
+            1.72 + index * 0.42,
+          );
+        });
+
+        const victim = document.getElementById("f02-victim-shell");
+        const heroMotion = document.getElementById("f02-hero-motion");
+        const heroHold = document.getElementById("f02-hero-hold");
+        const blurNode = document.getElementById("f02-hero-streak-blur");
+        const impactDriver = { p: 0 };
+
+        tl.set(heroMotion, { opacity: 0 }, 0);
+        tl.to(
+          impactDriver,
+          {
+            p: 1,
+            duration: 1.04,
+            ease: "power4.out",
+            onUpdate: () => {
+              const heroY = 600 * (1 - impactDriver.p);
+              const heroOpacity = Math.min(1, impactDriver.p * 7);
+              const victimP = Math.min(1, impactDriver.p / 0.46);
+              const victimY = -1240 * victimP;
+              const victimOpacity = 1 - victimP;
+              const blur = 18 * (1 - impactDriver.p);
+
+              heroMotion.style.transform = `translate3d(0, ${heroY}px, 0)`;
+              heroMotion.style.opacity = String(heroOpacity);
+              victim.style.transform = `translate3d(0, ${victimY}px, 0)`;
+              victim.style.opacity = String(victimOpacity);
+              blurNode.setAttribute("stdDeviation", `0 ${blur}`);
+            },
+          },
+          2.8,
+        );
+
+        tl.fromTo(
+          heroHold,
+          { scale: 0.94, rotation: -4 },
+          { scale: 1, rotation: 0, duration: 1.08, ease: "power2.out" },
+          2.8,
+        );
+
+        const payoffEntries = [
+          { selector: "#f02-payoff-one", text: "ONE" },
+          { selector: "#f02-payoff-simple", text: "SIMPLE" },
+          { selector: "#f02-payoff-front", text: "FRONT DOOR" },
+        ];
+        let payoffCursor = 4.18;
+        const payoffTimeline = payoffEntries.map((entry) => {
+          const revealDuration = 0.25 + entry.text.length * 0.018;
+          const start = payoffCursor;
+          payoffCursor += 0.17 + entry.text.length * 0.014;
+          return { ...entry, start, revealDuration };
+        });
+
+        payoffTimeline.forEach((entry) => {
+          tl.fromTo(
+            entry.selector,
+            { opacity: 0, y: 46, scale: 0.965 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: entry.revealDuration,
+              ease: "power4.out",
+            },
+            entry.start,
+          );
+        });
+
+        tl.fromTo(
+          "#f02-support-line",
+          { opacity: 0, y: 22 },
+          { opacity: 1, y: 0, duration: 0.46, ease: "power3.out" },
+          5.02,
+        );
+        tl.fromTo(
+          "#f02-payoff-rule",
+          { opacity: 0, scaleX: 0 },
+          { opacity: 1, scaleX: 1, duration: 0.58, ease: "power3.out" },
+          5.16,
+        );
+
+        const jitter = { p: 0 };
+        const jitterStart = 4.08;
+        const jitterDuration = duration - jitterStart;
+        tl.to(
+          jitter,
+          {
+            p: Math.PI * 2 * 1.2,
+            duration: jitterDuration,
+            ease: "none",
+            onUpdate: () => {
+              const progress = jitter.p / (Math.PI * 2 * 1.2);
+              const envelope = progress < 0.8 ? 1 : (1 - progress) / 0.2;
+              const x = Math.sin(jitter.p * 2.15) * 1.2 * envelope;
+              const y = Math.sin(jitter.p * 1.3) * 1.7 * envelope;
+              const rotation = Math.sin(jitter.p * 2.7) * 0.22 * envelope;
+              const scale = 1 + Math.sin(jitter.p) * 0.004 * envelope;
+              heroHold.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg) scale(${scale})`;
+            },
+          },
+          jitterStart,
+        );
+
+        window.__timelines["02-one-front-door"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

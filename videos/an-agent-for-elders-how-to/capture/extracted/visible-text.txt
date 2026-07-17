@@ -1,0 +1,31 @@
+Source notes from the user, kept verbatim:
+
+"We are going to make agent that elders need, and have these apps as defaults
+
+for example, elders dont know how to call their grandchildren so the agent needs to be connected automatically or only in the first place with whatsapp and find family automatically
+
+and for example youtube. most elderlys dont have youtube premium and they accidently install games or apps that they arent really intended to install. So the agent blocks or lets the elder user to wait for the ad to stop and telling that this is an ad just wait."
+
+"replace it with the name 'an-agent-for-elders' and only add plans and harnesses like AGENTS.md and so forth. Can you add more ideas? Lets use one as search API or chat talker just a simple app to talk, then another button uses to take photos. (if there are better ideas, feel free to tell)"
+
+"an-agent-for-elders for all the codes then not the repo itself.
+I want the README.md file to be understandable, so make it simple andin human language. spawn subagents in 5.3 codex spark and publish only if they all passed to understand. and no need to review. just push as an initiaive"
+
+"make a video clip for how to use this project
+in the readme make a simple image that also shows how the ui looks like"
+
+"I dont understand. I wanted a demonstration video of our project, an-agent-for-elders not some random video. show the problem where elders having difficulties in using mobile phone covered of tons of apps then downloading this app connects other apps or helps them out."
+
+"I wanted in vertical shorts and I wanted a video not just only hyperframes. I wanted something more like a movie trial"
+
+Current repository facts that the walkthrough must preserve:
+
+- The project is a plan for a simple Android assistant for older adults.
+- There is no working Android app or server yet.
+- The planned home screen has four large choices: Talk, See, Family, and Help.
+- Talk supports simple conversation and source-backed web answers.
+- See explains user-requested photos of text, signs, menus, labels, and controls.
+- Family opens a preselected trusted contact after clear confirmation.
+- Help explains confusing screens, advertisements, and possible install buttons.
+- The user stays in control. The agent does not silently call, message, install,
+  purchase, block advertisements, or press buttons in other apps.
