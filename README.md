@@ -1,78 +1,111 @@
 # An Agent for Elders
 
-> One calm place to ask, look, reach family, and understand a confusing screen.
+**An Agent for Elders** is an idea for a simple Android app that helps older people use a phone with less confusion.
 
-This repository currently contains the product plan, safety contracts, and evaluation harness for an Android accessibility agent. It intentionally does **not** contain a working application yet.
+The app gives one clear answer or one clear next step. When it is unsure, it helps the person contact someone they trust.
 
-## The four-button product
+This project is still in the planning stage. There is no working app yet.
 
-| Button | What it does | Safety boundary |
-| --- | --- | --- |
-| **Talk** | Friendly voice conversation and short, sourced web answers when current information is needed. | Web pages are untrusted data and cannot trigger actions. |
-| **See** | Takes a user-requested photo and reads or explains letters, signs, labels, and controls aloud. | No background camera, face identification, medical diagnosis, or automatic link opening. |
-| **Family** | Opens the dialer for a paired trusted person or opens that person’s WhatsApp chat. | No automatic family discovery, invented numbers, or silent calls/messages. |
-| **Help** | Explains a small set of confusing screen states such as an advertisement or install prompt. | It never blocks ads, skips automatically, approves permissions, installs apps, or purchases anything. |
+## Why we want to build it
 
-**Ask Family**, **Repeat Slowly**, and **Take Me Home** are global escape actions rather than extra home-screen buttons.
+Phone screens can have small buttons, unclear messages, advertisements, and choices that are easy to press by mistake.
 
-## Why this shape
+Our goal is not to take control of someone’s phone. Our goal is to make the phone easier to understand while the person stays in control.
 
-The home screen is organized around four human needs, not four app brands:
+## The four main buttons
 
-- understand through conversation;
-- understand the physical world through a camera;
-- reach a trusted human;
-- understand the digital world.
+### Talk
 
-Talk combines ordinary chat and search so the user never has to decide which technology to use. Search is reserved for current facts such as weather, opening hours, prices, or recent news.
+Press the button and speak normally.
 
-## Repository status
+The app can have a simple conversation or answer a question. If the question needs new information, such as today’s weather or opening hours, it can search the web and show where the answer came from.
 
-`PLANNING + EVALUATION HARNESS`
+### See
 
-Before application code is added, the team should agree on the contracts and make the golden and safety scenarios pass. See [AGENTS.md](AGENTS.md) for the rules every contributor and coding agent must follow.
+Take a photo of a letter, sign, menu, label, or appliance button.
 
-## Plan index
+The app reads it aloud and explains it in simple words. It says when the photo is unclear. It does not identify people or give medical advice.
 
-- [Product definition](plans/PRODUCT.md)
-- [MVP and user flows](plans/MVP.md)
-- [Proposed architecture](plans/ARCHITECTURE.md)
+### Family
+
+Choose one trusted family member during setup.
+
+The app can open the phone dialer or that person’s WhatsApp chat after asking for confirmation. It never searches for family members automatically, invents a phone number, or makes a silent call.
+
+### Help
+
+Ask what a confusing phone screen means.
+
+For example, the app may say:
+
+> This is an advertisement. Your video has not ended. Please wait.
+
+Or:
+
+> This button will install a new app. Did you mean to do that?
+
+The app explains the screen. It does not block advertisements, press buttons, approve payments, or install apps by itself.
+
+## Help is always close
+
+Every part of the app should include these simple choices:
+
+- **Repeat Slowly**
+- **Ask Family**
+- **Take Me Home**
+- **Stop**
+
+## Our safety promise
+
+- The person using the phone makes the final decision.
+- Calls, messages, and photo sharing need clear permission.
+- The camera only opens when the person asks for it.
+- The full contact list is not sent to the AI.
+- The app does not make purchases or medical decisions.
+- If the app is unsure, it says so instead of guessing.
+
+## What is in this repository
+
+This repository contains plans for the team:
+
+- what the app should do;
+- how the four main buttons should work;
+- privacy and safety rules;
+- a three-day hackathon plan;
+- 41 example situations we can use to test the future app.
+
+It contains plans and automated checks only. It does not contain Android or server code yet.
+
+## For teammates
+
+Start here:
+
+1. Read [the product plan](plans/PRODUCT.md).
+2. Read [the small first version](plans/MVP.md).
+3. Follow [the contributor rules](AGENTS.md).
+4. Check [the three-day team plan](plans/THREE_DAY_PLAN.md).
+
+Other useful documents:
+
 - [Safety and privacy](plans/SAFETY_AND_PRIVACY.md)
-- [Action state machine](plans/STATE_MACHINE.md)
-- [Pairing protocol](plans/PAIRING_PROTOCOL.md)
-- [Data flow and retention](plans/DATA_FLOW_AND_RETENTION.md)
-- [Camera lifecycle](plans/CAMERA_LIFECYCLE.md)
-- [Feasibility gates](plans/FEASIBILITY_GATES.md)
-- [Three-day team plan](plans/THREE_DAY_PLAN.md)
+- [How family pairing works](plans/PAIRING_PROTOCOL.md)
+- [Ideas for later](plans/IDEA_BACKLOG.md)
 - [Demo plan](plans/DEMO_PLAN.md)
-- [Idea backlog](plans/IDEA_BACKLOG.md)
-- [Product decisions](plans/DECISIONS.md)
-- [Hackathon submission checklist](plans/SUBMISSION_CHECKLIST.md)
-- [Evaluation harness](evals/README.md)
-- [Tool-to-fixture traceability](evals/TOOL_TRACEABILITY.md)
+- [Hackathon checklist](plans/SUBMISSION_CHECKLIST.md)
 
-## Validate the harness
+## Check the planning files
 
-Requirements: Node.js 20 or newer.
+If Node.js 20 or newer is installed, run:
 
 ```bash
 npm test
 ```
 
-The dependency-free command is a **fixture linter**. It checks fixture shape, unique IDs, required coverage, tool allowlists, confirmation rules, and obvious personal or secret data. It does not call a model or prove that a future policy engine or Android app behaves correctly; a recorded/live evaluation runner is an implementation-phase requirement.
+This checks that our example situations and safety rules agree with each other. It does **not** test a real app or call an AI model.
 
-## Planned OpenAI usage
+## Project name
 
-The design uses the Responses API with GPT-5.6:
-
-- the hosted `web_search` tool for current Talk questions;
-- image input for See;
-- strict function tools for trusted-contact proposals;
-- structured, sanitized screen states for Help.
-
-The model proposes actions. A deterministic policy layer permits, confirms, clarifies, or denies them.
-
-Official references: [OpenAI tools](https://developers.openai.com/api/docs/guides/tools), [image input and vision](https://developers.openai.com/api/docs/guides/images-vision), and [function calling](https://developers.openai.com/api/docs/guides/function-calling).
+Use `an-agent-for-elders` as the name inside code, packages, test files, and documentation. The GitHub repository itself can keep its current name.
 
 ## License
 
