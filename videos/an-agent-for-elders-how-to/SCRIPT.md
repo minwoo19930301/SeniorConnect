@@ -8,42 +8,42 @@
 
 ## Line 1 — The maze (Frame 1)
 
-**Time:** 0.0 – 6.0s
+**Time:** 0.0 – 5.3s
 **Delivery:** Short escalating phrases, then land “maze” over the first bass impact.
 
     Too many apps. Tiny buttons. One wrong tap—and a simple phone becomes a maze.
 
-## Line 2 — One front door (Frame 2)
+## Line 2 — A simple home screen (Frame 2)
 
-**Time:** 6.0 – 12.0s
-**Delivery:** Release the tension; clearly pronounce the complete project name.
+**Time:** 5.3 – 11.5s
+**Delivery:** Release the tension and let “one simple home screen” feel calm and clear.
 
-    Imagine An Agent for Elders: one simple front door, installed with help from family.
+    Now imagine one simple home screen, built for clarity instead of clutter.
 
-## Line 3 — Choose the connections (Frame 3)
+## Line 3 — Four actions (Frame 3)
 
-**Time:** 12.0 – 19.0s
-**Delivery:** Calm and certain; make “choose” and “nothing” feel protective.
+**Time:** 11.5 – 16.5s
+**Delivery:** Give each action a separate, confident beat.
 
-    Choose one trusted person and the apps it may open. Nothing connects silently.
+    Call. YouTube. Speak. Camera. Four clear choices, and nothing more.
 
-## Line 4 — Call Mina (Frame 4)
+## Line 4 — Call (Frame 4)
 
-**Time:** 19.0 – 26.0s
-**Delivery:** Speak the command naturally, then slow slightly through the confirmation.
+**Time:** 16.5 – 21.7s
+**Delivery:** Sound natural and reassuring, then slow slightly through the confirmation.
 
-    Say, “Call Mina.” It confirms the right person, then opens the phone dialer.
+    Choose Call. It shows your trusted family contact, asks you to confirm, then opens the phone dialer.
 
-## Line 5 — Understand before tapping (Frame 5)
+## Line 5 — YouTube, explained (Frame 5)
 
-**Time:** 26.0 – 34.0s
+**Time:** 21.7 – 29.5s
 **Delivery:** Quote both explanations clearly; reassuring rather than alarming.
 
-    When a video turns confusing, it says, “This is an ad. Just wait.” Before a game installs, it warns you.
+    On YouTube, it explains, “This is an ad. Just wait.” Before an accidental game install, it warns you.
 
-## Line 6 — Help without taking over (Frame 6)
+## Line 6 — Four clear actions (Frame 6)
 
-**Time:** 34.0 – 41.0s
-**Delivery:** Give the four names distinct beats, then finish with quiet conviction.
+**Time:** 29.5 – 33.9s
+**Delivery:** Give the four labels distinct beats, then finish with quiet conviction.
 
-    Talk. See. Family. Help. Technology that helps—without taking over.
+    Call. YouTube. Speak. Camera. Four clear actions, with the older person still in control.

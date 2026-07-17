@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>YouTube, Explained</title>
+  </head>
+  <body>
+    <template>
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+
+      <style>
+        @font-face {
+          font-family: "Space Grotesk";
+          src: url("assets/fonts/space-grotesk-500.ttf") format("truetype");
+          font-weight: 500;
+          font-style: normal;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "Space Grotesk";
+          src: url("assets/fonts/space-grotesk-600.ttf") format("truetype");
+          font-weight: 600;
+          font-style: normal;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "Space Grotesk";
+          src: url("assets/fonts/space-grotesk-700.ttf") format("truetype");
+          font-weight: 700;
+          font-style: normal;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "Inter";
+          src: url("assets/fonts/inter-400.ttf") format("truetype");
+          font-weight: 400;
+          font-style: normal;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "Inter";
+          src: url("assets/fonts/inter-500.ttf") format("truetype");
+          font-weight: 500;
+          font-style: normal;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "Inter";
+          src: url("assets/fonts/inter-600.ttf") format("truetype");
+          font-weight: 600;
+          font-style: normal;
+          font-display: block;
+        }
+
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1080px;
+          height: 1920px;
+          overflow: hidden;
+          container-type: size;
+          color: #111111;
+          font-family: "Inter", sans-serif;
+        }
+
+        #root,
+        #root * {
+          box-sizing: border-box;
+        }
+
+        .f05-ground {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          container-type: size;
+          background: #fdfae7;
+        }
+
+        .f05-ground::before {
+          content: "";
+          position: absolute;
+          inset: 0 0 auto 0;
+          height: 34cqh;
+          background: linear-gradient(180deg, rgba(30, 43, 250, 0.05), rgba(30, 43, 250, 0));
+        }
+
+        .f05-scene {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          container-type: size;
+        }
+
+        .f05-ad-world,
+        .f05-install-world {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          will-change: transform, opacity;
+        }
+
+        .f05-player {
+          position: absolute;
+          top: 6.6cqh;
+          left: 7cqw;
+          width: 86cqw;
+          height: 55.4cqh;
+          border: 1.5px solid rgba(30, 43, 250, 0.2);
+          border-radius: 14px;
+          background: rgba(30, 43, 250, 0.04);
+          overflow: hidden;
+          will-change: transform, opacity;
+        }
+
+        .f05-player-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 6.3cqh;
+          padding: 0 4.2cqw;
+          border-bottom: 1.5px solid rgba(30, 43, 250, 0.14);
+        }
+
+        .f05-youtube-word {
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 2.65cqw;
+          font-weight: 600;
+          letter-spacing: -0.02em;
+          color: #111111;
+        }
+
+        .f05-player-status {
+          display: flex;
+          align-items: center;
+          gap: 1.2cqw;
+          color: #6b6b6b;
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 1.5cqw;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        .f05-status-dot {
+          width: 1.1cqw;
+          height: 1.1cqw;
+          border-radius: 50%;
+          background: #1e2bfa;
+        }
+
+        .f05-video-field {
+          position: relative;
+          height: 38cqh;
+          margin: 2.4cqh 3.1cqw 0;
+          border: 1.5px solid rgba(30, 43, 250, 0.18);
+          border-radius: 12px;
+          overflow: hidden;
+          background: rgba(30, 43, 250, 0.08);
+        }
+
+        .f05-video-field::before {
+          content: "";
+          position: absolute;
+          top: 4.4cqh;
+          right: -9cqw;
+          width: 49cqw;
+          height: 20cqh;
+          border: 2px solid rgba(30, 43, 250, 0.15);
+          border-radius: 50%;
+        }
+
+        .f05-video-field::after {
+          content: "";
+          position: absolute;
+          left: 7cqw;
+          bottom: 4.4cqh;
+          width: 31cqw;
+          height: 1.2cqh;
+          border-radius: 100px;
+          background: rgba(30, 43, 250, 0.14);
+        }
+
+        .f05-video-pictogram {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 18cqw;
+          height: 18cqw;
+          margin-top: -9cqw;
+          margin-left: -9cqw;
+          display: grid;
+          place-items: center;
+          border: 2px solid rgba(30, 43, 250, 0.32);
+          border-radius: 50%;
+          background: rgba(253, 250, 231, 0.78);
+        }
+
+        .f05-play-triangle {
+          width: 0;
+          height: 0;
+          margin-left: 1.5cqw;
+          border-top: 3.6cqw solid transparent;
+          border-bottom: 3.6cqw solid transparent;
+          border-left: 5.5cqw solid #1e2bfa;
+        }
+
+        .f05-player-foot {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 6.7cqh;
+          padding: 0 3.2cqw;
+        }
+
+        .f05-countdown {
+          min-width: 35cqw;
+          padding: 1.3cqh 3.2cqw;
+          border-radius: 100px;
+          background: rgba(30, 43, 250, 0.08);
+          color: #1e2bfa;
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 2cqw;
+          font-weight: 600;
+          font-variant-numeric: tabular-nums;
+          text-align: center;
+        }
+
+        .f05-skip-area {
+          min-width: 19cqw;
+          padding: 1.25cqh 2.7cqw;
+          border: 1.5px solid rgba(107, 107, 107, 0.3);
+          border-radius: 100px;
+          color: #727272;
+          font-family: "Inter", sans-serif;
+          font-size: 1.8cqw;
+          font-weight: 600;
+          text-align: center;
+        }
+
+        .f05-ad-message {
+          position: absolute;
+          top: 21.5cqh;
+          left: 5cqw;
+          width: 90cqw;
+          min-height: 26cqh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 2.1cqh;
+          text-align: center;
+          pointer-events: none;
+        }
+
+        .f05-ad-line,
+        .f05-wait-line {
+          display: block;
+          font-family: "Space Grotesk", sans-serif;
+          font-weight: 700;
+          line-height: 0.94;
+          letter-spacing: -0.045em;
+          color: #111111;
+          will-change: transform, opacity, filter;
+        }
+
+        .f05-ad-line {
+          font-size: 8.2cqw;
+          filter: url(#f05-ad-streak-filter);
+        }
+
+        .f05-wait-line {
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          gap: 2.1cqw;
+          font-size: 7.4cqw;
+        }
+
+        .f05-beat-dot {
+          color: #1e2bfa;
+        }
+
+        .f05-install-card {
+          position: absolute;
+          top: 8.5cqh;
+          left: 7cqw;
+          width: 86cqw;
+          height: 43cqh;
+          padding: 4.4cqh 5cqw;
+          border: 1.5px solid rgba(30, 43, 250, 0.2);
+          border-radius: 14px;
+          background: rgba(30, 43, 250, 0.04);
+        }
+
+        .f05-install-top {
+          display: grid;
+          grid-template-columns: 18cqw 1fr;
+          align-items: center;
+          gap: 4cqw;
+        }
+
+        .f05-game-tile {
+          position: relative;
+          width: 18cqw;
+          height: 18cqw;
+          border: 1.5px solid rgba(30, 43, 250, 0.2);
+          border-radius: 12px;
+          background: rgba(30, 43, 250, 0.08);
+        }
+
+        .f05-game-cross,
+        .f05-game-cross::after {
+          position: absolute;
+          content: "";
+          top: 50%;
+          left: 3.5cqw;
+          width: 6cqw;
+          height: 1.4cqw;
+          margin-top: -0.7cqw;
+          border-radius: 100px;
+          background: #1e2bfa;
+        }
+
+        .f05-game-cross::after {
+          top: 0;
+          left: 0;
+          margin-top: 0;
+          transform: rotate(90deg);
+        }
+
+        .f05-game-dot,
+        .f05-game-dot::after {
+          position: absolute;
+          content: "";
+          top: 7.8cqw;
+          right: 4.6cqw;
+          width: 2cqw;
+          height: 2cqw;
+          border-radius: 50%;
+          background: #1e2bfa;
+        }
+
+        .f05-game-dot::after {
+          top: -2.8cqw;
+          right: -2.8cqw;
+        }
+
+        .f05-install-kicker {
+          margin-bottom: 1.2cqh;
+          color: #1e2bfa;
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 1.6cqw;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+
+        .f05-install-title {
+          max-width: 50cqw;
+          color: #111111;
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 4.7cqw;
+          font-weight: 600;
+          line-height: 1.05;
+          letter-spacing: -0.035em;
+        }
+
+        .f05-install-note {
+          margin-top: 2.3cqh;
+          color: #6b6b6b;
+          font-family: "Inter", sans-serif;
+          font-size: 1.8cqw;
+          font-weight: 400;
+          line-height: 1.45;
+        }
+
+        .f05-choice-row {
+          position: absolute;
+          right: 5cqw;
+          bottom: 4.3cqh;
+          left: 5cqw;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3cqw;
+        }
+
+        .f05-choice {
+          position: relative;
+          display: grid;
+          place-items: center;
+          min-height: 6.2cqh;
+          border-radius: 100px;
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 2.2cqw;
+          font-weight: 600;
+        }
+
+        .f05-cancel-choice {
+          border: 1.5px solid #1e2bfa;
+          background: transparent;
+          color: #1e2bfa;
+        }
+
+        .f05-install-choice {
+          border: 0;
+          background: rgba(30, 43, 250, 0.08);
+          color: #6b6b6b;
+        }
+
+        .f05-cancel-marker {
+          position: absolute;
+          top: -1.1cqh;
+          right: -2.1cqw;
+          bottom: -1.1cqh;
+          left: -2.1cqw;
+          border: 4px solid #1e2bfa;
+          border-radius: 50%;
+          pointer-events: none;
+          will-change: transform, opacity;
+        }
+
+        .f05-warning-stack {
+          position: absolute;
+          top: 54.5cqh;
+          left: 6cqw;
+          width: 88cqw;
+          min-height: 16.5cqh;
+          padding-left: 5cqw;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 0.15cqh;
+          border-left: 4px solid #1e2bfa;
+        }
+
+        .f05-warning-chunk {
+          display: block;
+          color: #111111;
+          font-family: "Space Grotesk", sans-serif;
+          font-weight: 700;
+          line-height: 0.88;
+          letter-spacing: -0.045em;
+          will-change: transform, opacity;
+        }
+
+        .f05-warning-chunk-small {
+          font-size: 5.1cqw;
+        }
+
+        .f05-warning-chunk-large {
+          font-size: 8.5cqw;
+        }
+
+        .f05-you-choose {
+          position: absolute;
+          top: 73.5cqh;
+          left: 7cqw;
+          width: 86cqw;
+          color: #1e2bfa;
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 2.2cqw;
+          font-weight: 600;
+          letter-spacing: 0.14em;
+          text-align: center;
+          text-transform: uppercase;
+          will-change: transform, opacity;
+        }
+
+        .f05-progress-track {
+          position: absolute;
+          top: 78.4cqh;
+          left: 5cqw;
+          width: 90cqw;
+          height: 3px;
+          overflow: hidden;
+          border-radius: 6px;
+          background: rgba(30, 43, 250, 0.08);
+        }
+
+        .f05-progress-fill {
+          width: 100%;
+          height: 100%;
+          border-radius: 6px;
+          background: #1e2bfa;
+        }
+      </style>
+
+      <div data-hf-id="hf-dq3j" id="root" data-composition-id="05-youtube-explained" data-width="1080" data-height="1920" data-duration="8.016" data-fps="30">
+        <div data-hf-id="hf-y5l8" class="f05-ground clip" data-start="0" data-duration="8.016" data-track-index="0" aria-hidden="true"></div>
+
+        <section data-hf-id="hf-fl61" class="f05-scene clip" data-start="0" data-duration="8.016" data-track-index="1" aria-label="An ad is explained before a game install warning">
+          <svg data-hf-id="hf-p3r6" width="0" height="0" aria-hidden="true" style="position: absolute">
+            <defs data-hf-id="hf-mh0t">
+              <filter data-hf-id="hf-45l3" id="f05-ad-streak-filter" x="-50%" y="-50%" width="200%" height="200%">
+                <fegaussianblur data-hf-id="hf-vbvt" id="f05-ad-streak-blur" in="SourceGraphic" stdDeviation="0 0" />
+              </filter>
+            </defs>
+          </svg>
+
+          <div data-hf-id="hf-p5y8" class="f05-ad-world">
+            <div data-hf-id="hf-1utn" class="f05-player">
+              <div data-hf-id="hf-ekaa" class="f05-player-head">
+                <div data-hf-id="hf-ui4x" class="f05-youtube-word">YouTube</div>
+                <div data-hf-id="hf-hyki" class="f05-player-status">
+                  <span data-hf-id="hf-tw46" class="f05-status-dot" aria-hidden="true"></span>
+                  <span data-hf-id="hf-cf6o">Video</span>
+                </div>
+              </div>
+
+              <div data-hf-id="hf-0ymy" class="f05-video-field" aria-label="Generic video player">
+                <div data-hf-id="hf-m39v" class="f05-video-pictogram" aria-hidden="true">
+                  <div data-hf-id="hf-ad43" class="f05-play-triangle"></div>
+                </div>
+              </div>
+
+              <div data-hf-id="hf-kknk" class="f05-player-foot">
+                <div data-hf-id="hf-59oy" class="f05-countdown" id="f05-countdown">Ad · 5 seconds</div>
+                <div data-hf-id="hf-8mky" class="f05-skip-area">Skip</div>
+              </div>
+            </div>
+
+            <div data-hf-id="hf-j1hj" class="f05-ad-message" aria-label="This is an ad. Just wait.">
+              <div data-hf-id="hf-7u5q" class="f05-ad-line" id="f05-ad-line">THIS IS AN AD</div>
+              <div data-hf-id="hf-p4yq" class="f05-wait-line" id="f05-wait-line">
+                <span data-hf-id="hf-z6hk" class="f05-beat-dot">·</span>
+                <span data-hf-id="hf-62b0">JUST WAIT</span>
+              </div>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-4w5a" class="f05-install-world">
+            <div data-hf-id="hf-sor8" class="f05-install-card">
+              <div data-hf-id="hf-tyxv" class="f05-install-top">
+                <div data-hf-id="hf-7q8b" class="f05-game-tile" aria-label="Generic game pictogram">
+                  <span data-hf-id="hf-gn23" class="f05-game-cross" aria-hidden="true"></span>
+                  <span data-hf-id="hf-36u2" class="f05-game-dot" aria-hidden="true"></span>
+                </div>
+                <div data-hf-id="hf-yeow">
+                  <div data-hf-id="hf-yy0p" class="f05-install-kicker">Install request</div>
+                  <div data-hf-id="hf-pgkm" class="f05-install-title">Install this game?</div>
+                </div>
+              </div>
+
+              <div data-hf-id="hf-evid" class="f05-install-note">Review before continuing.</div>
+
+              <div data-hf-id="hf-8rru" class="f05-choice-row" aria-label="Untouched choices">
+                <div data-hf-id="hf-midf" class="f05-choice f05-cancel-choice">
+                  <span data-hf-id="hf-3n33">Cancel</span>
+                  <span data-hf-id="hf-f8q6" class="f05-cancel-marker" id="f05-cancel-marker" aria-hidden="true"></span>
+                </div>
+                <div data-hf-id="hf-izjz" class="f05-choice f05-install-choice">Install</div>
+              </div>
+            </div>
+
+            <div data-hf-id="hf-ycxh" class="f05-warning-stack" aria-label="This may install a game">
+              <div data-hf-id="hf-384f" class="f05-warning-chunk f05-warning-chunk-small" id="f05-warning-1">
+                THIS MAY
+              </div>
+              <div data-hf-id="hf-jvv8" class="f05-warning-chunk f05-warning-chunk-large" id="f05-warning-2">
+                INSTALL
+              </div>
+              <div data-hf-id="hf-15if" class="f05-warning-chunk f05-warning-chunk-small" id="f05-warning-3">
+                A GAME
+              </div>
+            </div>
+
+            <div data-hf-id="hf-7un6" class="f05-you-choose" id="f05-you-choose">You choose</div>
+          </div>
+
+          <div data-hf-id="hf-3tvm" class="f05-progress-track" aria-hidden="true">
+            <div data-hf-id="hf-xlsh" class="f05-progress-fill"></div>
+          </div>
+        </section>
+      </div>
+
+      <script>
+        (() => {
+          const compositionId = "05-youtube-explained";
+          window.__timelines = window.__timelines || {};
+
+          const player = document.querySelector(".f05-player");
+          const adWorld = document.querySelector(".f05-ad-world");
+          const installWorld = document.querySelector(".f05-install-world");
+          const adLine = document.getElementById("f05-ad-line");
+          const waitLine = document.getElementById("f05-wait-line");
+          const countdownEl = document.getElementById("f05-countdown");
+          const warningChunks = [
+            document.getElementById("f05-warning-1"),
+            document.getElementById("f05-warning-2"),
+            document.getElementById("f05-warning-3"),
+          ];
+          const cancelMarker = document.getElementById("f05-cancel-marker");
+          const youChoose = document.getElementById("f05-you-choose");
+          const blurNode = document.getElementById("f05-ad-streak-blur");
+
+          const BEATS = [0.06, 1.8, 2.34, 3.6, 5.2, 6.36, 6.78];
+          const timeline = gsap.timeline({ paused: true });
+
+          gsap.set(adLine, { x: 520, opacity: 0 });
+          gsap.set(waitLine, { opacity: 0 });
+          gsap.set(installWorld, { y: 230, opacity: 0 });
+          gsap.set(warningChunks, { opacity: 0 });
+          gsap.set(cancelMarker, { scale: 0.72, rotation: -5, opacity: 0 });
+          gsap.set(youChoose, { y: 18, opacity: 0 });
+
+          const COUNTDOWN = [
+            { t: 0, text: "Ad · 5 seconds" },
+            { t: 0.58, text: "Ad · 4 seconds" },
+            { t: 1.16, text: "Ad · 3 seconds" },
+          ];
+
+          const countdownAt = (time) => {
+            for (let index = COUNTDOWN.length - 1; index >= 0; index -= 1) {
+              if (time >= COUNTDOWN[index].t) return COUNTDOWN[index].text;
+            }
+            return COUNTDOWN[0].text;
+          };
+
+          const countdownDriver = { t: 0 };
+          timeline.to(
+            countdownDriver,
+            {
+              t: 1.8,
+              duration: 1.8,
+              ease: "none",
+              onUpdate: () => {
+                const nextText = countdownAt(countdownDriver.t);
+                if (countdownEl.textContent !== nextText) countdownEl.textContent = nextText;
+              },
+            },
+            0,
+          );
+
+          timeline.fromTo(
+            player,
+            { y: 82, scale: 0.965, opacity: 0 },
+            { y: 0, scale: 1, opacity: 1, duration: 0.4, ease: "power4.out" },
+            BEATS[0],
+          );
+
+          timeline.to(player, { opacity: 0.2, duration: 0.24, ease: "power2.out" }, BEATS[1]);
+
+          const blurProxy = { v: 14 };
+          const writeBlur = () => blurNode.setAttribute("stdDeviation", `${blurProxy.v} 0`);
+          writeBlur();
+
+          timeline.fromTo(
+            adLine,
+            { x: 520, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.48, ease: "power4.out" },
+            BEATS[1],
+          );
+          timeline.to(
+            blurProxy,
+            { v: 0, duration: 0.48, ease: "power4.out", onUpdate: writeBlur },
+            BEATS[1],
+          );
+
+          timeline.set(waitLine, { opacity: 1 }, BEATS[2]);
+
+          timeline.to(adWorld, { y: -230, duration: 0.34, ease: "power4.in" }, BEATS[3]);
+          timeline.to(adWorld, { opacity: 0, duration: 0.3, ease: "power1.in" }, BEATS[3]);
+          timeline.set(adWorld, { opacity: 0 }, BEATS[3] + 0.32);
+          timeline.fromTo(
+            installWorld,
+            { y: 230, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.34, ease: "power4.out" },
+            BEATS[3] + 0.32,
+          );
+
+          const CHUNK_CONTENT = ["THIS MAY", "INSTALL", "A GAME"];
+          const BASE_DURATION = 0.26;
+          const SECONDS_PER_CHARACTER = 0.018;
+          let cumulative = BEATS[4];
+          const CHUNK_SCHEDULE = CHUNK_CONTENT.map((text) => {
+            const start = cumulative;
+            cumulative += BASE_DURATION + text.length * SECONDS_PER_CHARACTER;
+            return { text, start };
+          });
+
+          timeline.fromTo(
+            warningChunks[0],
+            { x: -120, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.38, ease: "expo.out" },
+            CHUNK_SCHEDULE[0].start,
+          );
+          timeline.fromTo(
+            warningChunks[1],
+            { scale: 1.22, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.42, ease: "power4.out" },
+            CHUNK_SCHEDULE[1].start,
+          );
+          timeline.fromTo(
+            warningChunks[2],
+            { y: 55, rotation: 2, opacity: 0 },
+            { y: 0, rotation: 0, opacity: 1, duration: 0.42, ease: "circ.out" },
+            CHUNK_SCHEDULE[2].start,
+          );
+
+          timeline.fromTo(
+            cancelMarker,
+            { scale: 0.72, rotation: -5, opacity: 0 },
+            {
+              scale: 1,
+              rotation: -3,
+              opacity: 1,
+              duration: 0.5,
+              ease: "back.out(1.7)",
+            },
+            BEATS[5],
+          );
+
+          timeline.fromTo(
+            youChoose,
+            { y: 18, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.34, ease: "power4.out" },
+            BEATS[6],
+          );
+
+          window.__timelines[compositionId] = timeline;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

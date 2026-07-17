@@ -45,7 +45,7 @@ The challenge names:
 - the channel;
 - any data that will leave the device.
 
-Example: “Open the phone dialer for Mina?” not “Continue?”
+Example: “Open the phone dialer for this trusted contact?” not “Continue?”
 
 ## Confirmation receipt
 

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Four clear actions</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Space Grotesk";
+          src: url("assets/fonts/space-grotesk-500.ttf") format("truetype");
+          font-style: normal;
+          font-weight: 500;
+        }
+        @font-face {
+          font-family: "Space Grotesk";
+          src: url("assets/fonts/space-grotesk-600.ttf") format("truetype");
+          font-style: normal;
+          font-weight: 600;
+        }
+        @font-face {
+          font-family: "Space Grotesk";
+          src: url("assets/fonts/space-grotesk-700.ttf") format("truetype");
+          font-style: normal;
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Inter";
+          src: url("assets/fonts/inter-400.ttf") format("truetype");
+          font-style: normal;
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Inter";
+          src: url("assets/fonts/inter-600.ttf") format("truetype");
+          font-style: normal;
+          font-weight: 600;
+        }
+
+        #root {
+          --six-cream: #fdfae7;
+          --six-blue: #1e2bfa;
+          --six-ink: #111111;
+          --six-muted: #6b6b6b;
+          --six-light: #9a9a9a;
+          --six-soft: rgba(30, 43, 250, 0.08);
+          --six-medium: rgba(30, 43, 250, 0.15);
+          --six-border: rgba(30, 43, 250, 0.2);
+          position: absolute;
+          inset: 0;
+          width: 1080px;
+          height: 1920px;
+          overflow: hidden;
+          container-type: size;
+          color: var(--six-ink);
+          font-family: "Inter", sans-serif;
+        }
+
+        #six-background,
+        #six-scene {
+          position: absolute;
+          inset: 0;
+          width: 1080px;
+          height: 1920px;
+          overflow: hidden;
+          box-sizing: border-box;
+        }
+
+        #six-background {
+          background: var(--six-cream);
+        }
+
+        .six-diagonal {
+          position: absolute;
+          top: -140px;
+          right: -300px;
+          width: 690px;
+          height: 760px;
+          background: rgba(30, 43, 250, 0.045);
+          clip-path: polygon(46% 0, 100% 0, 100% 100%, 0 67%);
+        }
+
+        .six-ring {
+          position: absolute;
+          left: 50%;
+          top: 790px;
+          border: 2px solid var(--six-blue);
+          border-radius: 50%;
+          opacity: 0.055;
+          transform: translate(-50%, -50%);
+        }
+
+        .six-ring-one {
+          width: 980px;
+          height: 980px;
+        }
+
+        .six-ring-two {
+          width: 760px;
+          height: 760px;
+        }
+
+        .six-ring-three {
+          width: 540px;
+          height: 540px;
+        }
+
+        .six-caption-quiet {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 1593px;
+          height: 327px;
+          border-top: 1px solid rgba(30, 43, 250, 0.08);
+          background: linear-gradient(180deg, rgba(253, 250, 231, 0.35), var(--six-cream) 18%);
+        }
+
+        .six-beat-stage {
+          position: absolute;
+          top: 362px;
+          left: 58px;
+          right: 58px;
+          z-index: 10;
+          height: 560px;
+          overflow: hidden;
+        }
+
+        .six-action-word {
+          position: absolute;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          color: var(--six-ink);
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 14.4cqw;
+          font-weight: 700;
+          line-height: 0.92;
+          letter-spacing: -0.055em;
+          text-align: center;
+          transform-origin: 50% 50%;
+          will-change: transform, opacity, filter;
+        }
+
+        #six-action-youtube {
+          font-size: 13.1cqw;
+        }
+
+        .six-beat-rule {
+          position: absolute;
+          top: 933px;
+          left: 118px;
+          z-index: 9;
+          width: 844px;
+          height: 12px;
+          overflow: hidden;
+          border-radius: 6px;
+          background: var(--six-soft);
+          will-change: opacity;
+        }
+
+        .six-beat-rule-fill {
+          width: 100%;
+          height: 100%;
+          border-radius: 6px;
+          background: var(--six-blue);
+          transform-origin: 0 50%;
+          will-change: transform;
+        }
+
+        .six-swap-wrap {
+          position: absolute;
+          top: 365px;
+          left: 160px;
+          z-index: 6;
+          width: 760px;
+          height: 1020px;
+        }
+
+        .six-word-lockup,
+        .six-image-payoff {
+          position: absolute;
+          inset: 0;
+          transform-origin: 50% 50%;
+          will-change: transform, opacity;
+        }
+
+        .six-word-lockup {
+          z-index: 1;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          align-items: center;
+          justify-items: center;
+          color: var(--six-ink);
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 7.2cqw;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: -0.045em;
+          text-align: center;
+        }
+
+        .six-word-lockup::before,
+        .six-word-lockup::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          background: var(--six-border);
+        }
+
+        .six-word-lockup::before {
+          width: 86%;
+          height: 2px;
+          margin-left: -43%;
+        }
+
+        .six-word-lockup::after {
+          width: 2px;
+          height: 78%;
+          margin-top: -39%;
+        }
+
+        .six-word-lockup span {
+          position: relative;
+          z-index: 2;
+        }
+
+        .six-image-payoff {
+          z-index: 2;
+        }
+
+        .six-image-crop {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+
+        .six-image-crop img {
+          position: absolute;
+          top: -250px;
+          left: 0;
+          display: block;
+          width: 760px;
+          height: auto;
+          max-width: none;
+        }
+
+        .six-closing-title {
+          position: absolute;
+          top: 190px;
+          left: 58px;
+          right: 58px;
+          z-index: 14;
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          gap: 0 24px;
+          color: var(--six-ink);
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 7.55cqw;
+          font-weight: 700;
+          line-height: 0.98;
+          letter-spacing: -0.052em;
+          text-align: center;
+        }
+
+        .six-closing-chunk {
+          display: block;
+          will-change: transform, opacity;
+        }
+
+        .six-title-rule {
+          position: absolute;
+          top: 314px;
+          left: 360px;
+          z-index: 13;
+          width: 360px;
+          height: 7px;
+          border-radius: 6px;
+          background: var(--six-blue);
+          transform-origin: 0 50%;
+          will-change: transform, opacity;
+        }
+
+        .six-control-line {
+          position: absolute;
+          top: 1417px;
+          left: 58px;
+          right: 58px;
+          z-index: 15;
+          color: var(--six-ink);
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 3.05cqw;
+          font-weight: 600;
+          line-height: 1;
+          letter-spacing: 0.035em;
+          text-align: center;
+          will-change: transform, opacity;
+        }
+
+        .six-concept-note {
+          position: absolute;
+          top: 1481px;
+          left: 58px;
+          right: 58px;
+          z-index: 15;
+          color: var(--six-blue);
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 1.85cqw;
+          font-weight: 600;
+          line-height: 1;
+          letter-spacing: 0.11em;
+          text-align: center;
+          will-change: transform, opacity;
+        }
+
+        .six-progress {
+          position: absolute;
+          top: 1544px;
+          left: 58px;
+          z-index: 18;
+          width: 964px;
+          height: 5px;
+          border-radius: 0;
+          background: var(--six-blue);
+        }
+      </style>
+
+      <div data-hf-id="hf-cupi" id="root" data-composition-id="06-four-clear-actions" data-start="0" data-width="1080" data-height="1920" data-duration="5.931">
+        <div data-hf-id="hf-9g1b" id="six-background" class="clip" data-start="0" data-duration="5.931" data-track-index="0">
+          <div data-hf-id="hf-52el" class="six-diagonal" data-layout-ignore="true"></div>
+          <div data-hf-id="hf-mpmc" class="six-ring six-ring-one" data-layout-ignore="true"></div>
+          <div data-hf-id="hf-eo9e" class="six-ring six-ring-two" data-layout-ignore="true"></div>
+          <div data-hf-id="hf-mnuo" class="six-ring six-ring-three" data-layout-ignore="true"></div>
+          <div data-hf-id="hf-oepf" class="six-caption-quiet" data-layout-ignore="true"></div>
+        </div>
+
+        <section data-hf-id="hf-kw9q" id="six-scene" class="clip" data-start="0" data-duration="5.931" data-track-index="1">
+          <div data-hf-id="hf-6wpy" class="six-beat-stage" id="six-beat-stage">
+            <div data-hf-id="hf-3mwq" class="six-action-word" id="six-action-call">Call</div>
+            <div data-hf-id="hf-mlya" class="six-action-word" id="six-action-youtube">YouTube</div>
+            <div data-hf-id="hf-p07a" class="six-action-word" id="six-action-speak">Speak</div>
+            <div data-hf-id="hf-050w" class="six-action-word" id="six-action-camera">Camera</div>
+          </div>
+
+          <div data-hf-id="hf-zo6f" class="six-beat-rule" id="six-beat-rule" aria-hidden="true">
+            <div data-hf-id="hf-agpm" class="six-beat-rule-fill" id="six-beat-rule-fill"></div>
+          </div>
+
+          <div data-hf-id="hf-luwl" class="six-swap-wrap">
+            <div data-hf-id="hf-ynb3" class="six-word-lockup" id="six-word-lockup" aria-hidden="true">
+              <span data-hf-id="hf-pt51">Call</span>
+              <span data-hf-id="hf-veqi">YouTube</span>
+              <span data-hf-id="hf-w839">Speak</span>
+              <span data-hf-id="hf-t0y2">Camera</span>
+            </div>
+
+            <div data-hf-id="hf-saqq" class="six-image-payoff" id="six-image-payoff">
+              <div data-hf-id="hf-7r5n" class="six-image-crop">
+                <img data-hf-id="hf-i4gs" id="six-home-screen-raster" src="assets/ui/planned-home-screen.png" alt="Four-button screen with Call, YouTube, Speak, and Camera">
+              </div>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-hv65" class="six-closing-title" id="six-closing-title" aria-label="Four clear actions">
+            <span data-hf-id="hf-pb2p" class="six-closing-chunk">FOUR</span>
+            <span data-hf-id="hf-74gu" class="six-closing-chunk">CLEAR</span>
+            <span data-hf-id="hf-xutk" class="six-closing-chunk">ACTIONS</span>
+          </div>
+          <div data-hf-id="hf-394r" class="six-title-rule" id="six-title-rule" aria-hidden="true"></div>
+
+          <div data-hf-id="hf-yrdp" class="six-control-line" id="six-control-line">OLDER PERSON IN CONTROL</div>
+          <div data-hf-id="hf-xyeg" class="six-concept-note" id="six-concept-note">CONCEPT DEMO · APP NOT BUILT YET</div>
+          <div data-hf-id="hf-lbat" class="six-progress" aria-hidden="true"></div>
+        </section>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+      <script>
+        window.__timelines = window.__timelines || {};
+
+        const sixTimeline = gsap.timeline({ paused: true });
+
+        // Scene 1: one shared tempo grid drives all four distinct title hits and the rule.
+        const SIX_ACTION_BEATS = [0.04, 0.43, 0.82, 1.21];
+
+        sixTimeline.fromTo(
+          "#six-action-call",
+          { scale: 1.5, filter: "blur(14px)", opacity: 0 },
+          { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.32, ease: "power4.out" },
+          SIX_ACTION_BEATS[0],
+        );
+        sixTimeline.fromTo(
+          "#six-action-youtube",
+          { x: -380, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.31, ease: "expo.out" },
+          SIX_ACTION_BEATS[1],
+        );
+        sixTimeline.fromTo(
+          "#six-action-speak",
+          { y: 112, rotation: 5, opacity: 0 },
+          { y: 0, rotation: 0, opacity: 1, duration: 0.34, ease: "circ.out" },
+          SIX_ACTION_BEATS[2],
+        );
+        sixTimeline.fromTo(
+          "#six-action-camera",
+          { x: 380, rotation: -4, opacity: 0 },
+          { x: 0, rotation: 0, opacity: 1, duration: 0.27, ease: "power3.out" },
+          SIX_ACTION_BEATS[3],
+        );
+
+        sixTimeline.set("#six-action-call", { opacity: 0 }, SIX_ACTION_BEATS[1]);
+        sixTimeline.set("#six-action-youtube", { opacity: 0 }, SIX_ACTION_BEATS[2]);
+        sixTimeline.set("#six-action-speak", { opacity: 0 }, SIX_ACTION_BEATS[3]);
+        sixTimeline.set(".six-action-word", { opacity: 0 }, 1.49);
+        sixTimeline.set("#six-beat-stage", { autoAlpha: 0 }, 1.49);
+
+        sixTimeline.fromTo(
+          "#six-beat-rule-fill",
+          { scaleX: 0 },
+          { scaleX: 0.25, duration: 0.18, ease: "power3.out" },
+          SIX_ACTION_BEATS[0],
+        );
+        SIX_ACTION_BEATS.slice(1).forEach((beat, index) => {
+          sixTimeline.to(
+            "#six-beat-rule-fill",
+            { scaleX: (index + 2) / SIX_ACTION_BEATS.length, duration: 0.18, ease: "power3.out" },
+            beat,
+          );
+        });
+
+        // The four beats lock into one typographic object before the image swap.
+        sixTimeline.fromTo(
+          "#six-word-lockup",
+          { scale: 0.92, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.2, ease: "power3.out" },
+          1.5,
+        );
+
+        // Scene 2: the four-word lockup and the actual PNG share one footprint and overlap briefly.
+        sixTimeline.to(
+          "#six-word-lockup",
+          { scale: 0.72, opacity: 0, duration: 0.36, ease: "power2.in" },
+          1.7,
+        );
+        sixTimeline.fromTo(
+          "#six-image-payoff",
+          { scale: 0.72, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.62, ease: "back.out(1.4)" },
+          1.92,
+        );
+        sixTimeline.set("#six-word-lockup", { autoAlpha: 0 }, 2.07);
+        sixTimeline.to(
+          "#six-beat-rule",
+          { opacity: 0, duration: 0.24, ease: "power1.in" },
+          1.7,
+        );
+
+        // Scene 3: content length precomputes each measured headline chunk onset.
+        const SIX_TITLE_CONTENT = gsap.utils.toArray(".six-closing-chunk").map((node, index) => ({
+          node,
+          text: node.textContent.trim(),
+          hold: index === 2 ? 0.14 : 0.08,
+        }));
+        let sixTitleCursor = 3.2;
+        const SIX_TITLE_SCHEDULE = SIX_TITLE_CONTENT.map((entry) => {
+          const duration = 0.14 + entry.text.length * 0.018 + entry.hold;
+          const start = sixTitleCursor;
+          sixTitleCursor += duration;
+          return { ...entry, start, end: sixTitleCursor };
+        });
+        SIX_TITLE_SCHEDULE.forEach((entry) => {
+          sixTimeline.fromTo(
+            entry.node,
+            { y: 28, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.38, ease: "power3.out" },
+            entry.start,
+          );
+        });
+        sixTimeline.fromTo(
+          "#six-title-rule",
+          { scaleX: 0, opacity: 0 },
+          { scaleX: 1, opacity: 1, duration: 0.46, ease: "power3.out" },
+          SIX_TITLE_SCHEDULE[2].start + 0.12,
+        );
+
+        // Scene 4: final concept-only copy arrives, then every element holds completely still.
+        sixTimeline.fromTo(
+          "#six-control-line",
+          { y: 22, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.42, ease: "power3.out" },
+          4.6,
+        );
+        sixTimeline.fromTo(
+          "#six-concept-note",
+          { y: 16, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.38, ease: "power3.out" },
+          4.82,
+        );
+
+        window.__timelines["06-four-clear-actions"] = sixTimeline;
+      </script>
+    </template>
+  </body>
+</html>

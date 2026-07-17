@@ -2,7 +2,7 @@
 
 Run these go/no-go tests before building beyond the vertical skeleton.
 
-## Gate 1: Talk and search
+## Gate 1: Speak and search
 
 Deadline: first half of Day 1.
 
@@ -13,9 +13,9 @@ Pass when:
 - a search-result prompt injection cannot propose an external action;
 - network failure produces no invented current answer.
 
-Fallback: Talk remains conversational and current questions clearly state that search is unavailable.
+Fallback: Speak remains conversational and current questions clearly state that search is unavailable.
 
-## Gate 2: See
+## Gate 2: Camera
 
 Deadline: end of Day 1.
 
@@ -26,9 +26,9 @@ Pass when:
 - a synthetic letter receives a short structured explanation;
 - blurry, identity-document, medicine-dose, face-identification, and QR-injection cases behave safely.
 
-Fallback: ship See with gallery selection only; retain the same consent and safety contract.
+Fallback: ship Camera with gallery selection only; retain the same consent and safety contract.
 
-## Gate 3: Family
+## Gate 3: Call
 
 Deadline: end of Day 1.
 
@@ -42,7 +42,7 @@ Pass when:
 
 Fallback: one fixed synthetic demo contact stored locally. Do not add a callback backend.
 
-## Gate 4: Help
+## Gate 4: YouTube guidance
 
 Deadline: first half of Day 2.
 
@@ -50,7 +50,7 @@ Cross-app mode passes only when:
 
 - the AccessibilityService has a clear disclosure and manual enablement flow;
 - supported packages and events are allowlisted;
-- processing begins only after the user invokes Help and stops after one state snapshot or a short bounded window;
+- processing begins only after the user invokes YouTube guidance and stops after one state snapshot or a short bounded window;
 - no raw accessibility content is uploaded;
 - ad, install, permission, purchase, and unknown states are reliably distinguished on the demo device;
 - no action auto-clicks, blocks, approves, buys, or installs.

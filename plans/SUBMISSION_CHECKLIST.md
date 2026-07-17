@@ -7,7 +7,7 @@ Source of truth: [OpenAI Build Week rules](https://openai.devpost.com/rules). Re
 - [ ] Proposed track: **Apps for Your Life**.
 - [ ] The submission describes one coherent product, not four unrelated demos.
 - [ ] Codex materially contributes to the build workflow.
-- [ ] GPT-5.6 materially powers Talk, See, or constrained intent proposals.
+- [ ] GPT-5.6 materially powers Speak, Camera, or constrained intent proposals.
 - [ ] The product is functional and testable by judges.
 - [ ] One team representative submits for the four-person team.
 
@@ -38,7 +38,7 @@ Submit before **July 21, 2026 at 5:00 PM PDT**, which is **July 22, 2026 at 9:00
 ## Final rehearsal
 
 - [ ] Install or open from the exact judge instructions.
-- [ ] Run Talk, See, Family, and Help once each.
+- [ ] Run Call, YouTube, Speak, and Camera once each.
 - [ ] Demonstrate one denial or uncertainty case.
 - [ ] Verify source links and network failure behavior.
 - [ ] Confirm no planned feature is presented as implemented.

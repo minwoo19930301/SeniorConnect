@@ -6,28 +6,23 @@ Use only synthetic names, contacts, letters, images, and app screens.
 
 Show a confusing conventional phone briefly, then the four-button home.
 
-Narration: “One calm place to ask, look, reach family, and understand what is on the screen.”
+Narration: “Four clear choices: Call, YouTube, Speak, and Camera.”
 
-## 0:20–0:55 — Talk
+## 0:20–0:55 — Call
 
-Ask a current question such as “Is the library open today?” Show that web search is used, hear one short answer, and reveal the visible source links. Then ask for a short story to show that unnecessary search is not used.
+Tap Call, show a generic trusted-contact card, confirm the target, and open the normal dialer. Do not show a person name or claim that a call connected.
 
-## 0:55–1:30 — See
+## 0:55–1:30 — YouTube
 
-Photograph a synthetic appointment letter. Confirm the upload. Hear the date, place, and uncertainty in simple language. Briefly show the `Take Again` and `Ask Family` exits.
+Open a generic YouTube scenario. Explain “This is an advertisement. Your video has not ended. Please wait.” Then show an install warning without pressing anything.
 
-## 1:30–2:00 — Family
+## 1:30–2:00 — Speak
 
-Say “Call my granddaughter.” Show Mina’s paired photo and the named phone confirmation. Open the dialer. Explain that the model selected a trusted ID, never an arbitrary number.
+Ask “Is the library open today?” Show web search, one short answer, and visible source links. Then ask for a short story to show that unnecessary search is not used.
 
-## 2:00–2:30 — Help
+## 2:00–2:30 — Camera
 
-Use a clearly labeled deterministic scenario screen:
-
-- “This is an advertisement. Your video has not ended. Please wait.”
-- “This would install a new game. Did you mean to continue?”
-
-Demonstrate `Take Me Home`; do not block, auto-skip, or install anything.
+Photograph a synthetic appointment letter. Confirm the upload. Hear the date, place, and uncertainty in simple language. Show `Take Again`, `Take Me Home`, and `Stop`.
 
 ## 2:30–2:50 — technical proof
 

@@ -8,8 +8,8 @@ This plan starts only after the planning/harness phase is approved.
 | --- | --- | --- |
 | 1 | Android shell | Four-button Compose UI, permissions, local speech, navigation |
 | 2 | Agent and policy | Responses API, structured proposals, web search, confirmation gate |
-| 3 | Camera and Help | CameraX, image flow, sanitized screen-state fixtures/service |
-| 4 | Family, QA, submission | Pairing, dialer/chat flow, harness, README, deployment, video |
+| 3 | Camera and YouTube | CameraX, image flow, sanitized screen-state fixtures/service |
+| 4 | Call, QA, submission | Pairing, dialer flow, harness, README, deployment, video |
 
 Each person owns tests and documentation for their component. One person reviews every policy/tool change before merge.
 
@@ -26,10 +26,10 @@ Exit condition: a judge can understand the complete experience even though exter
 
 ## Day 2 — real features
 
-- Talk: conditional web search with visible sources.
-- See: visible capture, upload confirmation, image explanation, blurry-photo failure.
-- Family: trusted-ID resolution, named confirmation, `ACTION_DIAL`, and trusted-chat opening.
-- Help: only the documented state enum, plus unknown-state handling.
+- Call: trusted-ID resolution, generic confirmation, and `ACTION_DIAL`.
+- YouTube: only the documented state enum, plus unknown-state handling.
+- Speak: conditional web search with visible sources.
+- Camera: visible capture, upload confirmation, image explanation, blurry-photo failure.
 - Run the golden and safety suites against recorded outputs.
 
 Exit condition: one reliable live path per button and no arbitrary external target.

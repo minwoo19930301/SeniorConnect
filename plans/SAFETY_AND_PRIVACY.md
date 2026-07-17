@@ -38,7 +38,7 @@ No untrusted input may bypass the deterministic policy layer.
 - A photograph cannot prove that a stove, road, medication, or other physical situation is safe.
 - A QR code may be described; it is never opened automatically.
 
-## Family safety
+## Call safety
 
 - Pair family explicitly; never infer relationships from call frequency or names.
 - Invitation links expire and are single-use.
@@ -48,7 +48,7 @@ No untrusted input may bypass the deterministic policy layer.
 - State the person and channel during confirmation.
 - WhatsApp chat opening leaves the final send action to the user. A callback request is preferable to brittle UI automation.
 
-## Screen Help safety
+## YouTube guidance safety
 
 - Accessibility access is opt-in, explained immediately before system permission, and package-scoped where possible.
 - Detection is deterministic and best-effort.
@@ -85,4 +85,4 @@ If the system is uncertain, a tool fails, or the policy rejects a proposal:
 1. state what did not happen;
 2. do not claim success;
 3. offer one safe retry;
-4. offer `Ask Family` or `Take Me Home`.
+4. offer a confirmed call to a trusted contact or `Take Me Home`.

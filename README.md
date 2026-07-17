@@ -8,7 +8,7 @@ This project is still in the planning stage. There is no working app yet.
 
 ## What the planned home screen looks like
 
-![Concept home screen with four large buttons: Talk, See, Family, and Help](assets/planned-home-screen.svg)
+![Concept home screen with four large buttons: Call, YouTube, Speak, and Camera](assets/planned-home-screen.png)
 
 This is a concept image, not a screenshot from a working app. The large buttons
 show the simple home screen we plan to build.
@@ -29,44 +29,42 @@ Our goal is not to take control of someone’s phone. Our goal is to make the ph
 
 ## The four main buttons
 
-### Talk
+### Call
 
-Press the button and speak normally.
+Choose a trusted family contact during setup. Tap **Call**, choose the contact,
+and confirm before the normal phone dialer opens.
 
-The app can have a simple conversation or answer a question. If the question needs new information, such as today’s weather or opening hours, it can search the web and show where the answer came from.
+The app does not search for relatives, invent phone numbers, or place a call in
+the background.
 
-### See
+### YouTube
 
-Take a photo of a letter, sign, menu, label, or appliance button.
+Tap **YouTube** to open YouTube with simple guidance.
 
-The app reads it aloud and explains it in simple words. It says when the photo is unclear. It does not identify people or give medical advice.
+If an advertisement appears, the app can explain: “This is an ad. Your video
+has not ended. Please wait.” If an install screen appears, it warns the person
+before they continue. It does not block ads or press buttons by itself.
 
-### Family
+### Speak
 
-Choose one trusted family member during setup.
+Tap **Speak** and talk normally.
 
-The app can open the phone dialer or that person’s WhatsApp chat after asking for confirmation. It never searches for family members automatically, invents a phone number, or makes a silent call.
+The agent can have a simple conversation, answer a question, or search for
+current information and show where the answer came from.
 
-### Help
+### Camera
 
-Ask what a confusing phone screen means.
+Tap **Camera** to take a photo of a letter, sign, menu, label, or appliance
+button. The app can read it aloud and explain it in simple words.
 
-For example, the app may say:
+The camera opens only when the person asks. The app says when a photo is
+unclear, and it does not identify people or give medical advice.
 
-> This is an advertisement. Your video has not ended. Please wait.
+## Controls are always close
 
-Or:
-
-> This button will install a new app. Did you mean to do that?
-
-The app explains the screen. It does not block advertisements, press buttons, approve payments, or install apps by itself.
-
-## Help is always close
-
-Every part of the app should include these simple choices:
+Every part of the app should include these simple controls:
 
 - **Repeat Slowly**
-- **Ask Family**
 - **Take Me Home**
 - **Stop**
 

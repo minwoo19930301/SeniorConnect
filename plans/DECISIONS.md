@@ -1,14 +1,14 @@
 # Product Decisions
 
-## D-001: organize by human need, not app brand
+## D-001: keep the home screen to four clear actions
 
-**Decision:** use Talk, See, Family, and Help rather than WhatsApp, YouTube, Camera, and Search.
+**Decision:** the four primary actions are Call, YouTube, Speak, and Camera.
 
-**Reason:** apps change; the user’s goal remains stable. This also distinguishes the product from a generic senior launcher.
+**Reason:** these labels match the tasks the user asked for and remain readable on a simple four-button screen.
 
 ## D-002: combine chat and search
 
-**Decision:** Talk performs web search only when the question needs current information.
+**Decision:** Speak performs web search only when the question needs current information.
 
 **Reason:** requiring the user to choose “chat” versus “search” exposes a technical distinction that does not help them.
 
@@ -26,7 +26,7 @@
 
 ## D-005: explain ads; never block or skip automatically
 
-**Decision:** Help announces an advertisement and points out Skip only when exposed.
+**Decision:** YouTube guidance announces an advertisement and points out Skip only when exposed.
 
 **Reason:** advertisement detection is heuristic, and interfering with another app’s ads is not a compliant product path.
 

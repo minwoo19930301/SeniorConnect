@@ -6,10 +6,10 @@ This document is a plan, not an implementation claim.
 
 ```text
 Android UI
-  ├─ Talk: press-to-talk + local text-to-speech
-  ├─ See: visible camera or selected image
-  ├─ Family: trusted-contact IDs only
-  └─ Help: deterministic screen-state detector
+  ├─ Call: trusted-contact ID + confirmed dialer handoff
+  ├─ YouTube: app intent + deterministic screen-state guidance
+  ├─ Speak: press-to-talk + local text-to-speech
+  └─ Camera: visible capture or selected image
           │
           ▼
 Sanitizer and policy layer
@@ -37,27 +37,27 @@ The buttons are four contexts for one agent. One shared conversation state prese
 
 Use the Responses API with the hackathon-required GPT-5.6 model family.
 
-### Talk
+### Speak
 
 - Default to a normal text response.
 - Enable the hosted `web_search` tool for current or externally verifiable questions.
 - Require citations in the visible UI for searched answers.
 - Treat retrieved page content as untrusted evidence, never as instructions.
 
-### See
+### Camera
 
 - Send only the selected photo after an upload confirmation.
 - Request a structured response: `summary`, `visible_details`, `uncertainty`, `next_step`, and `risk_flag`.
 - Do not include action tools in the image-explanation request.
 
-### Family
+### Call
 
 - Provide only synthetic trusted-contact IDs, display labels, and allowed channels.
 - Use strict function schemas.
 - Set `parallel_tool_calls` to false for user-facing external actions.
 - Return a proposal to the policy layer; the model never performs the Android action.
 
-### Help
+### YouTube
 
 - Build the state enum on-device.
 - Send a small object such as:
@@ -85,10 +85,10 @@ The broad `AgentProposal` schema is an application-domain contract. The planned 
 - System contact picker or short-lived family invitation for minimum contact access.
 - `ACTION_DIAL` as the reliable baseline. Its only success result is `DIALER_OPENED`.
 - CameraX for visible user-triggered capture.
-- Package-scoped AccessibilityService only if Help is implemented cross-app.
+- Package-scoped AccessibilityService only if YouTube guidance is implemented cross-app.
 - Android local text-to-speech for cached safety phrases and offline fallback.
 
-If the AccessibilityService gate passes, the enabled service ignores content by default. A user tap starts one short Help session, captures only the minimum accessible signals needed for one state, sanitizes them locally, discards raw nodes, and returns to inactive processing. If that cannot be demonstrated clearly, use Explain a Screenshot instead.
+If the AccessibilityService gate passes, the enabled service ignores content by default. A user tap starts one short YouTube-guidance session, captures only the minimum accessible signals needed for one state, sanitizes them locally, discards raw nodes, and returns to inactive processing. If that cannot be demonstrated clearly, use Explain a Screenshot instead.
 
 ## Data classes
 

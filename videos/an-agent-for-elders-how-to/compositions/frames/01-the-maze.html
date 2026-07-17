@@ -40,26 +40,26 @@
         }
 
         #root {
-          --maze-cream: #fdfae7;
-          --maze-blue: #1e2bfa;
-          --maze-ink: #111111;
-          --maze-muted: #6b6b6b;
-          --maze-light: #9a9a9a;
-          --maze-card: rgba(30, 43, 250, 0.04);
-          --maze-soft: rgba(30, 43, 250, 0.08);
-          --maze-medium: rgba(30, 43, 250, 0.15);
-          --maze-border: rgba(30, 43, 250, 0.2);
+          --cream: #fdfae7;
+          --blue: #1e2bfa;
+          --ink: #111111;
+          --muted: #6b6b6b;
+          --light: #9a9a9a;
+          --blue-04: rgba(30, 43, 250, 0.04);
+          --blue-08: rgba(30, 43, 250, 0.08);
+          --blue-12: rgba(30, 43, 250, 0.12);
+          --blue-20: rgba(30, 43, 250, 0.2);
           position: absolute;
           inset: 0;
           width: 1080px;
           height: 1920px;
           overflow: hidden;
           container-type: size;
-          color: var(--maze-ink);
-          font-family: "Inter";
+          color: var(--ink);
+          font-family: "Inter", sans-serif;
         }
 
-        #maze-bg,
+        #maze-background,
         #maze-scene {
           position: absolute;
           inset: 0;
@@ -69,32 +69,32 @@
           box-sizing: border-box;
         }
 
-        #maze-bg {
+        #maze-background {
           background:
-            radial-gradient(circle at 84% 20%, rgba(30, 43, 250, 0.12), transparent 30%),
-            linear-gradient(132deg, transparent 0 69%, rgba(30, 43, 250, 0.055) 69% 100%),
-            var(--maze-cream);
+            linear-gradient(133deg, transparent 0 70%, rgba(30, 43, 250, 0.055) 70% 100%),
+            radial-gradient(circle at 84% 18%, rgba(30, 43, 250, 0.1), transparent 29%),
+            var(--cream);
         }
 
-        .maze-dot-field {
+        .maze-dot-grid {
           position: absolute;
-          top: 126px;
+          top: 132px;
           right: 58px;
-          width: 118px;
-          height: 118px;
-          opacity: 0.42;
-          background-image: radial-gradient(circle, var(--maze-blue) 0 5px, transparent 6px);
-          background-size: 38px 38px;
+          width: 132px;
+          height: 132px;
+          opacity: 0.33;
+          background-image: radial-gradient(circle, var(--blue) 0 4px, transparent 5px);
+          background-size: 40px 40px;
         }
 
-        .maze-caption-guard {
+        .maze-caption-quiet {
           position: absolute;
           left: 0;
           right: 0;
-          top: 1590px;
-          height: 330px;
-          background: linear-gradient(180deg, rgba(253, 250, 231, 0), var(--maze-cream) 18%);
+          top: 1593px;
+          height: 327px;
           border-top: 1px solid rgba(30, 43, 250, 0.08);
+          background: linear-gradient(180deg, rgba(253, 250, 231, 0.3), var(--cream) 18%);
         }
 
         .maze-rail {
@@ -102,22 +102,22 @@
           top: 62px;
           left: 58px;
           right: 58px;
-          height: 50px;
+          height: 48px;
+          z-index: 30;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          z-index: 20;
         }
 
-        .maze-rail-label {
+        .maze-rail-kicker {
           display: inline-flex;
           align-items: center;
           min-height: 40px;
           padding: 0 20px;
           border-radius: 100px;
-          background: var(--maze-soft);
-          color: var(--maze-blue);
-          font-family: "Space Grotesk";
+          background: var(--blue-08);
+          color: var(--blue);
+          font-family: "Space Grotesk", sans-serif;
           font-size: 18px;
           font-weight: 600;
           letter-spacing: 0.12em;
@@ -125,60 +125,77 @@
         }
 
         .maze-rail-index {
-          color: var(--maze-muted);
-          font-family: "Space Grotesk";
+          color: var(--muted);
+          font-family: "Space Grotesk", sans-serif;
           font-size: 18px;
           font-weight: 500;
           letter-spacing: 0.1em;
+          text-transform: uppercase;
         }
 
-        .maze-title {
+        .maze-headline {
           position: absolute;
           top: 154px;
           left: 58px;
           right: 58px;
+          z-index: 24;
           display: flex;
           flex-wrap: wrap;
           align-items: baseline;
           gap: 0 28px;
-          z-index: 16;
-          font-family: "Space Grotesk";
+          font-family: "Space Grotesk", sans-serif;
           font-size: 106px;
           font-weight: 700;
-          line-height: 0.95;
-          letter-spacing: -0.055em;
+          line-height: 0.94;
+          letter-spacing: -0.056em;
           text-transform: uppercase;
         }
 
-        .maze-title-word {
+        .maze-headline-word {
           display: block;
           will-change: transform, opacity;
         }
 
-        .maze-title-word:last-child {
-          color: var(--maze-blue);
+        .maze-headline-word:last-child {
+          color: var(--blue);
         }
 
-        .maze-accent-rule {
+        .maze-headline-rule {
           position: absolute;
-          top: 374px;
+          top: 372px;
           left: 60px;
-          width: 120px;
+          z-index: 23;
+          width: 124px;
           height: 7px;
-          border-radius: 6px;
-          background: var(--maze-blue);
-          z-index: 15;
+          border-radius: 7px;
+          background: var(--blue);
           transform-origin: 0 50%;
+        }
+
+        .maze-word {
+          position: absolute;
+          top: 736px;
+          left: -20px;
+          z-index: 2;
+          width: 1120px;
+          color: var(--blue);
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 224px;
+          font-weight: 700;
+          line-height: 0.82;
+          letter-spacing: -0.075em;
+          text-align: center;
+          transform-origin: 50% 50%;
+          will-change: transform, opacity;
         }
 
         .maze-phone-wrap {
           position: absolute;
-          top: 412px;
-          left: 150px;
-          width: 780px;
-          height: 1060px;
-          display: block;
-          z-index: 7;
+          top: 410px;
+          left: 170px;
+          z-index: 6;
+          width: 740px;
+          height: 1030px;
           transform-origin: 50% 50%;
           will-change: transform, opacity;
         }
@@ -187,46 +204,46 @@
           position: absolute;
           inset: 0;
           overflow: hidden;
-          border: 3px solid var(--maze-ink);
-          border-radius: 74px;
-          background: var(--maze-cream);
           box-sizing: border-box;
+          border: 3px solid var(--ink);
+          border-radius: 72px;
+          background: var(--cream);
           transform-origin: 50% 50%;
           will-change: transform, border-radius, background-color;
         }
 
-        .maze-phone-speaker {
+        .maze-speaker {
           position: absolute;
-          top: 28px;
-          left: 296px;
-          width: 188px;
-          height: 14px;
+          top: 27px;
+          left: 278px;
+          z-index: 9;
+          width: 184px;
+          height: 13px;
           border-radius: 100px;
-          background: var(--maze-ink);
-          z-index: 8;
+          background: var(--ink);
         }
 
         .maze-screen-old,
-        .maze-avatar-layer {
+        .maze-person-layer {
           position: absolute;
           inset: 0;
+          box-sizing: border-box;
         }
 
         .maze-screen-old {
           z-index: 5;
-          padding: 78px 44px 46px;
-          box-sizing: border-box;
-          background: var(--maze-cream);
+          padding: 72px 38px 38px;
+          background: var(--cream);
           will-change: opacity;
         }
 
         .maze-status {
           display: flex;
-          justify-content: space-between;
           align-items: center;
-          margin: 0 8px 30px;
-          color: var(--maze-muted);
-          font-family: "Space Grotesk";
+          justify-content: space-between;
+          margin: 0 8px 24px;
+          color: var(--muted);
+          font-family: "Space Grotesk", sans-serif;
           font-size: 18px;
           font-weight: 600;
           letter-spacing: 0.04em;
@@ -234,98 +251,173 @@
 
         .maze-primary-grid {
           position: relative;
+          z-index: 3;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          grid-template-rows: 180px 176px;
-          gap: 18px;
-          z-index: 4;
+          grid-template-rows: 194px 166px;
+          gap: 16px;
         }
 
-        .maze-primary-card {
+        .maze-panel {
           --dof: 0px;
           position: relative;
           display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: space-between;
-          padding: 26px;
-          border: 2px solid var(--maze-border);
-          border-radius: 22px;
-          background: var(--maze-card);
+          align-items: center;
+          gap: 18px;
           box-sizing: border-box;
+          padding: 22px;
+          overflow: hidden;
+          border: 2px solid var(--blue-20);
+          border-radius: 20px;
+          background: var(--blue-04);
           filter: blur(var(--dof));
+          transform-origin: 50% 50%;
           will-change: transform, opacity, filter;
         }
 
-        .maze-primary-card strong {
-          font-family: "Space Grotesk";
-          font-size: 33px;
-          font-weight: 600;
-          letter-spacing: -0.025em;
+        #maze-call-panel {
+          grid-column: 1 / -1;
+          gap: 24px;
+          border-color: var(--blue);
+          background: rgba(253, 250, 231, 0.96);
+          filter: none;
         }
 
-        .maze-primary-card span {
-          color: var(--maze-muted);
-          font-size: 20px;
-          line-height: 1.35;
-        }
-
-        .maze-card-symbol {
+        .maze-panel-icon {
           display: grid;
           place-items: center;
-          width: 55px;
-          height: 55px;
+          flex: 0 0 auto;
+          width: 70px;
+          height: 70px;
+          border: 1.5px solid rgba(30, 43, 250, 0.28);
+          border-radius: 18px;
+          background: var(--blue-08);
+          color: var(--blue);
+        }
+
+        #maze-call-panel .maze-panel-icon {
+          width: 100px;
+          height: 100px;
           border-radius: 50%;
-          border: 1px solid rgba(30, 43, 250, 0.28);
-          background: #d8dbff;
-          color: var(--maze-ink);
-          font-family: "Space Grotesk";
-          font-size: 26px;
+        }
+
+        .maze-panel-icon svg {
+          display: block;
+          width: 50px;
+          height: 50px;
+          overflow: visible;
+        }
+
+        #maze-call-panel .maze-panel-icon svg {
+          width: 66px;
+          height: 66px;
+        }
+
+        .maze-panel-copy strong {
+          display: block;
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 31px;
+          font-weight: 600;
+          line-height: 1;
+          letter-spacing: -0.026em;
+          text-transform: uppercase;
+        }
+
+        #maze-call-panel .maze-panel-copy strong {
+          font-size: 46px;
+        }
+
+        .maze-panel-copy span {
+          display: block;
+          margin-top: 9px;
+          color: var(--muted);
+          font-size: 17px;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        .maze-chip-field {
+          position: absolute;
+          inset: 0;
+          z-index: 4;
+          pointer-events: none;
+          will-change: transform;
+        }
+
+        .maze-app-chip {
+          --dof: 0px;
+          position: absolute;
+          display: grid;
+          place-items: center;
+          width: 136px;
+          height: 118px;
+          box-sizing: border-box;
+          padding: 10px 8px;
+          border: 1.5px solid var(--blue-20);
+          border-radius: 18px;
+          background: rgba(253, 250, 231, 0.97);
+          color: var(--muted);
+          filter: blur(var(--dof));
+          font-family: "Inter", sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          text-align: center;
+          transform-origin: 50% 50%;
+          will-change: transform, opacity, filter;
+        }
+
+        .maze-chip-glyph {
+          display: grid;
+          place-items: center;
+          width: 42px;
+          height: 42px;
+          margin-bottom: 4px;
+          border-radius: 12px;
+          background: var(--blue-08);
+          color: var(--blue);
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 18px;
           font-weight: 700;
         }
 
-        #maze-goal-card {
-          grid-column: 1 / -1;
-          flex-direction: row;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 22px;
-          background: rgba(253, 250, 231, 0.96);
-          border-color: var(--maze-blue);
-          z-index: 8;
-          --dof: 0px;
-          filter: blur(var(--dof));
-        }
+        .maze-app-chip[data-pos="1"] { left: 38px; top: 548px; }
+        .maze-app-chip[data-pos="2"] { left: 190px; top: 548px; }
+        .maze-app-chip[data-pos="3"] { left: 342px; top: 548px; }
+        .maze-app-chip[data-pos="4"] { left: 494px; top: 548px; }
+        .maze-app-chip[data-pos="5"] { left: 66px; top: 688px; }
+        .maze-app-chip[data-pos="6"] { left: 218px; top: 688px; }
+        .maze-app-chip[data-pos="7"] { left: 370px; top: 688px; }
+        .maze-app-chip[data-pos="8"] { left: 522px; top: 688px; }
 
-        #maze-goal-card .maze-card-symbol {
-          width: 84px;
-          height: 84px;
-          flex: 0 0 auto;
-          font-size: 30px;
-        }
-
-        #maze-goal-card strong {
-          display: block;
-          font-size: 42px;
-        }
-
-        #maze-goal-card span {
-          display: block;
-          margin-top: 7px;
-          font-size: 21px;
-        }
-
-        .maze-tiny-label {
+        .maze-badge {
           position: absolute;
-          top: 608px;
-          right: -28px;
-          z-index: 12;
+          top: -12px;
+          right: -10px;
+          display: grid;
+          place-items: center;
+          width: 33px;
+          height: 33px;
+          border: 1px solid rgba(30, 43, 250, 0.3);
+          border-radius: 50%;
+          background: #d8dbff;
+          color: var(--ink);
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        .maze-tiny-note {
+          position: absolute;
+          top: 548px;
+          right: -66px;
+          z-index: 14;
           padding: 14px 22px;
-          border: 2px solid var(--maze-border);
+          border: 2px solid var(--blue-20);
           border-radius: 100px;
-          background: var(--maze-cream);
-          color: var(--maze-blue);
-          font-family: "Space Grotesk";
+          background: var(--cream);
+          color: var(--blue);
+          font-family: "Space Grotesk", sans-serif;
           font-size: 20px;
           font-weight: 600;
           letter-spacing: 0.09em;
@@ -333,77 +425,13 @@
           will-change: transform, opacity;
         }
 
-        .maze-app-chip {
-          --dof: 0px;
-          position: absolute;
-          z-index: 6;
-          display: grid;
-          place-items: center;
-          width: 112px;
-          height: 92px;
-          padding: 8px;
-          border: 1.5px solid var(--maze-border);
-          border-radius: 18px;
-          background: rgba(253, 250, 231, 0.96);
-          box-sizing: border-box;
-          color: var(--maze-muted);
-          filter: blur(var(--dof));
-          font-family: "Inter";
-          font-size: 16px;
-          font-weight: 600;
-          text-align: center;
-          will-change: transform, opacity, filter;
-        }
-
-        .maze-app-chip::before {
-          content: attr(data-glyph);
-          display: grid;
-          place-items: center;
-          width: 36px;
-          height: 36px;
-          margin-bottom: 2px;
-          border-radius: 12px;
-          background: var(--maze-soft);
-          color: var(--maze-blue);
-          font-family: "Space Grotesk";
-          font-size: 18px;
-          font-weight: 700;
-        }
-
-        .maze-app-chip[data-pos="1"] { left: 14px; top: 492px; }
-        .maze-app-chip[data-pos="2"] { left: 142px; top: 470px; }
-        .maze-app-chip[data-pos="3"] { left: 270px; top: 506px; }
-        .maze-app-chip[data-pos="4"] { left: 398px; top: 468px; }
-        .maze-app-chip[data-pos="5"] { left: 526px; top: 498px; }
-        .maze-app-chip[data-pos="6"] { left: 40px; top: 620px; }
-        .maze-app-chip[data-pos="7"] { left: 184px; top: 606px; }
-        .maze-app-chip[data-pos="8"] { left: 328px; top: 632px; }
-        .maze-app-chip[data-pos="9"] { left: 472px; top: 604px; }
-
-        .maze-badge {
-          position: absolute;
-          top: -13px;
-          right: -11px;
-          display: grid;
-          place-items: center;
-          width: 34px;
-          height: 34px;
-          border: 1px solid rgba(30, 43, 250, 0.28);
-          border-radius: 50%;
-          background: #d8dbff;
-          color: var(--maze-ink);
-          font-family: "Space Grotesk";
-          font-size: 14px;
-          font-weight: 700;
-        }
-
         .maze-install-stack {
           position: absolute;
-          top: 696px;
-          left: 70px;
-          width: 640px;
+          top: 674px;
+          left: 54px;
+          z-index: 8;
+          width: 632px;
           height: 246px;
-          z-index: 15;
           will-change: opacity;
         }
 
@@ -411,11 +439,12 @@
         .maze-install-ghost {
           position: absolute;
           inset: 0;
-          padding: 28px;
-          border: 3px solid var(--maze-blue);
-          border-radius: 28px;
-          background: var(--maze-cream);
           box-sizing: border-box;
+          padding: 28px;
+          border: 3px solid var(--blue);
+          border-radius: 28px;
+          background: var(--cream);
+          transform-origin: 50% 50%;
           will-change: transform, opacity;
         }
 
@@ -425,8 +454,8 @@
         }
 
         .maze-install-kicker {
-          color: var(--maze-blue);
-          font-family: "Space Grotesk";
+          color: var(--blue);
+          font-family: "Space Grotesk", sans-serif;
           font-size: 17px;
           font-weight: 600;
           letter-spacing: 0.09em;
@@ -435,7 +464,7 @@
 
         .maze-install-title {
           margin-top: 10px;
-          font-family: "Space Grotesk";
+          font-family: "Space Grotesk", sans-serif;
           font-size: 38px;
           font-weight: 700;
           line-height: 1.05;
@@ -451,87 +480,50 @@
 
         .maze-install-action {
           min-width: 114px;
+          box-sizing: border-box;
           padding: 12px 18px;
-          border: 1.5px solid var(--maze-border);
+          border: 1.5px solid var(--blue-20);
           border-radius: 100px;
-          color: var(--maze-muted);
+          color: var(--muted);
           font-size: 17px;
           font-weight: 600;
           text-align: center;
         }
 
         .maze-install-action:last-child {
-          border-color: var(--maze-blue);
-          color: var(--maze-blue);
+          border-color: var(--blue);
+          color: var(--blue);
         }
 
-        .maze-avatar-layer {
+        .maze-person-layer {
           z-index: 3;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding-top: 72px;
-          box-sizing: border-box;
-          background: var(--maze-soft);
+          display: grid;
+          place-items: center;
+          padding-top: 56px;
+          background: var(--blue-08);
           will-change: transform, opacity;
         }
 
-        .maze-avatar-label {
-          margin-bottom: 14px;
-          color: var(--maze-blue);
-          font-family: "Space Grotesk";
-          font-size: 18px;
-          font-weight: 600;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-        }
-
-        .maze-avatar-svg {
+        .maze-person-svg {
           display: block;
-          width: 470px;
-          height: 650px;
+          width: 510px;
+          height: 720px;
           overflow: visible;
-        }
-
-        .maze-avatar-name {
-          margin-top: -26px;
-          color: var(--maze-muted);
-          font-size: 20px;
-          letter-spacing: 0.02em;
-        }
-
-        .maze-word {
-          position: absolute;
-          top: 592px;
-          left: -10px;
-          width: 1100px;
-          z-index: 2;
-          color: var(--maze-blue);
-          font-family: "Space Grotesk";
-          font-size: 250px;
-          font-weight: 700;
-          line-height: 0.85;
-          letter-spacing: -0.075em;
-          text-align: center;
-          opacity: 0.15;
-          transform-origin: 50% 50%;
-          will-change: transform, opacity;
         }
 
         .maze-demand {
           position: absolute;
-          z-index: 13;
-          min-width: 176px;
-          max-width: 250px;
-          padding: 18px 22px;
-          border: 2px solid var(--maze-border);
+          z-index: 12;
+          min-width: 174px;
+          max-width: 232px;
+          box-sizing: border-box;
+          padding: 17px 21px;
+          border: 2px solid var(--blue-20);
           border-radius: 100px;
           background: rgba(253, 250, 231, 0.98);
-          box-sizing: border-box;
-          color: var(--maze-ink);
-          font-family: "Space Grotesk";
-          font-size: 24px;
+          color: var(--ink);
+          font-family: "Space Grotesk", sans-serif;
+          font-size: 22px;
           font-weight: 600;
           line-height: 1.08;
           text-align: center;
@@ -542,139 +534,166 @@
         .maze-demand::before {
           content: "";
           display: inline-block;
-          width: 11px;
-          height: 11px;
-          margin-right: 10px;
+          width: 10px;
+          height: 10px;
+          margin-right: 9px;
           border-radius: 50%;
-          background: var(--maze-blue);
+          background: var(--blue);
           vertical-align: 2px;
         }
 
-        #maze-demand-1 { top: 492px; left: 34px; }
-        #maze-demand-2 { top: 620px; right: 26px; }
-        #maze-demand-3 { top: 832px; left: 18px; }
-        #maze-demand-4 { top: 1042px; right: 22px; }
-        #maze-demand-5 { top: 1264px; left: 48px; }
-        #maze-demand-6 { top: 1420px; right: 46px; }
+        #maze-demand-1 { top: 502px; left: 36px; }
+        #maze-demand-2 { top: 420px; left: 432px; }
+        #maze-demand-3 { top: 550px; right: 30px; }
+        #maze-demand-4 { top: 812px; right: 22px; }
+        #maze-demand-5 { top: 1138px; right: 30px; }
+        #maze-demand-6 { top: 1380px; left: 418px; }
+        #maze-demand-7 { top: 1196px; left: 34px; }
+        #maze-demand-8 { top: 846px; left: 18px; }
 
-        .maze-bottom-rule {
+        .maze-progress {
           position: absolute;
-          top: 1552px;
+          top: 1538px;
           left: 58px;
+          z-index: 30;
           width: 964px;
-          height: 4px;
+          height: 5px;
+          overflow: hidden;
           border-radius: 6px;
           background: rgba(30, 43, 250, 0.15);
-          overflow: hidden;
         }
 
-        .maze-bottom-rule::after {
+        .maze-progress::after {
           content: "";
           display: block;
           width: 17%;
           height: 100%;
-          background: var(--maze-blue);
+          background: var(--blue);
         }
       </style>
 
-      <div data-hf-id="hf-hjo5" id="root" data-composition-id="01-the-maze" data-start="0" data-width="1080" data-height="1920" data-duration="5.712">
-        <div data-hf-id="hf-eqhs" id="maze-bg" class="clip" data-start="0" data-duration="5.712" data-track-index="0">
-          <div data-hf-id="hf-yd1l" class="maze-dot-field" data-layout-ignore="true"></div>
-          <div data-hf-id="hf-qiex" class="maze-caption-guard" data-layout-ignore="true"></div>
+      <div id="root" data-composition-id="01-the-maze" data-start="0" data-width="1080" data-height="1920" data-duration="5.712">
+        <div id="maze-background" class="clip" data-start="0" data-duration="5.712" data-track-index="0">
+          <div class="maze-dot-grid" data-layout-ignore="true"></div>
+          <div class="maze-caption-quiet" data-layout-ignore="true"></div>
         </div>
 
-        <section data-hf-id="hf-8mra" id="maze-scene" class="clip" data-start="0" data-duration="5.712" data-track-index="1">
-          <div data-hf-id="hf-703a" class="maze-rail">
-            <div data-hf-id="hf-cgle" class="maze-rail-label">Concept trailer</div>
-            <div data-hf-id="hf-8iij" class="maze-rail-index">01 / THE PROBLEM</div>
+        <section id="maze-scene" class="clip" data-start="0" data-duration="5.712" data-track-index="1">
+          <div class="maze-rail">
+            <div class="maze-rail-kicker">Concept trailer</div>
+            <div class="maze-rail-index">01 / The problem</div>
           </div>
 
-          <div data-hf-id="hf-xs1y" class="maze-title" id="maze-title" aria-label="Too many apps">
-            <span data-hf-id="hf-9ipg" class="maze-title-word">Too</span>
-            <span data-hf-id="hf-43gx" class="maze-title-word">many</span>
-            <span data-hf-id="hf-ft36" class="maze-title-word">apps</span>
+          <div class="maze-headline" id="maze-headline" aria-label="Too many apps">
+            <span class="maze-headline-word">Too</span>
+            <span class="maze-headline-word">many</span>
+            <span class="maze-headline-word">apps</span>
           </div>
-          <div data-hf-id="hf-hloy" class="maze-accent-rule" id="maze-accent-rule"></div>
+          <div class="maze-headline-rule" id="maze-headline-rule"></div>
 
-          <div data-hf-id="hf-xgy8" class="maze-word" id="maze-word" aria-hidden="true">MAZE</div>
+          <div data-layout-allow-overflow class="maze-word" id="maze-word" aria-hidden="true">MAZE</div>
 
-          <div data-hf-id="hf-19ec" class="maze-phone-wrap" id="maze-phone-wrap">
-            <div data-hf-id="hf-fg0i" class="maze-phone-shell" id="maze-phone-shell">
-              <div data-hf-id="hf-6wrk" class="maze-avatar-layer" id="maze-avatar-layer">
-                <div data-hf-id="hf-n2nq" class="maze-avatar-label">One person. One simple goal.</div>
-                <svg data-hf-id="hf-vj6j" class="maze-avatar-svg" viewBox="0 0 470 650" aria-label="Older adult holding a phone">
-                  <circle data-hf-id="hf-mztt" cx="235" cy="142" r="94" fill="rgba(30,43,250,0.08)" stroke="#111111" stroke-width="12" />
-                  <path data-hf-id="hf-9q8c" d="M160 110 Q235 28 315 112" fill="none" stroke="#1e2bfa" stroke-width="18" stroke-linecap="round" />
-                  <path data-hf-id="hf-qqcm" d="M68 590 Q82 330 235 330 Q388 330 402 590 Z" fill="rgba(30,43,250,0.12)" stroke="#111111" stroke-width="12" stroke-linejoin="round" />
-                  <path data-hf-id="hf-apva" d="M146 430 Q196 494 235 496 Q274 494 324 430" fill="none" stroke="#111111" stroke-width="12" stroke-linecap="round" />
-                  <rect data-hf-id="hf-yux2" x="190" y="405" width="90" height="154" rx="18" fill="#1e2bfa" />
-                  <circle data-hf-id="hf-0j6z" cx="235" cy="530" r="7" fill="#fdfae7" />
-                  <path data-hf-id="hf-mdz8" d="M152 470 Q190 442 199 458 M318 470 Q280 442 271 458" fill="none" stroke="#111111" stroke-width="12" stroke-linecap="round" />
-                  <path data-hf-id="hf-e0t0" d="M194 204 Q235 228 276 204" fill="none" stroke="#111111" stroke-width="9" stroke-linecap="round" />
+          <div class="maze-phone-wrap" id="maze-phone-wrap">
+            <div class="maze-phone-shell" id="maze-phone-shell">
+              <div class="maze-person-layer" id="maze-person-layer">
+                <svg class="maze-person-svg" viewBox="0 0 510 720" role="img" aria-label="Older adult holding a phone">
+                  <circle cx="255" cy="206" r="112" fill="#fdfae7" stroke="#111111" stroke-width="12" />
+                  <path d="M153 176 Q190 78 255 88 Q328 76 362 178" fill="none" stroke="#1e2bfa" stroke-width="22" stroke-linecap="round" />
+                  <path d="M147 183 Q128 216 142 255" fill="none" stroke="#111111" stroke-width="12" stroke-linecap="round" />
+                  <path d="M363 183 Q382 216 368 255" fill="none" stroke="#111111" stroke-width="12" stroke-linecap="round" />
+                  <circle cx="213" cy="208" r="34" fill="none" stroke="#111111" stroke-width="9" />
+                  <circle cx="297" cy="208" r="34" fill="none" stroke="#111111" stroke-width="9" />
+                  <path d="M247 208 H263" fill="none" stroke="#111111" stroke-width="9" stroke-linecap="round" />
+                  <path d="M212 274 Q255 301 298 274" fill="none" stroke="#111111" stroke-width="9" stroke-linecap="round" />
+                  <path d="M64 665 Q76 388 255 388 Q434 388 446 665 Z" fill="#d8dbff" stroke="#111111" stroke-width="12" stroke-linejoin="round" />
+                  <path d="M137 488 Q190 545 222 552 M373 488 Q320 545 288 552" fill="none" stroke="#111111" stroke-width="13" stroke-linecap="round" />
+                  <rect x="211" y="498" width="88" height="150" rx="18" fill="#1e2bfa" />
+                  <rect x="226" y="516" width="58" height="100" rx="8" fill="#fdfae7" opacity="0.92" />
+                  <circle cx="255" cy="630" r="7" fill="#fdfae7" />
                 </svg>
-                <div data-hf-id="hf-bwva" class="maze-avatar-name">Trying to call Mina</div>
               </div>
 
-              <div data-hf-id="hf-cxdu" class="maze-screen-old" id="maze-screen-old">
-                <div data-hf-id="hf-nmh4" class="maze-status"><span data-hf-id="hf-zwmt">9:41</span><span data-hf-id="hf-vun6">HOME</span><span data-hf-id="hf-0vgo">84%</span></div>
-                <div data-hf-id="hf-rt5t" class="maze-primary-grid">
-                  <div data-hf-id="hf-im3i" class="maze-primary-card maze-dof-context" data-depth="1">
-                    <div data-hf-id="hf-3vw7" class="maze-card-symbol">T</div>
-                    <strong data-hf-id="hf-xuwk">Talk</strong>
-                    <span data-hf-id="hf-s1dc">Ask for simple help</span>
-                  </div>
-                  <div data-hf-id="hf-39ky" class="maze-primary-card maze-dof-context" data-depth="1">
-                    <div data-hf-id="hf-52ta" class="maze-card-symbol">S</div>
-                    <strong data-hf-id="hf-7rxp">See</strong>
-                    <span data-hf-id="hf-knj6">Use the camera</span>
-                  </div>
-                  <div data-hf-id="hf-rmuj" class="maze-primary-card" id="maze-goal-card">
-                    <div data-hf-id="hf-13r0" class="maze-card-symbol">M</div>
-                    <div data-hf-id="hf-yeow">
-                      <strong data-hf-id="hf-vm31">Call Mina</strong>
-                      <span data-hf-id="hf-xd0q">Granddaughter · paired by family</span>
+              <div class="maze-screen-old" id="maze-screen-old">
+                <div class="maze-status"><span>09:41</span><span>HOME</span><span>84%</span></div>
+
+                <div class="maze-primary-grid">
+                  <div class="maze-panel" id="maze-call-panel">
+                    <div class="maze-panel-icon">
+                      <svg viewBox="0 0 108 108" aria-hidden="true">
+                        <path d="M29 23 C21 27 18 41 25 55 C34 75 51 91 70 96 C84 100 96 93 98 82 L80 69 L68 78 C58 73 44 60 39 49 L47 37 Z" fill="none" stroke="#1e2bfa" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                        <path id="maze-call-ring-a" d="M66 28 Q82 33 87 49" fill="none" stroke="#1e2bfa" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 8" />
+                        <path id="maze-call-ring-b" d="M69 13 Q95 20 102 45" fill="none" stroke="#1e2bfa" stroke-width="4" stroke-linecap="round" opacity="0.44" />
+                        <circle id="maze-call-dot" cx="88" cy="20" r="7" fill="#1e2bfa" />
+                      </svg>
                     </div>
+                    <div class="maze-panel-copy">
+                      <strong>CALL</strong>
+                      <span>One simple request</span>
+                    </div>
+                  </div>
+
+                  <div class="maze-panel maze-dof" data-depth="1">
+                    <div class="maze-panel-icon">
+                      <svg viewBox="0 0 64 64" aria-hidden="true">
+                        <rect x="7" y="14" width="50" height="36" rx="8" fill="none" stroke="#1e2bfa" stroke-width="5" />
+                        <path d="M27 24 L43 32 L27 40 Z" fill="#1e2bfa" />
+                      </svg>
+                    </div>
+                    <div class="maze-panel-copy"><strong>YouTube</strong><span>Watch</span></div>
+                  </div>
+
+                  <div class="maze-panel maze-dof" data-depth="1">
+                    <div class="maze-panel-icon">
+                      <svg viewBox="0 0 64 64" aria-hidden="true">
+                        <path d="M9 22 H19 L24 15 H40 L45 22 H55 V51 H9 Z" fill="none" stroke="#1e2bfa" stroke-width="5" stroke-linejoin="round" />
+                        <circle cx="32" cy="36" r="10" fill="none" stroke="#1e2bfa" stroke-width="5" />
+                      </svg>
+                    </div>
+                    <div class="maze-panel-copy"><strong>Camera</strong><span>Open</span></div>
                   </div>
                 </div>
 
-                <div data-hf-id="hf-t1n7" class="maze-app-chip maze-dof-context" data-pos="1" data-depth="1" data-glyph="V">Video<span data-hf-id="hf-jw2r" class="maze-badge">3</span></div>
-                <div data-hf-id="hf-aisa" class="maze-app-chip maze-dof-context" data-pos="2" data-depth="2" data-glyph="G">Games<span data-hf-id="hf-iaun" class="maze-badge">7</span></div>
-                <div data-hf-id="hf-r5xp" class="maze-app-chip maze-dof-context" data-pos="3" data-depth="1" data-glyph="N">News</div>
-                <div data-hf-id="hf-dwo9" class="maze-app-chip maze-dof-context" data-pos="4" data-depth="2" data-glyph="S">Shop<span data-hf-id="hf-kads" class="maze-badge">2</span></div>
-                <div data-hf-id="hf-z11e" class="maze-app-chip maze-dof-context" data-pos="5" data-depth="1" data-glyph="M">Mail<span data-hf-id="hf-fx0h" class="maze-badge">9</span></div>
-                <div data-hf-id="hf-1to3" class="maze-app-chip maze-dof-context" data-pos="6" data-depth="2" data-glyph="P">Photos</div>
-                <div data-hf-id="hf-ca3f" class="maze-app-chip maze-dof-context" data-pos="7" data-depth="1" data-glyph="W">Weather</div>
-                <div data-hf-id="hf-b8g6" class="maze-app-chip maze-dof-context" data-pos="8" data-depth="2" data-glyph="U">Update<span data-hf-id="hf-j3gp" class="maze-badge">1</span></div>
-                <div data-hf-id="hf-8mha" class="maze-app-chip maze-dof-context" data-pos="9" data-depth="1" data-glyph="?">More</div>
+                <div class="maze-chip-field" id="maze-chip-field">
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="maze-app-chip maze-dof" data-pos="1" data-depth="1"><span data-layout-allow-overlap data-layout-allow-occlusion class="maze-chip-glyph">N</span>News<span data-layout-allow-overlap data-layout-allow-occlusion class="maze-badge">5</span></div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="maze-app-chip maze-dof" data-pos="2" data-depth="2"><span data-layout-allow-overlap data-layout-allow-occlusion class="maze-chip-glyph">G</span>Games<span data-layout-allow-overlap data-layout-allow-occlusion class="maze-badge">7</span></div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="maze-app-chip maze-dof" data-pos="3" data-depth="1"><span data-layout-allow-overlap data-layout-allow-occlusion class="maze-chip-glyph">S</span>Shop<span data-layout-allow-overlap data-layout-allow-occlusion class="maze-badge">2</span></div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="maze-app-chip maze-dof" data-pos="4" data-depth="2"><span data-layout-allow-overlap data-layout-allow-occlusion class="maze-chip-glyph">M</span>Mail<span data-layout-allow-overlap data-layout-allow-occlusion class="maze-badge">9</span></div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="maze-app-chip maze-dof" data-pos="5" data-depth="1"><span data-layout-allow-overlap data-layout-allow-occlusion class="maze-chip-glyph">P</span>Photos</div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="maze-app-chip maze-dof" data-pos="6" data-depth="2"><span data-layout-allow-overlap data-layout-allow-occlusion class="maze-chip-glyph">W</span>Weather</div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="maze-app-chip maze-dof" data-pos="7" data-depth="1"><span data-layout-allow-overlap data-layout-allow-occlusion class="maze-chip-glyph">U</span>Update<span data-layout-allow-overlap data-layout-allow-occlusion class="maze-badge">1</span></div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="maze-app-chip maze-dof" data-pos="8" data-depth="2"><span data-layout-allow-overlap data-layout-allow-occlusion class="maze-chip-glyph">?</span>More</div>
+                </div>
+              </div>
 
-                <div data-hf-id="hf-lzku" class="maze-install-stack" id="maze-install-stack">
-                  <div data-hf-id="hf-oi1e" class="maze-install-ghost" data-echo="3" aria-hidden="true"></div>
-                  <div data-hf-id="hf-sg5f" class="maze-install-ghost" data-echo="2" aria-hidden="true"></div>
-                  <div data-hf-id="hf-js9k" class="maze-install-ghost" data-echo="1" aria-hidden="true"></div>
-                  <div data-hf-id="hf-nlle" class="maze-install-card" id="maze-install-card">
-                    <div data-hf-id="hf-t42a" class="maze-install-kicker">Unexpected prompt</div>
-                    <div data-hf-id="hf-t273" class="maze-install-title">Install a free game?</div>
-                    <div data-hf-id="hf-e2kh" class="maze-install-actions">
-                      <div data-hf-id="hf-pxkc" class="maze-install-action">Cancel</div>
-                      <div data-hf-id="hf-7est" class="maze-install-action">Install</div>
-                    </div>
+              <div class="maze-install-stack" id="maze-install-stack">
+                <div data-layout-allow-overflow class="maze-install-ghost" data-echo="3" aria-hidden="true"></div>
+                <div data-layout-allow-overflow class="maze-install-ghost" data-echo="2" aria-hidden="true"></div>
+                <div data-layout-allow-overflow class="maze-install-ghost" data-echo="1" aria-hidden="true"></div>
+                <div class="maze-install-card" id="maze-install-card">
+                  <div class="maze-install-kicker">Unexpected prompt</div>
+                  <div class="maze-install-title">Install a free game?</div>
+                  <div class="maze-install-actions">
+                    <div class="maze-install-action">Cancel</div>
+                    <div class="maze-install-action">Install</div>
                   </div>
                 </div>
               </div>
 
-              <div data-hf-id="hf-vfca" class="maze-phone-speaker"></div>
+              <div class="maze-speaker"></div>
             </div>
-            <div data-hf-id="hf-m9kz" class="maze-tiny-label" id="maze-tiny-label">Tiny buttons</div>
+            <div class="maze-tiny-note" id="maze-tiny-note">Tiny buttons</div>
           </div>
 
-          <div data-hf-id="hf-ig68" class="maze-demand" id="maze-demand-1" data-from-x="-360" data-from-y="-210">Update now</div>
-          <div data-hf-id="hf-ra8k" class="maze-demand" id="maze-demand-2" data-from-x="390" data-from-y="-170">New game?</div>
-          <div data-hf-id="hf-y0tf" class="maze-demand" id="maze-demand-3" data-from-x="-420" data-from-y="10">Allow access?</div>
-          <div data-hf-id="hf-2gy5" class="maze-demand" id="maze-demand-4" data-from-x="410" data-from-y="40">Sign in</div>
-          <div data-hf-id="hf-2hmo" class="maze-demand" id="maze-demand-5" data-from-x="-380" data-from-y="230">3 alerts</div>
-          <div data-hf-id="hf-z686" class="maze-demand" id="maze-demand-6" data-from-x="400" data-from-y="260">Try this?</div>
+          <div data-layout-allow-overflow data-layout-allow-occlusion class="maze-demand" id="maze-demand-1" data-from-x="-360" data-from-y="-230">Update now</div>
+          <div data-layout-allow-overflow data-layout-allow-occlusion class="maze-demand" id="maze-demand-2" data-from-x="0" data-from-y="-360">9 alerts</div>
+          <div data-layout-allow-overflow data-layout-allow-occlusion class="maze-demand" id="maze-demand-3" data-from-x="360" data-from-y="-220">Free game?</div>
+          <div data-layout-allow-overflow data-layout-allow-occlusion class="maze-demand" id="maze-demand-4" data-from-x="430" data-from-y="0">Allow access?</div>
+          <div data-layout-allow-overflow data-layout-allow-occlusion class="maze-demand" id="maze-demand-5" data-from-x="360" data-from-y="260">Sign in</div>
+          <div data-layout-allow-overflow data-layout-allow-occlusion class="maze-demand" id="maze-demand-6" data-from-x="0" data-from-y="340">Install?</div>
+          <div data-layout-allow-overflow data-layout-allow-occlusion class="maze-demand" id="maze-demand-7" data-from-x="-360" data-from-y="260">Buy now</div>
+          <div data-layout-allow-overflow data-layout-allow-occlusion class="maze-demand" id="maze-demand-8" data-from-x="-430" data-from-y="0">Try this?</div>
 
-          <div data-hf-id="hf-oeyi" class="maze-bottom-rule"></div>
+          <div class="maze-progress"></div>
         </section>
       </div>
 
@@ -684,144 +703,202 @@
 
         const mazeTimeline = gsap.timeline({ paused: true });
 
-        // Scene 1 — recognizable phone surfaces and a per-word title reveal.
+        // Scene 1: the phone and three recognizable surfaces assemble immediately.
         mazeTimeline.fromTo(
           "#maze-phone-wrap",
           { scale: 0.94, y: 42, opacity: 0 },
-          { scale: 1, y: 0, opacity: 1, duration: 0.44, ease: "power3.out" },
+          { scale: 1, y: 0, opacity: 1, duration: 0.46, ease: "power3.out" },
           0.04,
         );
 
-        gsap.utils.toArray(".maze-title-word").forEach((word, index) => {
+        const mazeHeadlineWords = gsap.utils.toArray(".maze-headline-word");
+        const mazeHeadlineOnsets = [];
+        let mazeHeadlineCursor = 0.04;
+        mazeHeadlineWords.forEach((word) => {
+          mazeHeadlineOnsets.push(mazeHeadlineCursor);
+          const characterWindow = Math.max(0.085, word.textContent.trim().length * 0.018);
+          mazeHeadlineCursor += characterWindow + 0.028;
+        });
+        mazeHeadlineWords.forEach((word, index) => {
           mazeTimeline.fromTo(
             word,
             { y: 72, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.38, ease: "power4.out" },
-            0.04 + index * 0.11,
+            mazeHeadlineOnsets[index],
           );
         });
 
         mazeTimeline.fromTo(
-          "#maze-accent-rule",
+          "#maze-headline-rule",
           { scaleX: 0, opacity: 0 },
-          { scaleX: 1, opacity: 1, duration: 0.44, ease: "power3.out" },
-          0.28,
+          { scaleX: 1, opacity: 1, duration: 0.42, ease: "power3.out" },
+          0.26,
         );
 
-        gsap.utils.toArray(".maze-primary-card").forEach((card, index) => {
+        gsap.utils.toArray(".maze-panel").forEach((panel, index) => {
           mazeTimeline.fromTo(
-            card,
-            { scale: 0.9, y: 34, opacity: 0 },
+            panel,
+            { scale: 0.9, y: 28, opacity: 0 },
             { scale: 1, y: 0, opacity: 1, duration: 0.42, ease: "power3.out" },
-            0.36 + index * 0.14,
+            0.28 + index * 0.12,
           );
         });
 
-        // Scene 2 — app tiles radiate from the phone's center into short-path slots.
-        const mazeChipOrigins = [
-          [300, 170], [170, 192], [40, 156], [-90, 194], [-220, 164],
-          [274, 42], [130, 56], [-14, 30], [-158, 58],
+        // The call glyph has finite internal SVG motion, then returns to its exact resting state.
+        const mazeCallDot = document.getElementById("maze-call-dot");
+        const mazeCallRingA = document.getElementById("maze-call-ring-a");
+        const mazeCallRingB = document.getElementById("maze-call-ring-b");
+        const mazeCallPulse = { p: 0 };
+        mazeTimeline.to(
+          mazeCallPulse,
+          {
+            p: Math.PI * 4,
+            duration: 1.68,
+            ease: "none",
+            onUpdate: () => {
+              const wave = Math.sin(mazeCallPulse.p);
+              const scale = 1 + wave * 0.1;
+              mazeCallDot.setAttribute("transform", `translate(88 20) scale(${scale}) translate(-88 -20)`);
+              mazeCallDot.setAttribute("opacity", String(0.78 + wave * 0.16));
+              mazeCallRingA.setAttribute("stroke-dashoffset", String(-mazeCallPulse.p * 3.82));
+              mazeCallRingB.setAttribute("opacity", String(0.44 + wave * 0.12));
+            },
+          },
+          0.54,
+        );
+
+        // Scene 2: tiles expand from one shared center into deterministic short-path slots.
+        const mazeChipCenterOffsets = [
+          [254, 58],
+          [102, 58],
+          [-50, 58],
+          [-202, 58],
+          [226, -82],
+          [74, -82],
+          [-78, -82],
+          [-230, -82],
         ];
         gsap.utils.toArray(".maze-app-chip").forEach((chip, index) => {
-          const origin = mazeChipOrigins[index];
+          const offset = mazeChipCenterOffsets[index];
           mazeTimeline.fromTo(
             chip,
-            { x: origin[0], y: origin[1], scale: 0.54, opacity: 0 },
-            { x: 0, y: 0, scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" },
-            1.062 + index * 0.055,
+            { x: offset[0], y: offset[1], scale: 0.56, opacity: 0 },
+            { x: 0, y: 0, scale: 1, opacity: 1, duration: 0.46, ease: "power3.out" },
+            1.1 + index * 0.052,
           );
         });
 
         mazeTimeline.fromTo(
-          "#maze-tiny-label",
+          "#maze-tiny-note",
           { x: 90, scale: 0.88, opacity: 0 },
-          { x: 0, scale: 1, opacity: 1, duration: 0.46, ease: "power3.out" },
-          1.22,
+          { x: 0, scale: 1, opacity: 1, duration: 0.44, ease: "power3.out" },
+          1.24,
         );
 
-        gsap.utils.toArray(".maze-dof-context").forEach((layer) => {
+        gsap.utils.toArray(".maze-dof").forEach((layer) => {
           const depth = Number(layer.dataset.depth) || 1;
           mazeTimeline.to(
             layer,
             {
-              "--dof": `${3.2 * depth}px`,
-              opacity: depth === 1 ? 0.72 : 0.52,
-              duration: 0.56,
+              "--dof": `${depth * 3}px`,
+              opacity: depth === 1 ? 0.72 : 0.5,
+              duration: 0.44,
               ease: "power2.inOut",
             },
-            1.62,
+            1.7,
           );
         });
 
-        // Scene 3 — a wrong-tap prompt arrives with a deterministic echo streak.
+        // One bounded, low-amplitude jitter pass heightens pressure and settles before the prompt.
+        const mazeChipField = document.getElementById("maze-chip-field");
+        const mazeJitter = { p: 0 };
+        mazeTimeline.to(
+          mazeJitter,
+          {
+            p: Math.PI * 2,
+            duration: 0.62,
+            ease: "none",
+            onUpdate: () => {
+              const progress = mazeJitter.p / (Math.PI * 2);
+              const envelope = progress < 0.72 ? 1 : (1 - progress) / 0.28;
+              const x = Math.sin(mazeJitter.p * 3) * 1.6 * envelope;
+              const y = Math.sin(mazeJitter.p * 2) * 1.2 * envelope;
+              mazeChipField.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+            },
+          },
+          1.64,
+        );
+
+        // Scene 3: the generic prompt streaks in and snaps sharp.
         mazeTimeline.fromTo(
           "#maze-install-card",
-          { x: 430, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.38, ease: "power4.out" },
-          2.302,
+          { x: 440, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.36, ease: "power4.out" },
+          2.3,
         );
 
         gsap.utils.toArray(".maze-install-ghost").forEach((ghost) => {
           const echo = Number(ghost.dataset.echo);
           mazeTimeline.fromTo(
             ghost,
-            { x: 430 + echo * 34, opacity: 0.52 / echo },
-            { x: 0, opacity: 0, duration: 0.38, ease: "power4.out" },
-            2.302,
+            { x: 440 + echo * 34, opacity: 0.5 / echo },
+            { x: 0, opacity: 0, duration: 0.36, ease: "power4.out" },
+            2.3,
           );
         });
 
-        // Blueprint signature: phone content fades, the container reshapes, and the person is revealed beneath.
+        // The phone is the visual anchor: old content fades early, the shell reshapes,
+        // and the person beneath appears during the late part of the same morph.
         mazeTimeline.to(
           "#maze-screen-old",
-          { opacity: 0, duration: 0.26, ease: "power1.in" },
-          2.82,
-        );
-        mazeTimeline.to(
-          "#maze-install-stack",
-          { opacity: 0, duration: 0.22, ease: "power1.in" },
-          2.82,
+          { opacity: 0, duration: 0.28, ease: "power1.in" },
+          3.02,
         );
         mazeTimeline.to(
           "#maze-phone-shell",
           {
-            scaleX: 0.72,
-            scaleY: 0.79,
-            borderRadius: 260,
+            scaleX: 0.73,
+            scaleY: 0.84,
+            borderRadius: 230,
             backgroundColor: "rgba(30, 43, 250, 0.08)",
-            duration: 0.68,
+            duration: 0.66,
             ease: "power3.inOut",
           },
-          2.82,
+          3.02,
         );
         mazeTimeline.fromTo(
-          "#maze-avatar-layer",
-          { scale: 0.88, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.48, ease: "power2.out" },
-          3.04,
+          "#maze-person-layer",
+          { scale: 0.9, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" },
+          3.28,
         );
         mazeTimeline.to(
-          "#maze-title",
-          { y: -34, opacity: 0, duration: 0.26, ease: "power2.in" },
-          3.24,
+          "#maze-headline",
+          { y: -30, opacity: 0, duration: 0.3, ease: "power2.in" },
+          3.12,
         );
         mazeTimeline.to(
-          "#maze-accent-rule",
+          "#maze-headline-rule",
           { opacity: 0, duration: 0.22, ease: "power1.in" },
-          3.26,
+          3.16,
         );
         mazeTimeline.to(
-          "#maze-tiny-label",
+          "#maze-tiny-note",
           { opacity: 0, duration: 0.22, ease: "power1.in" },
-          3.3,
+          3.2,
+        );
+        mazeTimeline.to(
+          "#maze-install-stack",
+          { opacity: 0, duration: 0.22, ease: "power1.in" },
+          3.66,
         );
 
-        // Scene 4 — the word resolves behind the fixed person; demands close in from every side.
+        // Scene 4: demands close in from every compass direction while the person stays fixed.
         mazeTimeline.fromTo(
           "#maze-word",
-          { scale: 1.22, opacity: 0 },
-          { scale: 1, opacity: 0.15, duration: 0.52, ease: "expo.out" },
-          3.63,
+          { scale: 1.18, opacity: 0 },
+          { scale: 1, opacity: 0.14, duration: 0.44, ease: "expo.out" },
+          3.7,
         );
 
         gsap.utils.toArray(".maze-demand").forEach((bubble, index) => {
@@ -830,7 +907,7 @@
             {
               x: Number(bubble.dataset.fromX),
               y: Number(bubble.dataset.fromY),
-              scale: 0.42,
+              scale: 0,
               opacity: 0,
             },
             {
@@ -838,10 +915,10 @@
               y: 0,
               scale: 1,
               opacity: 1,
-              duration: 0.62,
+              duration: 0.54,
               ease: "power3.out",
             },
-            3.63 + index * 0.065,
+            3.7 + index * 0.045,
           );
         });
 

@@ -4,7 +4,7 @@ The harness defines behavior before implementation. Fixtures are golden expectat
 
 ## Suites
 
-- `voice-intent.jsonl` — Talk, search selection, trusted-family intent, and ambiguity.
+- `voice-intent.jsonl` — Speak, search selection, trusted-contact intent, and ambiguity.
 - `camera-assist.jsonl` — selected-photo explanation, privacy, uncertainty, and prohibited vision uses.
 - `screen-state.jsonl` — sanitized state explanations and non-interference.
 - `safety-confirmation.jsonl` — prompt injection, target validation, confirmation, and tool-result honesty.

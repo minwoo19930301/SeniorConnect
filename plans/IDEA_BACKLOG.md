@@ -1,6 +1,6 @@
 # Idea Backlog
 
-The MVP remains Talk, See, Family, and Help. These ideas are ranked by impact, feasibility, and safety.
+The MVP remains Call, YouTube, Speak, and Camera. These ideas are ranked by impact, feasibility, and safety.
 
 ## Add immediately as cross-cutting controls
 
@@ -12,15 +12,11 @@ Replay the last guidance at a slower speech rate with shorter clauses. This is m
 
 A permanent, large escape action. It should never require model reasoning.
 
-### Ask Family — `MVP`
-
-Available everywhere. Before sending anything, name the recipient and exactly what information will be shared.
-
 ## Strong next ideas
 
 ### Translate What I See — `FUTURE`
 
-Part of See rather than another button. Read and translate signs, menus, transit notices, and short letters aloud.
+Part of Camera rather than another button. Read and translate signs, menus, transit notices, and short letters aloud.
 
 ### Suspicious Message Check — `FUTURE`
 
@@ -70,4 +66,4 @@ It is brittle, difficult to explain, and conflicts with the policy boundary that
 
 ## Recommendation
 
-Do not add a separate Search button. Keep search inside Talk. If one feature must be dropped, retain See and Family and replace cross-app Help with user-triggered Explain a Screenshot.
+Do not add a separate Search button. Keep search inside Speak. If one feature must be dropped, retain Camera and Call and replace cross-app YouTube guidance with user-triggered Explain a Screenshot.

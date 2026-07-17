@@ -6,12 +6,12 @@ This plan separates device storage, the team’s backend, OpenAI processing, web
 
 | Flow | Data sent | Processor | Planned storage choice | User control |
 | --- | --- | --- | --- | --- |
-| Talk without search | transcript and minimal preferences | Team backend → OpenAI Responses API | Request with `store: false`; no app conversation log by default | Stop, clear local session |
-| Talk with search | query, time/place context | Team backend → OpenAI and retrieved web sources | No app query history by default; source links shown | Search disclosure, clear session |
-| See | one user-selected image and request | Team backend → OpenAI image input | Upload only after confirmation; no app image retention by default | Preview, cancel, delete |
-| Family | opaque trusted-contact ID in model context | Team backend → OpenAI | Raw number stays on device | Revoke trusted contact |
+| Speak without search | transcript and minimal preferences | Team backend → OpenAI Responses API | Request with `store: false`; no app conversation log by default | Stop, clear local session |
+| Speak with search | query, time/place context | Team backend → OpenAI and retrieved web sources | No app query history by default; source links shown | Search disclosure, clear session |
+| Camera | one user-selected image and request | Team backend → OpenAI image input | Upload only after confirmation; no app image retention by default | Preview, cancel, delete |
+| Call | opaque trusted-contact ID in model context | Team backend → OpenAI | Raw number stays on device | Revoke trusted contact |
 | Dialer | trusted number | Android dialer | Governed by device/dialer behavior | Cancel before opening |
-| Help | sanitized state enum and preferences | Team backend → OpenAI | No raw accessibility tree or screenshot | Disable Help/accessibility permission |
+| YouTube guidance | sanitized state enum and preferences | Team backend → OpenAI | No raw accessibility tree or screenshot | Disable guidance/accessibility permission |
 | Future callback | target ID and request metadata | Future backend/push provider | Undefined until protocol review | Out of MVP |
 
 ## OpenAI configuration

@@ -8,7 +8,7 @@ Run this checklist with an older adult or low-literacy participant whenever poss
 - [ ] Normally 20 spoken words or fewer before a pause or user choice.
 - [ ] One question at a time.
 - [ ] No jargon such as API, intent, model, authentication, or permission scope in user copy.
-- [ ] `Repeat Slowly`, `Stop`, `Ask Family`, and `Take Me Home` are consistently named.
+- [ ] `Repeat Slowly`, `Stop`, and `Take Me Home` are consistently named.
 - [ ] Speech does not claim an uncompleted action succeeded.
 - [ ] Uncertainty is stated plainly.
 

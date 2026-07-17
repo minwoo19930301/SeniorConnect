@@ -8,12 +8,12 @@ This minimizes infrastructure and avoids making a short-lived demo protocol look
 
 ## Setup flow
 
-1. The elder deliberately enters **Family setup**.
+1. The elder deliberately enters **Call setup**.
 2. The app says what will be selected and that it will not read or upload the full address book.
 3. Android’s system picker returns one user-selected contact.
 4. The elder or present helper assigns a relationship label and selects allowed channels.
-5. The app shows the photo/name and asks: “Is Mina your granddaughter?”
-6. Affirmative confirmation creates an opaque local ID such as `contact_mina`.
+5. The app shows the selected system contact and asks: “Is this the trusted contact you want to call?”
+6. Affirmative confirmation creates an opaque local ID such as `contact_primary`.
 7. The phone number remains encrypted in app-local storage and is never provided to GPT.
 8. A practice action opens the dialer, then returns to setup.
 

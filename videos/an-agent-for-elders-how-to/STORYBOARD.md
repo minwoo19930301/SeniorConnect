@@ -1,6 +1,6 @@
 ---
 format: 1080x1920
-message: "After one guided setup, the planned app becomes one simple front door to chosen family and phone apps, while the older adult stays in control."
+message: "A planned elder-friendly home screen replaces phone clutter with four clear actions—Call, YouTube, Speak, and Camera—while the older person stays in control."
 arc: cinematic problem-solution trailer
 audience: "Shorts viewers, hackathon judges, older adults, and their families"
 mode: autonomous
@@ -11,18 +11,19 @@ captions: yes
 ## Video direction
 
 - **Portrait frame:** Compose natively for 1080×1920. Stack information vertically, anchor primary reveals around the upper-middle, and reserve the bottom 17% for captions. Never crop a landscape composition into portrait.
-- **Palette and type:** Keep the Blue Professional system: warm cream ground, near-black display text, cobalt as the only high-energy accent, muted gray supporting copy, and softly tinted UI cards. Space Grotesk-style display roles carry trailer titles; the body role carries explanations. No invented colors or fake brand marks.
-- **Trailer grammar:** Use hard typographic cuts, vertical pushes, motion-blur arrivals, reactive displacement, and two decisive bass-impact moments. Every reveal follows its spoken phrase into the back half of the shot. Entrances settle on smooth long-tail motion; no bounce, no elastic motion, and no simultaneous card dump.
-- **Rhythm:** Frame 1 escalates into crowding; Frame 2 creates the first clean held reveal; Frame 3 builds step by step; Frame 4 chases one action and holds on confirmation; Frame 5 uses two sharp internal seams; Frame 6 accelerates through four names and ends on a fully still brand read.
-- **Continuity:** A persistent small “CONCEPT TRAILER” rail and the same reconstructed phone shell connect the scenes. The phone moves from overwhelmed, to configured, to useful. All important content stays above the caption keep-out band.
-- **Never show:** a real app-store publication claim, a real WhatsApp or YouTube partnership, automatic family discovery, password access, silent calls, ad blocking, cross-app tapping, childish elder stereotypes, slideshow front-loading, or screensaver-like independent floating.
+- **Palette and type:** Keep the Blue Professional system: warm cream ground, near-black display text, cobalt as the only high-energy accent, muted gray supporting copy, and softly tinted UI cards. Space Grotesk-style display roles carry trailer titles; the body role carries explanations. No invented colors, logo mark, or fake brand partnership.
+- **Home screen:** Use the actual raster PNG at `assets/ui/planned-home-screen.png`, not an HTML/SVG reconstruction, abstract app icon, or screenshot from a finished app. Its only four main action labels are **Call**, **YouTube**, **Speak**, and **Camera**.
+- **Trailer grammar:** Use hard typographic cuts, vertical pushes, motion-blur arrivals, and two decisive bass-impact moments. Every reveal follows its spoken phrase into the back half of the shot. Entrances settle on smooth long-tail motion; no bounce, elastic motion, or simultaneous card dump.
+- **Rhythm:** Frame 1 escalates into crowding; Frame 2 creates relief with one clean raster home screen; Frame 3 gives the four actions one beat each; Frame 4 chases the Call flow and holds on confirmation; Frame 5 explains a YouTube ad and an install warning; Frame 6 closes on the same four labels in a fully still grid.
+- **Continuity:** A persistent small “CONCEPT TRAILER” rail and the same reconstructed phone shell connect the scenes. The phone moves from overwhelmed, to simple, to useful. All important content stays above the caption keep-out band.
+- **Never show:** a fifth home-screen action, an invented person name, a project logo mark, a real YouTube logo or partnership, automatic family discovery, password access, silent calls, ad blocking, cross-app tapping, a completed install, childish elder stereotypes, slideshow front-loading, or screensaver-like independent floating.
 
 ## Frame 1 — The maze
 
-- scene: A tall phone fills the portrait frame as app tiles, notification badges, tiny prompts, and a game-install dialog rapidly crowd around one simple request: “Call Mina.” A persistent “Concept trailer” label remains visible.
+- scene: A tall phone fills the portrait frame as app tiles, notification badges, tiny prompts, and a game-install dialog rapidly crowd around one simple request: “CALL.” A persistent “Concept trailer” label remains visible.
 - voiceover: "Too many apps. Tiny buttons. One wrong tap—and a simple phone becomes a maze."
 - duration: 5.312s
-- poster: 4s
+- poster: 4.2s
 - transition_in: cut
 - status: animated
 - src: compositions/frames/01-the-maze.html
@@ -31,172 +32,172 @@ captions: yes
 - beat: recognition and tension
 - blueprint: overwhelm-surround (Adapt)
 - focal: a reconstructed phone that reveals a dignified older-adult silhouette beneath the clutter
-- roles: phone and silhouette = foreground subject · app tiles and prompts = surrounding demands · giant “MAZE” letterforms = background structure · “Call Mina” request = supporting human goal
+- roles: phone and silhouette = foreground subject · app tiles and prompts = surrounding demands · giant “MAZE” letterforms = background structure · “CALL” request = supporting human goal
 - sfx: notification, glitch-1, impact-bass-1
 
-narrativeRole: Opens like a trailer with the older adult's real problem, letting phone clutter physically overwhelm the frame before the product appears.
+narrativeRole: Opens like a trailer with the older adult's real problem, letting phone clutter physically overwhelm the frame before the simple home screen appears.
 
 keyMessage: Ordinary phone tasks become difficult when every app and prompt competes for attention.
 
 Adapt: Keep the blueprint's subject-reveal and radial close-in signature. Change generic product mockups into one portrait phone, and reveal a simple older-adult silhouette beneath it so the person—not the technology—becomes the center of the problem.
 
-Scene 1 (0.0–1.2s): “TOO MANY APPS” arrives in a per-word staggered reveal (`dynamic-content-sequencing`) above a tall phone; three recognizable home-screen panels assemble below it. Layered-depth portrait framing, phone occupying most of the top 70%, with the caption band clear.
+Scene 1 (0.0–1.1s): “TOO MANY APPS” arrives in a per-word staggered reveal (`dynamic-content-sequencing`) above a tall phone; three recognizable home-screen panels assemble below it. Layered-depth portrait framing fills the top 70% while the caption band remains clear.
 
-Scene 2 (1.2–2.6s): As the voice says “Tiny buttons,” app tiles and small notification badges stagger directly into their slots via short-path assemble (`center-outward-expansion`); selective blur (`depth-of-field-blur`) keeps the central “Call Mina” request sharp while density grows around it.
+Scene 2 (1.1–2.3s): As the voice says “Tiny buttons,” app tiles and notification badges stagger into place via short-path assemble (`center-outward-expansion`); selective blur (`depth-of-field-blur`) keeps the central “CALL” request sharp while density grows around it.
 
-Scene 3 (2.6–4.1s): On “One wrong tap,” a game-install prompt slams over the phone with a motion-blur streak (`motion-blur-streak`) and a bass hit; the screen content then morphs away through the blueprint's card-morph anchor (`card-morph-anchor`) to reveal the older-adult silhouette holding the phone.
+Scene 3 (2.3–3.7s): On “One wrong tap,” a generic game-install prompt slams over the phone with a motion-blur streak (`motion-blur-streak`) and a bass hit; the screen content then morphs away through the blueprint's card-morph anchor (`card-morph-anchor`) to reveal the older-adult silhouette holding the phone.
 
-Scene 4 (4.1–6.0s): On “becomes a maze,” demand bubbles close in from every compass direction via radial smooth-settle entries (`spring-pop-entrance` in restrained register) while the silhouette stays fixed. The giant word “MAZE” resolves behind the person and the crowded state holds still—no camera push and no breathing.
+Scene 4 (3.7–5.312s): On “becomes a maze,” demand bubbles close in from every compass direction via radial smooth-settle entries (`spring-pop-entrance` in restrained register) while the silhouette stays fixed. The giant word “MAZE” resolves behind the person and the crowded state holds still—no camera push and no breathing.
 
-## Frame 2 — One front door
+## Frame 2 — One clear home screen
 
-- scene: On a bass impact, the clutter clears. A generic concept app listing downloads “An Agent for Elders,” then the app icon expands behind the title “ONE SIMPLE FRONT DOOR.”
-- voiceover: "Imagine An Agent for Elders: one simple front door, installed with help from family."
-- duration: 6.165s
-- poster: 4s
+- scene: The clutter clears to warm cream. A full portrait phone resolves into a simple flattened raster-style home screen with four large tiles labeled Call, YouTube, Speak, and Camera, plus a small “CONCEPT SCREEN” note.
+- voiceover: "Now imagine one simple home screen, built for clarity instead of clutter."
+- duration: 4.949s
+- poster: 5s
 - transition_in: zoom-through
 - status: animated
-- src: compositions/frames/02-one-front-door.html
+- src: compositions/frames/02-simple-home-screen.html
 - type: product_intro
-- persuasion: Before-and-after + cinematic reveal
-- beat: relief and anticipation
-- blueprint: ticker-takeover (Adapt)
-- focal: the “An Agent for Elders” app mark crashing into the clean center
-- roles: concept app listing = supporting context · cycling “apps / family / help” words = displaced setup · app mark and project name = foreground hero · cream field and cobalt rule = background
-- sfx: whoosh-cinematic, click, chime
+- persuasion: Before-and-after + visual relief
+- beat: relief and recognition
+- blueprint: grid-card-assemble (Adapt)
+- focal: the actual local raster PNG `assets/ui/planned-home-screen.png` with exactly four large action tiles
+- roles: `assets/ui/planned-home-screen.png` = foreground hero image · Call / YouTube / Speak / Camera tiles inside the image = primary controls · “CONCEPT SCREEN” note = supporting truthfulness · cream field and cobalt rule = background
+- sfx: whoosh-cinematic, click-soft, chime
 
-narrativeRole: Reveals the named project as the direct answer to the visual chaos and includes the requested installation moment without pretending the app is already published.
+narrativeRole: Replaces the maze with one immediately readable screen and makes the proposed interface concrete without pretending the app is already built.
 
-keyMessage: The planned app becomes a single starting place after one assisted installation.
+keyMessage: The planned experience starts from one simple screen instead of a crowded phone launcher.
 
-Adapt: Keep the ticker-to-collision signature. The typed lead-in becomes a generic concept listing and the incoming hero becomes the app mark plus project name; the final held payoff is “ONE SIMPLE FRONT DOOR.”
+Adapt: Keep the blueprint's accumulating-card structure, but assemble a single flattened raster-style phone surface. The four large tiles are the complete home screen; no logo mark, fifth action, dock, or hidden menu appears.
 
-Scene 1 (0.0–1.4s): A generic concept app listing types on “Imagine An Agent for Elders” with a visible download ring completing beside it (`discrete-text-sequence`). Centered portrait composition, listing in the upper-middle with a small “NOT YET PUBLISHED” note.
+Scene 1 (0.0–1.1s): The actual raster PNG `assets/ui/planned-home-screen.png` rises into the upper-middle with a small “CONCEPT SCREEN” label (`motion-blur-streak`, restrained). Do not recreate the interface in HTML or SVG.
 
-Scene 2 (1.4–2.8s): The phrase “help with” holds while its cobalt slot cycles vertically through “APPS,” “FAMILY,” and “PHONE TASKS” (`vertical-spring-ticker`), paced to “one simple front door.” Camera remains static.
+Scene 2 (1.1–2.4s): A slow crop move across the already-rendered PNG reveals its four large buttons in reading order. Do not add extra placeholders or HTML tiles.
 
-Scene 3 (2.8–4.4s): The cobalt app mark crashes upward from below with directional blur (`motion-blur-streak`) and physically shoves the listing and ticker off the top (`reactive-displacement`). The impact lands heavy in the upper-middle; the project name locks beneath it.
+Scene 3 (2.4–3.8s): Four short callouts—“CALL,” “YOUTUBE,” “SPEAK,” and “CAMERA”—resolve around the single PNG in reading order (`dynamic-content-sequencing`). The image remains unchanged.
 
-Scene 4 (4.4–6.0s): “ONE SIMPLE FRONT DOOR” assembles word by word (`dynamic-content-sequencing`) below the mark as “installed with help from family” appears as a smaller supporting line. Everything settles into a deliberate still hold.
+Scene 4 (3.8–4.949s): “ONE SIMPLE HOME SCREEN” lands above the PNG as the image holds fully still. The four buttons remain the only available main actions.
 
-## Frame 3 — Choose the connections
+## Frame 3 — Four actions
 
-- scene: A guided setup advances in bold vertical beats: select trusted Mina, approve Phone and WhatsApp chat, approve YouTube, Camera, and Search, then lock on “NOTHING CONNECTS SILENTLY.”
-- voiceover: "Choose one trusted person and the apps it may open. Nothing connects silently."
-- duration: 5.035s
-- poster: 5s
+- scene: Call, YouTube, Speak, and Camera take one cinematic beat each, then assemble into the same two-by-two home-screen grid under the line “ONLY FOUR MAIN ACTIONS.”
+- voiceover: "Call. YouTube. Speak. Camera. Four clear choices, and nothing more."
+- duration: 4.352s
+- poster: 4.5s
 - transition_in: push-slide UP
 - status: animated
-- src: compositions/frames/03-choose-connections.html
+- src: compositions/frames/03-four-actions.html
 - type: feature_showcase
-- persuasion: Progressive disclosure + trust boundary
-- beat: reassurance and control
-- blueprint: grid-card-assemble (Adapt)
-- focal: a vertical guided-setup stack moving from Mina to approved app destinations
-- roles: Mina contact card = first foreground anchor · approved app cards = accumulating midground · checkmarks and connection line = supporting progress · “NOTHING CONNECTS SILENTLY” = final foreground lock
+- persuasion: Progressive disclosure + simplicity proof
+- beat: clarity and control
+- blueprint: kinetic-type-beats (Adapt)
+- focal: the four exact action labels resolving into four large accessible tiles
+- roles: Call / YouTube / Speak / Camera words = foreground kinetic beats · matching large tiles = midground payoff · one cobalt progress rule = background structure
 - sfx: click-soft, pop, impact-bass-2
 
-narrativeRole: Demonstrates “connects other apps” as explicit, reversible setup choices, not hidden access or autonomous cross-app control.
+narrativeRole: Proves that the home screen is intentionally limited to four understandable choices rather than another dense launcher.
 
-keyMessage: The elder and helper choose the trusted person and destinations the agent may open.
+keyMessage: The elder sees four main actions—Call, YouTube, Speak, and Camera—and no extra app clutter.
 
-Adapt: Keep the blueprint's accumulating card cascade, but turn the wide grid into a portrait step stack. Each selection remains visible so the shot reads as an explicit consent sequence, not a cloud of app logos.
+Adapt: Keep the blueprint's fixed-anchor word replacement and final assembled state. Each beat uses a distinct entrance, but all four settle into one restrained two-by-two grid with no extra buttons.
 
-Scene 1 (0.0–1.5s): On “Choose one trusted person,” Mina's large verified contact card rises into the upper-middle and its outline self-draws (`svg-path-draw`). Vertical rule-of-thirds framing with the step label above and open space below for the next choices.
+Scene 1 (0.0–0.9s): “CALL” lands first with a generic phone pictogram and the short supporting label “TRUSTED FAMILY” (`kinetic-beat-slam`). The word remains the clear focal point.
 
-Scene 2 (1.5–3.8s): As the voice names “the apps it may open,” Phone, WhatsApp chat, YouTube, Camera, and Search cards assemble one at a time down a two-column portrait brick (`center-outward-expansion`, short-path variant); each named card receives a tactile checkmark draw (`svg-path-draw`) on its cue.
+Scene 2 (0.9–2.1s): “YOUTUBE” replaces it through a velocity-matched cut, paired with a generic video rectangle and “EXPLAIN ADS”; “SPEAK” follows with a simple waveform and “ASK OUT LOUD” (`kinetic-beat-slam`, distinct axes).
 
-Scene 3 (3.8–5.4s): A thin cobalt path connects Mina to the selected destinations while the unselected background apps dim by position. The camera makes one short pull-back (`multi-phase-camera`) to reveal the whole chosen set, then stops.
+Scene 3 (2.1–3.3s): “CAMERA” arrives with a plain viewfinder and “READ WHAT I SEE.” The four words then scale-swap into the actual PNG at `assets/ui/planned-home-screen.png` (`scale-swap-transition`).
 
-Scene 4 (5.4–7.0s): “NOTHING CONNECTS SILENTLY” lands as a kinetic beat-slam (`kinetic-beat-slam`) across the upper-middle; the setup cards remain readable underneath and hold completely still.
+Scene 4 (3.3–4.352s): The actual raster PNG pulls back just enough to reveal all four buttons at once. “ONLY FOUR MAIN ACTIONS” lands above and the image holds still.
 
-## Frame 4 — Call Mina
+## Frame 4 — Call a trusted family contact
 
-- scene: A full-screen voice command “CALL MINA” slams in, compresses into the Family button, reveals Mina's verified contact, pauses at “Call Mina by phone?”, then hands off to a normal dialer screen.
-- voiceover: "Say, ‘Call Mina.’ It confirms the right person, then opens the phone dialer."
-- duration: 5.227s
-- poster: 5s
+- scene: A full-screen “CALL” command compresses into the Call tile, reveals a generic verified trusted-family-contact card, pauses at “Call this trusted family contact?”, then hands off to a normal phone dialer.
+- voiceover: "Choose Call. It shows your trusted family contact, asks you to confirm, then opens the phone dialer."
+- duration: 7.083s
+- poster: 4.7s
 - transition_in: push-slide UP
 - status: animated
-- src: compositions/frames/04-call-mina.html
+- src: compositions/frames/04-call-family.html
 - type: feature_showcase
-- persuasion: Demonstration + question-to-answer pairing
+- persuasion: Demonstration + visible confirmation
 - beat: confidence and connection
 - blueprint: cursor-ui-demo (Adapt)
-- focal: the “Call Mina” voice request becoming a confirmed phone-dialer handoff
-- roles: voice phrase and waveform = initiating actor · Family tile and Mina card = midground workflow · confirmation sheet = foreground decision · dialer handoff = payoff surface
+- focal: the Call action becoming a confirmed phone-dialer handoff for a generic trusted contact
+- roles: “CALL” phrase and tap halo = initiating actor · Call tile and generic trusted-contact card = midground workflow · confirmation sheet = foreground decision · dialer handoff = payoff surface
 - sfx: whoosh-short, click, chime
 
-narrativeRole: Delivers the most emotional use case as one fast cinematic workflow while keeping identity and confirmation visible.
+narrativeRole: Demonstrates the emotional family-contact use case while keeping the contact generic and the identity and confirmation steps visible.
 
-keyMessage: A spoken request can reach the correct paired family member without a silent call.
+keyMessage: The Call action reaches a previously approved family contact without guessing a name or starting a silent call.
 
-Adapt: Keep the blueprint's camera-chase and responsive UI signature, replacing the tiny desktop cursor with a large accessible voice pulse and tap halo. The chase follows the request from Family to Mina to confirmation to the normal dialer.
+Adapt: Keep the blueprint's camera-chase and responsive UI signature, replacing the tiny desktop cursor with a large accessible tap halo. The chase follows Call to a generic “TRUSTED FAMILY CONTACT” card, then to confirmation, then to the normal dialer.
 
-Scene 1 (0.0–1.4s): “CALL MINA” slams into the upper-middle in two kinetic beats (`kinetic-beat-slam`) while a voice waveform draws below it. Full-width strip framing, giant type as the first focal point.
+Scene 1 (0.0–1.3s): “CALL” slams into the upper-middle (`kinetic-beat-slam`) while a simple phone pulse draws below it. Full-width strip framing makes the one chosen action unmistakable.
 
-Scene 2 (1.4–3.0s): The phrase scales into the Family tile through a center scale-swap (`scale-swap-transition`); a large tap halo presses the tile with a ripple (`cursor-click-ripple`) and the camera chases downward to Mina's verified contact (`viewport-change`).
+Scene 2 (1.3–3.1s): The word scales into the home screen's Call tile through a center scale-swap (`scale-swap-transition`); a large tap halo presses the tile with a ripple (`cursor-click-ripple`) and the camera chases downward to a card labeled “TRUSTED FAMILY CONTACT” (`viewport-change`). No name or portrait is shown.
 
-Scene 3 (3.0–5.2s): On “confirms the right person,” the camera focus-locks on Mina, then follows the tap halo to the “Call Mina by phone?” sheet (`camera-cursor-tracking`). Mina's name and relationship reveal sequentially; the Call button compresses and releases (`press-release-spring`) only after the confirmation line is visible.
+Scene 3 (3.1–5.2s): The camera focus-locks on the verified generic contact, then follows the tap halo to the question “Call this trusted family contact?” (`camera-cursor-tracking`). The relationship label and “APPROVED DURING SETUP” appear before the Call button compresses and releases (`press-release-spring`).
 
-Scene 4 (5.2–7.0s): The confirmation card morphs into a normal dialer surface (`card-morph-anchor`), the camera settles, and “OPENING PHONE DIALER” holds as the outcome. No call animation begins; the frame remains truthful and still.
+Scene 4 (5.2–7.083s): The confirmation card morphs into a normal dialer surface (`card-morph-anchor`), the camera settles, and “OPENING PHONE DIALER” holds with “NO CALL HAS STARTED.” No dialing or call animation begins.
 
-## Frame 5 — Understand before tapping
+## Frame 5 — YouTube, explained
 
-- scene: A generic vertical video ad freezes under the line “THIS IS AN AD. JUST WAIT.” It whips away to a game-install prompt and the warning “THIS MAY INSTALL A GAME.” No button is pressed.
-- voiceover: "When a video turns confusing, it says, ‘This is an ad. Just wait.’ Before a game installs, it warns you."
-- duration: 7.723s
-- poster: 6s
+- scene: A generic YouTube screen freezes under “THIS IS AN AD. JUST WAIT.” It whips away to a game-install prompt and the warning “THIS MAY INSTALL A GAME.” No button is pressed.
+- voiceover: "On YouTube, it explains, ‘This is an ad. Just wait.’ Before an accidental game install, it warns you."
+- duration: 7.616s
+- poster: 6.2s
 - transition_in: blur-crossfade
 - status: animated
-- src: compositions/frames/05-understand-before-tapping.html
+- src: compositions/frames/05-youtube-explained.html
 - type: feature_showcase
-- persuasion: Worked scenario + contrast
+- persuasion: Worked scenario + prevention through explanation
 - beat: foresight and safety
 - blueprint: kinetic-type-beats (Adapt)
-- focal: two plain-language safety statements replacing confusing phone surfaces
-- roles: generic video ad and install prompt = reconstructed UI subjects · “THIS IS AN AD” and “THIS MAY INSTALL A GAME” = foreground hero phrases · wait counter and untouched buttons = supporting proof
+- focal: two plain-language safety statements replacing confusing YouTube and install surfaces
+- roles: generic YouTube player and install prompt = reconstructed UI subjects · “THIS IS AN AD” and “THIS MAY INSTALL A GAME” = foreground hero phrases · wait counter and untouched buttons = supporting proof
 - sfx: whoosh, error, impact-bass-1
 
-narrativeRole: Turns the user's advertisement and accidental-install examples into memorable trailer lines while showing that the app explains rather than operates the screen.
+narrativeRole: Turns the requested YouTube-ad and accidental-install examples into memorable trailer lines while showing that the app explains what is happening before the elder acts.
 
-keyMessage: Help makes confusing prompts understandable, but the elder still chooses what to do.
+keyMessage: A clear explanation can prevent an accidental install while the older person keeps the final choice.
 
-Adapt: Keep the multi-beat type replacement engine, but let each hero phrase emerge directly from the reconstructed phone surface it explains. Use a velocity-matched waterfall cut between the ad and install examples.
+Adapt: Keep the multi-beat type replacement engine, but let each hero phrase emerge directly from the reconstructed surface it explains. Use the plain word “YouTube” only; do not reproduce its logo, visual identity, or suggest a partnership.
 
-Scene 1 (0.0–1.8s): A generic vertical video player establishes in the upper two-thirds; an “Ad · 5 seconds” badge and untouched skip area appear as the voice says “video turns confusing.” The camera holds; only the countdown ticks (`discrete-text-sequence`).
+Scene 1 (0.0–1.8s): A generic vertical video player labeled “YOUTUBE” establishes in the upper two-thirds; an “Ad · 5 seconds” badge and untouched skip area appear. The camera holds and only the countdown ticks (`discrete-text-sequence`).
 
-Scene 2 (1.8–3.8s): “THIS IS AN AD” flies in with directional blur and resolves sharp (`motion-blur-streak`), then “JUST WAIT” hard-cuts beneath it (`kinetic-beat-slam`). The player dims behind the statement and the read holds briefly.
+Scene 2 (1.8–3.6s): “THIS IS AN AD” flies in with directional blur and resolves sharp (`motion-blur-streak`), then “JUST WAIT” hard-cuts beneath it (`kinetic-beat-slam`). The player dims behind the statement and the read holds briefly.
 
-Scene 3 (3.8–5.3s): A vertical waterfall cut (`cut-catalog.md`) carries the ad statement upward while the game-install card enters from below at matched velocity. Cancel and Install remain visually untouched.
+Scene 3 (3.6–5.2s): A vertical waterfall cut (`cut-catalog.md`) carries the ad explanation upward while a generic game-install card enters from below at matched velocity. Cancel and Install remain visually untouched.
 
-Scene 4 (5.3–8.0s): On “warns you,” “THIS MAY INSTALL A GAME” assembles in three strong chunks (`dynamic-content-sequencing`); a cobalt outline circles Cancel (`css-marker-patterns`) without clicking it. “HELP EXPLAINS · YOU DECIDE” lands last and holds still.
+Scene 4 (5.2–7.616s): “THIS MAY INSTALL A GAME” assembles in three strong chunks (`dynamic-content-sequencing`); a cobalt outline circles Cancel (`css-marker-patterns`) without clicking it. “YOU CHOOSE” lands last and holds still, making the prevention mechanism an explanation rather than autonomous control.
 
-## Frame 6 — Help without taking over
+## Frame 6 — Four clear actions
 
-- scene: Talk, See, Family, and Help land one by one as giant vertical title beats, assemble into the simple home screen, then resolve on “HELP WITHOUT TAKING OVER” and the project name with a clear concept-only note.
-- voiceover: "Talk. See. Family. Help. Technology that helps—without taking over."
-- duration: 4.416s
-- poster: 3.8s
+- scene: Call, YouTube, Speak, and Camera land one by one as giant vertical title beats, assemble into the simple raster home screen, and finish as a still two-by-two grid with a clear concept-only note. No logo mark appears.
+- voiceover: "Call. YouTube. Speak. Camera. Four clear actions, with the older person still in control."
+- duration: 5.931s
+- poster: 3.9s
 - transition_in: zoom-through
 - status: animated
-- src: compositions/frames/06-help-without-taking-over.html
-- type: branding
+- src: compositions/frames/06-four-clear-actions.html
+- type: closing
 - persuasion: Callback + distillation
 - beat: relief and resolve
 - blueprint: kinetic-type-beats (Reproduce)
-- focal: the four feature names resolving into the simple home screen and final promise
-- roles: Talk / See / Family / Help = foreground kinetic words · reconstructed four-tile home = midground payoff · project name and concept note = closing lockup · cobalt progress rule = background structure
+- focal: the same four action labels resolving into the actual raster PNG `assets/ui/planned-home-screen.png`
+- roles: Call / YouTube / Speak / Camera = foreground kinetic words · `assets/ui/planned-home-screen.png` = midground payoff image · concept-only note and cobalt progress rule = supporting structure
 - sfx: pop, whoosh-cinematic, impact-bass-2, chime
 
-narrativeRole: Closes like a product trailer, turning the four-button interface into a memorable promise rather than another feature list.
+narrativeRole: Closes like a movie trailer by turning the four-button interface into a memorable promise without adding a logo or another feature.
 
-keyMessage: An Agent for Elders simplifies access while keeping the person in control.
+keyMessage: Four clear actions can make a phone easier to use while the older person stays in control.
 
-Scene 1 (0.0–2.1s): “TALK,” “SEE,” “FAMILY,” and “HELP” hard-cut one at a time at a fixed upper-middle anchor (`kinetic-beat-slam`); each word uses a distinct entrance direction and the cobalt background rule advances once per name.
+Scene 1 (0.0–1.7s): “CALL,” “YOUTUBE,” “SPEAK,” and “CAMERA” hard-cut one at a time at a fixed upper-middle anchor (`kinetic-beat-slam`); each word uses a distinct entrance direction and the cobalt background rule advances once per label.
 
-Scene 2 (2.1–4.2s): The four words scale-swap into their matching large tiles (`scale-swap-transition`) and the reconstructed portrait home screen assembles as one centered device surface. A single short pull-back reveals Repeat, Home, and Stop above the caption keep-out, then the camera stops.
+Scene 2 (1.7–3.2s): The four words scale-swap into the actual raster PNG `assets/ui/planned-home-screen.png` (`scale-swap-transition`). Do not recreate its buttons in HTML or SVG. No dock, helper row, or fifth action appears.
 
-Scene 3 (4.2–5.6s): “TECHNOLOGY THAT HELPS” reveals in measured chunks above the phone (`dynamic-content-sequencing`); the four tiles remain visible and stable below it.
+Scene 3 (3.2–4.6s): “FOUR CLEAR ACTIONS” reveals in measured chunks above the PNG (`dynamic-content-sequencing`); the four labeled buttons remain visible and stable below it.
 
-Scene 4 (5.6–7.0s): “WITHOUT TAKING OVER” lands on the final bass impact (`kinetic-beat-slam`), followed by “AN AGENT FOR ELDERS” and “CONCEPT DEMO · APP NOT BUILT YET.” The closing lockup holds fully still to the end.
+Scene 4 (4.6–5.931s): The final PNG holds on Call, YouTube, Speak, and Camera with “OLDER PERSON IN CONTROL” and “CONCEPT DEMO · APP NOT BUILT YET.” There is no project name, app icon, or logo mark.
