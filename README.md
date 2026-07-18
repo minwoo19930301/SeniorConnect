@@ -114,10 +114,18 @@ Start here:
 2. Read [the small first version](plans/MVP.md).
 3. Follow [the contributor rules](AGENTS.md).
 4. Check [the three-day team plan](plans/THREE_DAY_PLAN.md).
+5. Install local git hooks so **everyone** (including admins) uses PRs, not direct pushes to `main`:
+
+   ```bash
+   ./scripts/install-dev-hooks.sh
+   ```
+
+6. Read [PR workflow](docs/PR_WORKFLOW.md) (Mac/Windows daily flow + optional Mac hourly Grok PR checker via crontab).
 
 Other useful documents:
 
 - [Safety and privacy](plans/SAFETY_AND_PRIVACY.md)
+- [PR workflow](docs/PR_WORKFLOW.md)
 - [How family pairing works](plans/PAIRING_PROTOCOL.md)
 - [Ideas for later](plans/IDEA_BACKLOG.md)
 - [Demo plan](plans/DEMO_PLAN.md)
