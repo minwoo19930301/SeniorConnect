@@ -2,7 +2,7 @@
 
 ## D-001: keep the home screen to four clear actions
 
-**Decision:** the four primary actions are Call, YouTube, Speak, and Camera.
+**Decision:** the four primary actions are Call, YouTube, Speak, and Map.
 
 **Reason:** these labels match the tasks the user asked for and remain readable on a simple four-button screen.
 

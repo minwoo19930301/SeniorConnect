@@ -15,7 +15,7 @@ const expected = [
   ["action_call", "action_call", "CALL"],
   ["action_youtube", "action_youtube", "YOUTUBE"],
   ["action_speak", "action_speak", "SPEAK"],
-  ["action_camera", "action_camera", "CAMERA"],
+  ["action_map", "action_map", "MAP"],
 ];
 
 const buttonBlocks = layout.match(/<Button\b[\s\S]*?\/>/g) ?? [];

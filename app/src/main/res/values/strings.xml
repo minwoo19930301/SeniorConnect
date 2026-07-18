@@ -5,5 +5,5 @@
     <string name="action_call">CALL</string>
     <string name="action_youtube">YOUTUBE</string>
     <string name="action_speak">SPEAK</string>
-    <string name="action_camera">CAMERA</string>
+    <string name="action_map">MAP</string>
 </resources>

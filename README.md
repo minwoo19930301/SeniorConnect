@@ -9,7 +9,7 @@ four large buttons. The buttons do not have features yet.
 
 ## What the planned home screen looks like
 
-![Concept home screen with four large buttons: Call, YouTube, Speak, and Camera](assets/planned-home-screen.png)
+![Concept home screen with four large buttons: Call, YouTube, Speak, and Map](assets/planned-home-screen.png)
 
 This is a concept image. The Android prototype follows the same simple
 two-by-two home-screen layout.
@@ -53,13 +53,13 @@ Tap **Speak** and talk normally.
 The agent can have a simple conversation, answer a question, or search for
 current information and show where the answer came from.
 
-### Camera
+### Map
 
-Tap **Camera** to take a photo of a letter, sign, menu, label, or appliance
-button. The app can read it aloud and explain it in simple words.
+Tap **Map** to open a simple map and find a place or get directions without
+sorting through a crowded phone.
 
-The camera opens only when the person asks. The app says when a photo is
-unclear, and it does not identify people or give medical advice.
+The map opens only when the person asks. The app explains directions in simple
+words and does not share the person’s location without permission.
 
 ## Controls are always close
 
