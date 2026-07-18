@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.invalid/an-agent-for-elders/tool-result.schema.json",
+  "$id": "https://example.invalid/seniorconnect/tool-result.schema.json",
   "title": "ToolResult",
   "type": "object",
   "additionalProperties": false,

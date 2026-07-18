@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.invalid/an-agent-for-elders/openai-proposal-transport.schema.json",
+  "$id": "https://example.invalid/seniorconnect/openai-proposal-transport.schema.json",
   "title": "OpenAIProposalTransport",
   "description": "Planned all-required transport shape for structured model output. Verify the exact supported schema with an API smoke test before implementation.",
   "type": "object",

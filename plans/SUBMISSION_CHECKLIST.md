@@ -13,7 +13,7 @@ Source of truth: [OpenAI Build Week rules](https://openai.devpost.com/rules). Re
 
 ## Repository
 
-- [ ] Project and code name is `an-agent-for-elders`; the repository name may remain unchanged.
+- [ ] Project and code name is `seniorconnect`; the repository name may remain unchanged.
 - [ ] README explains setup, architecture, safety boundaries, and how to test.
 - [ ] MIT license remains present.
 - [ ] No credentials, real contacts, private images, or personal messages are committed.

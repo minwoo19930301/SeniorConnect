@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "an-agent-for-elders"
+rootProject.name = "SeniorConnect"
 include(":app")

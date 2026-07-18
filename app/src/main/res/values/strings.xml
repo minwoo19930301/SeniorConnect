@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">An Agent for Elders</string>
+    <string name="app_name">SeniorConnect</string>
     <string name="home_prompt">What would you like to do?</string>
     <string name="action_call">CALL</string>
     <string name="action_youtube">YOUTUBE</string>
     <string name="action_speak">SPEAK</string>
-    <string name="action_camera">CAMERA</string>
+    <string name="action_map">MAP</string>
 </resources>

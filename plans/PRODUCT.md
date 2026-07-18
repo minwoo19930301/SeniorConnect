@@ -2,7 +2,7 @@
 
 ## One-sentence promise
 
-**An Agent for Elders gives four clear choices—Call, YouTube, Speak, and Camera—so a crowded phone is easier to use.**
+**SeniorConnect gives four clear choices—Call, YouTube, Speak, and Map—so a crowded phone is easier to use.**
 
 ## Primary users
 

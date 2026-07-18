@@ -16,7 +16,7 @@ captions: yes
 ## Intent
 
 Create a short, cinematic problem-to-solution trailer for the planned
-`an-agent-for-elders` app. Begin with an older adult facing a phone crowded by
+`seniorconnect` app. Begin with an older adult facing a phone crowded by
 apps, small controls, advertisements, and unexpected install prompts. Then show
 one simple raster home screen with exactly four actions: Call, YouTube, Speak,
 and Camera. Demonstrate a confirmed family call and clear YouTube ad guidance.

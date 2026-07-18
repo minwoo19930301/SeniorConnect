@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.invalid/an-agent-for-elders/image-analysis.schema.json",
+  "$id": "https://example.invalid/seniorconnect/image-analysis.schema.json",
   "title": "ImageAnalysis",
   "type": "object",
   "additionalProperties": false,

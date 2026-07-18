@@ -1,6 +1,6 @@
-# An Agent for Elders
+# SeniorConnect
 
-**An Agent for Elders** is a simple Android app concept that helps older people use a phone with less confusion.
+**SeniorConnect** is a simple Android app concept that helps older people use a phone with less confusion.
 
 The app gives one clear answer or one clear next step. When it is unsure, it helps the person contact someone they trust.
 
@@ -9,7 +9,7 @@ four large buttons. The buttons do not have features yet.
 
 ## What the planned home screen looks like
 
-![Concept home screen with four large buttons: Call, YouTube, Speak, and Camera](assets/planned-home-screen.png)
+![Concept home screen with four large buttons: Call, YouTube, Speak, and Map](assets/planned-home-screen.png)
 
 This is a concept image. The Android prototype follows the same simple
 two-by-two home-screen layout.
@@ -18,9 +18,9 @@ two-by-two home-screen layout.
 
 This 9:16 video shows how the app could help an older person. It is a concept demonstration, not footage of a finished app.
 
-[![Watch the vertical concept trailer](assets/an-agent-for-elders-trailer-poster.jpg)](assets/an-agent-for-elders-trailer.mp4)
+[![Watch the vertical concept trailer](assets/seniorconnect-trailer-poster.jpg)](assets/seniorconnect-trailer.mp4)
 
-[Watch the vertical concept trailer](assets/an-agent-for-elders-trailer.mp4)
+[Watch the vertical concept trailer](assets/seniorconnect-trailer.mp4)
 
 ## Why we want to build it
 
@@ -53,13 +53,13 @@ Tap **Speak** and talk normally.
 The agent can have a simple conversation, answer a question, or search for
 current information and show where the answer came from.
 
-### Camera
+### Map
 
-Tap **Camera** to take a photo of a letter, sign, menu, label, or appliance
-button. The app can read it aloud and explain it in simple words.
+Tap **Map** to open a simple map and find a place or get directions without
+sorting through a crowded phone.
 
-The camera opens only when the person asks. The app says when a photo is
-unclear, and it does not identify people or give medical advice.
+The map opens only when the person asks. The app explains directions in simple
+words and does not share the person’s location without permission.
 
 ## Controls are always close
 
@@ -137,7 +137,7 @@ test an agent or any future integration.
 
 ## Project name
 
-Use `an-agent-for-elders` as the name inside code, packages, test files, and documentation. The GitHub repository itself can keep its current name.
+Use `seniorconnect` as the name inside code, packages, test files, and documentation. The GitHub repository itself can keep its current name.
 
 ## License
 

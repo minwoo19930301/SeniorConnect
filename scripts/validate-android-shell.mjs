@@ -4,7 +4,7 @@ const layoutPath = "app/src/main/res/layout/activity_main.xml";
 const stringsPath = "app/src/main/res/values/strings.xml";
 const manifestPath = "app/src/main/AndroidManifest.xml";
 const activityPath =
-  "app/src/main/java/org/anagentforelders/app/MainActivity.java";
+  "app/src/main/java/org/seniorconnect/app/MainActivity.java";
 
 const layout = readFileSync(layoutPath, "utf8");
 const strings = readFileSync(stringsPath, "utf8");
@@ -15,7 +15,7 @@ const expected = [
   ["action_call", "action_call", "CALL"],
   ["action_youtube", "action_youtube", "YOUTUBE"],
   ["action_speak", "action_speak", "SPEAK"],
-  ["action_camera", "action_camera", "CAMERA"],
+  ["action_map", "action_map", "MAP"],
 ];
 
 const buttonBlocks = layout.match(/<Button\b[\s\S]*?\/>/g) ?? [];

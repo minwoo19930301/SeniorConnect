@@ -1,4 +1,4 @@
-# SCRIPT — an-agent-for-elders vertical concept trailer
+# SCRIPT — seniorconnect vertical concept trailer
 
 **Voice:** Kokoro `am_michael` (offline)
 **Voice settings:** measured trailer pace · about 0.94× speed

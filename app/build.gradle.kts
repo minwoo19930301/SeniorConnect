@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "org.anagentforelders.app"
+    namespace = "org.seniorconnect.app"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "org.anagentforelders.app"
+        applicationId = "org.seniorconnect.app"
         minSdk = 23
         targetSdk = 36
         versionCode = 1
