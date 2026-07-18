@@ -23,21 +23,18 @@ import java.util.Locale;
 
 /**
  * TV-style YouTube screen. Full screen from entry, auto-play, auto-advance,
- * no picture-in-picture, no state kept between sessions. A touch shield
- * swallows every touch on the video; only the app's own Home, Next, and
- * Stop buttons are tappable. Ads are never blocked, skipped, or clicked —
+ * no picture-in-picture, no state kept between sessions. There are no
+ * on-screen controls at all: a touch shield swallows every touch, and the
+ * only ways out are the system back gesture or locking the screen (which
+ * ends the session via onStop). Ads are never blocked, skipped, or clicked —
  * the shield plus a passive notice is the only ad behavior (see AGENTS.md).
  */
 public final class YouTubeActivity extends Activity {
 
-    private static final long CONTROLS_TIMEOUT_MS = 6000;
-
     private WebView webView;
-    private View controls;
-    private final Runnable hideControls = () -> controls.setVisibility(View.GONE);
     private TextView adNotice;
     private TextView unavailableNotice;
-    private String playlistJson;
+    private String sourceJson;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -49,7 +46,7 @@ public final class YouTubeActivity extends Activity {
         unavailableNotice = findViewById(R.id.yt_unavailable);
         webView = findViewById(R.id.yt_webview);
 
-        playlistJson = loadShuffledPlaylistForCountry();
+        sourceJson = loadSourceForCountry();
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
@@ -65,19 +62,9 @@ public final class YouTubeActivity extends Activity {
             }
         });
 
-        // The shield consumes all touches over the video, including ads and
-        // install prompts, so a stray tap cannot leave the screen. A tap
-        // reveals the app's own controls, which hide again after a while.
-        controls = findViewById(R.id.yt_controls);
-        findViewById(R.id.yt_touch_shield).setOnClickListener(v -> showControls());
-
-        findViewById(R.id.yt_home_button).setOnClickListener(v -> finish());
-        findViewById(R.id.yt_stop_button).setOnClickListener(v -> finish());
-        findViewById(R.id.yt_next_button).setOnClickListener(v -> {
-            showControls();
-            showAdNotice();
-            webView.evaluateJavascript("nextVideo()", null);
-        });
+        // The shield consumes all touches, ads and install prompts included.
+        // Exiting is deliberate: system back gesture or locking the phone.
+        findViewById(R.id.yt_touch_shield).setOnClickListener(v -> { });
 
         showAdNotice();
         // Any well-formed https origin works for the embed; claiming to be
@@ -101,7 +88,8 @@ public final class YouTubeActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        // No state survives: leaving ends the session; re-entering starts fresh.
+        // Screen lock, home, or task switch all end the session; re-entering
+        // starts fresh. No state survives.
         finish();
     }
 
@@ -125,19 +113,17 @@ public final class YouTubeActivity extends Activity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
     }
 
-    private void showControls() {
-        controls.setVisibility(View.VISIBLE);
-        controls.removeCallbacks(hideControls);
-        controls.postDelayed(hideControls, CONTROLS_TIMEOUT_MS);
-    }
-
     private void showAdNotice() {
         runOnUiThread(() -> adNotice.setVisibility(View.VISIBLE));
     }
 
-    /** Picks this device's country list (or the default), shuffled so every
-     *  session starts from a random video. Returns a JSON array of video IDs. */
-    private String loadShuffledPlaylistForCountry() {
+    /**
+     * Builds the player source for this device's country (or the default):
+     * {"playlistId": "..."} when a maintained public YouTube playlist is
+     * configured — editable on YouTube without an app update — otherwise
+     * {"videos": [...]} from the bundled list, shuffled per session.
+     */
+    private String loadSourceForCountry() {
         try {
             JSONObject root = new JSONObject(readAsset("playlists/playlists.json"));
             JSONObject countries = root.getJSONObject("countries");
@@ -145,15 +131,23 @@ public final class YouTubeActivity extends Activity {
             if (!countries.has(country)) {
                 country = root.getString("default_country");
             }
-            JSONArray videos = countries.getJSONObject(country).getJSONArray("videos");
-            List<String> ids = new ArrayList<>();
-            for (int i = 0; i < videos.length(); i++) {
-                ids.add(videos.getJSONObject(i).getString("id"));
+            JSONObject entry = countries.getJSONObject(country);
+            JSONObject source = new JSONObject();
+            String playlistId = entry.optString("playlist_id", "");
+            if (!playlistId.isEmpty()) {
+                source.put("playlistId", playlistId);
+            } else {
+                JSONArray videos = entry.getJSONArray("videos");
+                List<String> ids = new ArrayList<>();
+                for (int i = 0; i < videos.length(); i++) {
+                    ids.add(videos.getJSONObject(i).getString("id"));
+                }
+                Collections.shuffle(ids);
+                source.put("videos", new JSONArray(ids));
             }
-            Collections.shuffle(ids);
-            return new JSONArray(ids).toString();
+            return source.toString();
         } catch (Exception e) {
-            return "[]";
+            return "{\"videos\":[]}";
         }
     }
 
@@ -173,8 +167,8 @@ public final class YouTubeActivity extends Activity {
 
     private final class Bridge {
         @JavascriptInterface
-        public String getPlaylistJson() {
-            return playlistJson;
+        public String getSourceJson() {
+            return sourceJson;
         }
 
         /** Content clock advancing past ~1s means the actual video (not an ad)

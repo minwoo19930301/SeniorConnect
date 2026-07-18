@@ -1,9 +1,10 @@
 {
-  "_note": "Reviewed per-country playlists for the TV-style YouTube screen. IDs were collected 2026-07-18 from top YouTube search results for elder-friendly categories (trot/oldies, nature, gentle exercise, faith/culture). The embedded player cannot use YouTube's recommendation algorithm, so these lists are the content source; non-embeddable videos are skipped automatically at runtime. Team members fluent in each language should review and refresh these lists periodically.",
+  "_note": "Per-country content for the TV-style YouTube screen. Preferred: set 'playlist_id' to a PUBLIC YouTube playlist you maintain — edit it on YouTube and the app picks up changes with no app update (playlists hold up to 5,000 videos; the player shuffles and auto-advances). Until a playlist_id is set, the bundled 'videos' list below is used, shuffled per session. Videos that refuse embedding are skipped automatically.",
   "default_country": "US",
   "countries": {
     "US": {
       "label": "United States (English)",
+      "playlist_id": "",
       "videos": [
         { "id": "yrOFuMDBA28", "title": "Oldies greatest hits 50s-60s" },
         { "id": "6dMbI2wbXnQ", "title": "Beautiful nature 4K relaxing" },
@@ -15,6 +16,7 @@
     },
     "KR": {
       "label": "대한민국 (한국어)",
+      "playlist_id": "",
       "videos": [
         { "id": "5GO9R1-U5OM", "title": "트로트 메들리" },
         { "id": "imECMymNsjQ", "title": "한국 자연 4K 힐링" },
@@ -26,6 +28,7 @@
     },
     "IN": {
       "label": "India (Hindi)",
+      "playlist_id": "",
       "videos": [
         { "id": "sCIiVN0zIGE", "title": "Old Hindi songs golden collection" },
         { "id": "lE56rEKIwcE", "title": "Morning bhajan peaceful" },
@@ -36,6 +39,7 @@
     },
     "PK": {
       "label": "Pakistan (Urdu)",
+      "playlist_id": "",
       "videos": [
         { "id": "d4JRtrA1arM", "title": "Old Pakistani songs collection" },
         { "id": "WkM_xkgX-IM", "title": "Beautiful naat sharif" },

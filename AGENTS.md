@@ -30,11 +30,14 @@ store location data, provide directions, or claim a result when lookup fails.
 
 - Video plays full screen from entry, auto-plays, and auto-advances to the
   next video when one ends. Picture-in-picture is not supported.
-- Playback uses a reviewed, per-country playlist bundled in the app
-  (`app/src/main/assets/playlists/`). The live YouTube recommendation
+- Playback source per country (`app/src/main/assets/playlists/`): preferably
+  a reviewed **public YouTube playlist ID** maintained by the team — editable
+  on YouTube without shipping an app update, shuffled by the player — with a
+  bundled reviewed video list as fallback. The live YouTube recommendation
   algorithm is `FUTURE`; arbitrary search is `FUTURE`.
-- A touch-protection layer swallows all touches on the video. The only
-  tappable controls are the app's own large Home, Next, and Stop buttons.
+- A touch-protection layer swallows all touches on the video. There are no
+  on-screen controls: the user leaves with the system back gesture, and
+  screen lock / home / task switch also end the session.
 - Ad handling: **never** block, remove, mute, or auto-skip an advertisement,
   and never click anything on the user's behalf. The only allowed behaviors
   are passive: keep the touch shield up and show a calm notice such as
