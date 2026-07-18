@@ -4,15 +4,22 @@ These instructions apply to the entire repository.
 
 ## Current phase
 
-This is a **planning and evaluation-harness repository**. Until the team explicitly changes the phase in this file, contributors may add or edit only:
+This is now an **Android UI prototype repository**. The team explicitly moved
+from planning-only work to a native Android shell on 2026-07-18.
 
-- plans and decision records;
-- JSON contracts and policy files;
-- synthetic evaluation fixtures;
-- harness-validation scripts and CI;
-- contribution and submission documentation.
+The current implementation scope is intentionally narrow:
 
-Do not create Android, iOS, backend, deployment, database, or production application code during this phase.
+- one Android activity;
+- exactly four primary buttons: Call, YouTube, Speak, and Camera;
+- no button behavior yet;
+- no Android permissions;
+- no network, agent, contact, microphone, camera, or external-app integration.
+
+Contributors may add Android UI code that stays inside this boundary, along
+with plans, contracts, synthetic fixtures, validation scripts, and project
+documentation. Do not present the UI shell as a working agent or add backend,
+database, deployment, or external-action code without another explicit phase
+change.
 
 ## Product contract
 
@@ -103,8 +110,11 @@ Run before committing:
 
 ```bash
 npm test
+./gradlew :app:assembleDebug
 ```
 
-This command lints plans and fixtures only. Once implementation begins, add recorded and live evaluation runners; do not present fixture lint as model, policy, or product safety evidence.
+`npm test` validates the planning fixtures and the four-button Android shell.
+The Gradle command compiles a debug APK. Neither command proves that future
+agent behavior or integrations are safe or functional.
 
 Keep commits narrowly scoped. Do not mix application implementation into a planning/harness pull request. In the PR, state what changed, which fixture coverage changed, and the validation result.

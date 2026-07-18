@@ -47,3 +47,12 @@
 **Decision:** this repository begins with plans, contracts, fixtures, validation, and CI only.
 
 **Reason:** four teammates can implement in parallel once interfaces and non-negotiable safety behavior are shared.
+
+## D-009: begin with a UI-only Android shell
+
+**Decision:** the first implementation is one native Android screen with Call,
+YouTube, Speak, and Camera. The buttons have no behavior and the app requests
+no permissions.
+
+**Reason:** the team can validate the most important accessibility choice—the
+simple home screen—before adding integrations or agent behavior.

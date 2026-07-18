@@ -1,17 +1,18 @@
 # An Agent for Elders
 
-**An Agent for Elders** is an idea for a simple Android app that helps older people use a phone with less confusion.
+**An Agent for Elders** is a simple Android app concept that helps older people use a phone with less confusion.
 
 The app gives one clear answer or one clear next step. When it is unsure, it helps the person contact someone they trust.
 
-This project is still in the planning stage. There is no working app yet.
+The repository now includes a small Android UI prototype. It has one screen and
+four large buttons. The buttons do not have features yet.
 
 ## What the planned home screen looks like
 
 ![Concept home screen with four large buttons: Call, YouTube, Speak, and Camera](assets/planned-home-screen.png)
 
-This is a concept image, not a screenshot from a working app. The large buttons
-show the simple home screen we plan to build.
+This is a concept image. The Android prototype follows the same simple
+two-by-two home-screen layout.
 
 ## Watch the concept trailer
 
@@ -79,15 +80,31 @@ Every part of the app should include these simple controls:
 
 ## What is in this repository
 
-This repository contains plans for the team:
+This repository contains:
 
+- a native Android UI prototype;
 - what the app should do;
 - how the four main buttons should work;
 - privacy and safety rules;
 - a three-day hackathon plan;
 - 41 example situations we can use to test the future app.
 
-It contains plans and automated checks only. It does not contain Android or server code yet.
+The Android prototype requests no permissions and contains no integrations. It
+does not call anyone, open YouTube, record speech, or use the camera yet.
+
+## Run the Android prototype
+
+Open the repository folder in Android Studio and run the `app` configuration on
+an Android phone or emulator.
+
+To build from the command line after installing Android SDK Platform 36:
+
+```bash
+./gradlew :app:assembleDebug
+```
+
+The debug APK will be created at
+`app/build/outputs/apk/debug/app-debug.apk`.
 
 ## For teammates
 
@@ -106,7 +123,7 @@ Other useful documents:
 - [Demo plan](plans/DEMO_PLAN.md)
 - [Hackathon checklist](plans/SUBMISSION_CHECKLIST.md)
 
-## Check the planning files
+## Check the project files
 
 If Node.js 20 or newer is installed, run:
 
@@ -114,7 +131,9 @@ If Node.js 20 or newer is installed, run:
 npm test
 ```
 
-This checks that our example situations and safety rules agree with each other. It does **not** test a real app or call an AI model.
+This checks the planning fixtures and confirms that the Android screen has
+exactly four buttons, no permissions, and no click handlers. It does **not**
+test an agent or any future integration.
 
 ## Project name
 

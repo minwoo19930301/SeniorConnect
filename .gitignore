@@ -6,6 +6,11 @@ node_modules/
 *.log
 coverage/
 build/
+.gradle/
+.idea/
+*.iml
+local.properties
+app/build/
 
 # Local HyperFrames caches and verification output
 videos/**/.hyperframes/

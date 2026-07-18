@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "fixture-lint": "node scripts/validate-harness.mjs",
-    "validate": "npm run fixture-lint",
-    "test": "npm run fixture-lint"
+    "android-shell-lint": "node scripts/validate-android-shell.mjs",
+    "validate": "npm run fixture-lint && npm run android-shell-lint",
+    "test": "npm run validate"
   },
   "engines": {
     "node": ">=20"
