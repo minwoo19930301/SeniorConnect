@@ -94,17 +94,25 @@ does not call anyone, open YouTube, record speech, or use the camera yet.
 
 ## Run the Android prototype
 
-Open the repository folder in Android Studio and run the `app` configuration on
-an Android phone or emulator.
+Android Studio is **not** required. The supported lightweight path uses JDK 17
+plus the Android command-line tools, with either a USB-connected phone (the
+lightest option) or the standalone emulator. One-time setup for macOS and
+Windows is in [docs/DEV_SETUP.md](docs/DEV_SETUP.md).
 
-To build from the command line after installing Android SDK Platform 36:
+After setup:
 
 ```bash
-./gradlew :app:assembleDebug
+./gradlew :app:assembleDebug          # Windows: gradlew.bat :app:assembleDebug
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+adb shell am start -n org.anagentforelders.app/.MainActivity
 ```
 
 The debug APK will be created at
-`app/build/outputs/apk/debug/app-debug.apk`.
+`app/build/outputs/apk/debug/app-debug.apk`. Note this is a native Kotlin app,
+so Expo and other React Native tooling do not apply.
+
+If you prefer Android Studio, opening the repository folder and running the
+`app` configuration also works.
 
 ## For teammates
 

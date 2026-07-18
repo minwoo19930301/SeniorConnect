@@ -104,6 +104,15 @@ Keep these phases machine-readable and separate:
 - A YouTube-guidance case may explain or point; it may not click, cover, block, approve, purchase, or install.
 - High-stakes medical, legal, financial, or emergency requests must produce a limitation plus a safe human escalation.
 
+## Development environment
+
+Use the lightweight command-line toolchain: JDK 17 + Android command-line
+tools + `adb`, with a USB phone or the standalone emulator. Android Studio is
+optional. Setup for macOS and Windows is in [docs/DEV_SETUP.md](docs/DEV_SETUP.md);
+agents should follow the `run-app` skill (`.claude/skills/run-app/SKILL.md`)
+to build, install, and launch the app. This is a native Kotlin app — do not
+suggest Expo or React Native tooling.
+
 ## Validation and commits
 
 Run before committing:
