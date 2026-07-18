@@ -1,6 +1,6 @@
-# An Agent for Elders
+# SeniorConnect
 
-**An Agent for Elders** is a simple Android app concept that helps older people use a phone with less confusion.
+**SeniorConnect** is a simple Android app concept that helps older people use a phone with less confusion.
 
 The app gives one clear answer or one clear next step. When it is unsure, it helps the person contact someone they trust.
 
@@ -18,9 +18,9 @@ two-by-two home-screen layout.
 
 This 9:16 video shows how the app could help an older person. It is a concept demonstration, not footage of a finished app.
 
-[![Watch the vertical concept trailer](assets/an-agent-for-elders-trailer-poster.jpg)](assets/an-agent-for-elders-trailer.mp4)
+[![Watch the vertical concept trailer](assets/seniorconnect-trailer-poster.jpg)](assets/seniorconnect-trailer.mp4)
 
-[Watch the vertical concept trailer](assets/an-agent-for-elders-trailer.mp4)
+[Watch the vertical concept trailer](assets/seniorconnect-trailer.mp4)
 
 ## Why we want to build it
 
@@ -137,7 +137,7 @@ test an agent or any future integration.
 
 ## Project name
 
-Use `an-agent-for-elders` as the name inside code, packages, test files, and documentation. The GitHub repository itself can keep its current name.
+Use `seniorconnect` as the name inside code, packages, test files, and documentation. The GitHub repository itself can keep its current name.
 
 ## License
 

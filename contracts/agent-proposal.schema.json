@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.invalid/an-agent-for-elders/agent-proposal.schema.json",
+  "$id": "https://example.invalid/seniorconnect/agent-proposal.schema.json",
   "title": "AgentProposal",
   "description": "Application-domain proposal schema. Do not pass this schema directly as an OpenAI strict tool definition; use a supported per-tool schema and map into this domain object.",
   "type": "object",

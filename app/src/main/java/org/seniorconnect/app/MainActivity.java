@@ -1,4 +1,4 @@
-package org.anagentforelders.app;
+package org.seniorconnect.app;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -4,7 +4,7 @@ const layoutPath = "app/src/main/res/layout/activity_main.xml";
 const stringsPath = "app/src/main/res/values/strings.xml";
 const manifestPath = "app/src/main/AndroidManifest.xml";
 const activityPath =
-  "app/src/main/java/org/anagentforelders/app/MainActivity.java";
+  "app/src/main/java/org/seniorconnect/app/MainActivity.java";
 
 const layout = readFileSync(layoutPath, "utf8");
 const strings = readFileSync(stringsPath, "utf8");
