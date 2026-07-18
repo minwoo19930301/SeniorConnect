@@ -30,7 +30,11 @@ import java.util.Locale;
  */
 public final class YouTubeActivity extends Activity {
 
+    private static final long CONTROLS_TIMEOUT_MS = 6000;
+
     private WebView webView;
+    private View controls;
+    private final Runnable hideControls = () -> controls.setVisibility(View.GONE);
     private TextView adNotice;
     private TextView unavailableNotice;
     private String playlistJson;
@@ -62,12 +66,15 @@ public final class YouTubeActivity extends Activity {
         });
 
         // The shield consumes all touches over the video, including ads and
-        // install prompts, so a stray tap cannot leave the screen.
-        findViewById(R.id.yt_touch_shield).setOnClickListener(v -> { });
+        // install prompts, so a stray tap cannot leave the screen. A tap
+        // reveals the app's own controls, which hide again after a while.
+        controls = findViewById(R.id.yt_controls);
+        findViewById(R.id.yt_touch_shield).setOnClickListener(v -> showControls());
 
         findViewById(R.id.yt_home_button).setOnClickListener(v -> finish());
         findViewById(R.id.yt_stop_button).setOnClickListener(v -> finish());
         findViewById(R.id.yt_next_button).setOnClickListener(v -> {
+            showControls();
             showAdNotice();
             webView.evaluateJavascript("nextVideo()", null);
         });
@@ -116,6 +123,12 @@ public final class YouTubeActivity extends Activity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+    }
+
+    private void showControls() {
+        controls.setVisibility(View.VISIBLE);
+        controls.removeCallbacks(hideControls);
+        controls.postDelayed(hideControls, CONTROLS_TIMEOUT_MS);
     }
 
     private void showAdNotice() {
