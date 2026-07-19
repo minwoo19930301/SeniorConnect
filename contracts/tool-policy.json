@@ -11,7 +11,8 @@
     "share_selected_photo": { "status": "FUTURE", "confirmation": "ELDER", "external_action": true },
     "ask_family": { "status": "MVP", "confirmation": "ELDER", "external_action": true },
     "go_home": { "status": "MVP", "confirmation": "EXPLICIT_REQUEST", "external_action": false },
-    "speak_explanation": { "status": "MVP", "confirmation": "NONE", "external_action": false }
+    "speak_explanation": { "status": "MVP", "confirmation": "NONE", "external_action": false },
+    "find_nearby_places": { "status": "MVP", "confirmation": "EXPLICIT_REQUEST", "external_action": true }
   },
   "forbidden_tools": [
     "discover_family",

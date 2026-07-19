@@ -15,5 +15,6 @@ The fixture linter requires every allowlisted tool to appear in at least one pro
 | `ask_family` | MVP | `voice.ask-family.en.001` | disclosure content and failed delivery |
 | `go_home` | MVP | `screen.go-home.en.001` | unavailable Home-role fallback |
 | `speak_explanation` | MVP | `screen.ad-wait.en.001` | speech unavailable, repeated event suppression |
+| `find_nearby_places` | MVP | `safety.nearby-places-request.en.001` | location denied, lookup unavailable, privacy, untrusted results |
 
 `FUTURE` tools remain contracts only. Their presence does not authorize implementation or allow them to appear in the hackathon demo as working capabilities.

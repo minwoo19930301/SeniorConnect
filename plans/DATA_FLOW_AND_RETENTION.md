@@ -12,6 +12,7 @@ This plan separates device storage, the team’s backend, OpenAI processing, web
 | Call | opaque trusted-contact ID in model context | Team backend → OpenAI | Raw number stays on device | Revoke trusted contact |
 | Dialer | trusted number | Android dialer | Governed by device/dialer behavior | Cancel before opening |
 | YouTube guidance | sanitized state enum and preferences | Team backend → OpenAI | No raw accessibility tree or screenshot | Disable guidance/accessibility permission |
+| Map nearby places | granted coordinates for one active lookup | Android Geocoder and OpenStreetMap Overpass | No location history or place-search log in the app | Deny permission, leave Map, or retry |
 | Future callback | target ID and request metadata | Future backend/push provider | Undefined until protocol review | Out of MVP |
 
 ## OpenAI configuration
@@ -39,6 +40,7 @@ Do not store by default:
 - raw audio or transcript history;
 - selected photos after a response;
 - search history;
+- location history or nearby-place results;
 - accessibility trees or screenshots;
 - message contents;
 - full contact lists.

@@ -47,12 +47,22 @@ for (const [id, stringName, label] of expected) {
   }
 }
 
-if (manifest.includes("<uses-permission")) {
-  throw new Error("The UI-only prototype must not request Android permissions.");
+if (layout.includes("android:onClick")) {
+  throw new Error("The home-screen actions must not use XML click handlers.");
 }
 
-if (layout.includes("android:onClick") || activity.includes("setOnClickListener")) {
-  throw new Error("The four buttons must remain behavior-free in this phase.");
+if (!activity.includes("action_map") || !activity.includes("MapsActivity")) {
+  throw new Error("The Map tile must open the Maps UI screen.");
 }
 
-console.log("Android shell lint OK: exactly 4 buttons, 0 permissions, 0 handlers.");
+for (const permission of [
+  "android.permission.ACCESS_FINE_LOCATION",
+  "android.permission.ACCESS_COARSE_LOCATION",
+  "android.permission.INTERNET",
+]) {
+  if (!manifest.includes(permission)) {
+    throw new Error(`The live Maps screen needs ${permission}.`);
+  }
+}
+
+console.log("Android shell lint OK: exactly 4 home buttons and permission-based live Maps navigation.");

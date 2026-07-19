@@ -2,6 +2,7 @@
 <resources>
     <color name="screen_background">#FAF8EC</color>
     <color name="text_primary">#111827</color>
+    <color name="text_secondary">#4B5563</color>
     <color name="action_blue">#2459D3</color>
     <color name="action_blue_pressed">#1744AA</color>
     <color name="button_text">#FFFFFF</color>
