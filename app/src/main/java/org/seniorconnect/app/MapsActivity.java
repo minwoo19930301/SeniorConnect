@@ -161,7 +161,7 @@ public final class MapsActivity extends Activity {
                 double latitude = element.has("lat") ? element.getDouble("lat") : element.getJSONObject("center").getDouble("lat");
                 double longitude = element.has("lon") ? element.getDouble("lon") : element.getJSONObject("center").getDouble("lon");
                 double distance = distanceKm(origin.getLatitude(), origin.getLongitude(), latitude, longitude);
-                String name = tags.optString("name", getString(R.string.no_place_found));
+                String name = tags.optString("name", getString(defaultPlaceNameFor(category)));
                 if (closest[category] == null || distance < closest[category].distanceKm) {
                     closest[category] = new Place(name, distance);
                 }
@@ -177,6 +177,12 @@ public final class MapsActivity extends Activity {
         if ("bus_stop".equals(tags.optString("highway"))) return 1;
         if ("supermarket".equals(tags.optString("shop"))) return 2;
         return -1;
+    }
+
+    private int defaultPlaceNameFor(int category) {
+        if (category == 0) return R.string.nearby_hospital;
+        if (category == 1) return R.string.nearby_bus_stop;
+        return R.string.nearby_supermarket;
     }
 
     private void showResults(String locality, Place[] places) {
@@ -212,7 +218,10 @@ public final class MapsActivity extends Activity {
 
     private void showPlacesProblem() {
         locationValue.setText(R.string.location_unavailable);
-        for (TextView placeName : placeNames) placeName.setText(R.string.places_unavailable);
+        for (int index = 0; index < placeNames.length; index++) {
+            placeNames[index].setText(R.string.places_unavailable);
+            placeDistances[index].setText(R.string.blank);
+        }
         retryButton.setVisibility(View.VISIBLE);
     }
 
