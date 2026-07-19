@@ -6,20 +6,24 @@ These instructions apply to the entire repository.
 
 This is now a **limited Android integration repository**. The team explicitly
 moved from planning-only work to a native Android shell on 2026-07-18, then
-expanded the phase to two working features: the **YouTube TV-style video
-screen** (`MVP`) and the **Maps live nearby-places screen** (`MVP`).
+expanded the phase to three working features: the **trusted Call dialer
+handoff** (`MVP`), the **YouTube TV-style video screen** (`MVP`), and the
+**Maps live nearby-places screen** (`MVP`).
 
 The current implementation scope is intentionally narrow:
 
 - the four-button home activity (Call, YouTube, Speak, and Map);
+- the Call button opens the trusted-contact dialing flow and may hand off to
+  the system dialer via `ACTION_DIAL` only (never direct `ACTION_CALL`);
 - the YouTube button opens an in-app, full-screen, TV-style video screen
   backed by the official YouTube embedded player in a WebView;
 - the Map button opens the live nearby-places screen and may request location
   permission only after the person opens it;
 - `INTERNET` is allowed for YouTube playback and Maps nearby-place lookup;
 - location permissions are allowed only for the Maps screen;
-- Call and Speak still have no behavior;
-- no agent, contact, microphone, camera, or external-app integration.
+- Speak still has no behavior;
+- no camera integration; no automatic family discovery; no direct call without
+  confirmation and dialer handoff.
 
 The Maps screen uses the granted device location in memory to show the current
 city, state, country and nearby hospitals, bus stops, and supermarkets. It may
