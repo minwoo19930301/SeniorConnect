@@ -4,8 +4,9 @@
 
 The app gives one clear answer or one clear next step. When it is unsure, it helps the person contact someone they trust.
 
-The repository now includes a small Android UI prototype. It has a home screen
-with four large buttons and a Maps screen opened from the Map button.
+The repository includes a small Android UI prototype with four large buttons.
+The Speak button runs Gemma locally on the phone. Android speech recognition
+transcribes the user's words and text-to-speech reads the answer.
 
 ## What the planned home screen looks like
 
@@ -55,13 +56,11 @@ current information and show where the answer came from.
 
 ### Map
 
-Tap **Map** to request location permission and show the current city, state,
-country, and nearby hospitals, bus stops, and supermarkets in a clear layout.
+Tap **Map** to open a simple map and find a place or get directions without
+sorting through a crowded phone.
 
-The map opens only when the person asks. It requests location permission then
-uses the granted coordinates for the active lookup only; it does not save them.
-Android Geocoder identifies the locality, and OpenStreetMap's public Overpass
-service returns nearby places. Directions are not included yet.
+The map opens only when the person asks. The app explains directions in simple
+words and does not share the person’s location without permission.
 
 ## Controls are always close
 
@@ -91,9 +90,25 @@ This repository contains:
 - a three-day hackathon plan;
 - 41 example situations we can use to test the future app.
 
-The Android prototype requests location permission only from the Map screen. It
-does not call anyone, open YouTube, record speech, use the camera, save location
-history, or provide directions.
+The Android prototype requests microphone access for Speak and does not use an
+internet connection or API key. The other three primary buttons remain visual
+placeholders.
+
+## Install the local Gemma model
+
+The model weights are intentionally not committed to GitHub. Download a
+compatible Gemma 3 `.task` model, name it `gemma.task`, and copy it into the
+app's private storage:
+
+```powershell
+$adb = "C:\Users\ACB\AppData\Local\Android\Sdk\platform-tools\adb.exe"
+& $adb push .\gemma.task /data/local/tmp/gemma.task
+& $adb shell run-as org.seniorconnect.app mkdir -p files
+& $adb shell run-as org.seniorconnect.app cp /data/local/tmp/gemma.task files/gemma.task
+```
+
+Open **SPEAK**. Gemma starts listening automatically, reads its answer aloud,
+and listens for the next question. Press **STOP** to end the conversation.
 
 ## Run the Android prototype
 
@@ -107,7 +122,7 @@ After setup:
 ```bash
 ./gradlew :app:assembleDebug          # Windows: gradlew.bat :app:assembleDebug
 adb install -r app/build/outputs/apk/debug/app-debug.apk
-adb shell am start -n org.seniorconnect.app/.MainActivity
+    adb shell am start -n org.seniorconnect.app/.MainActivity
 ```
 
 The debug APK will be created at
@@ -150,9 +165,9 @@ If Node.js 20 or newer is installed, run:
 npm test
 ```
 
-This checks the planning fixtures and confirms that the Android home screen has
-exactly four buttons, the Map tile opens the live Maps screen, and its required
-permissions are declared. It does **not** test live location or nearby-place results.
+This checks the planning fixtures and confirms that the Android screen has
+exactly four primary buttons and that the Speak voice flow is present. It does
+not test a real microphone, device speech recognizer, or Gemma inference.
 
 ## Project name
 

@@ -12,6 +12,10 @@ build/
 local.properties
 app/build/
 
+# Local model and device-debug artifacts; never upload these to GitHub.
+gemma.task
+current-screen.png
+
 # Local HyperFrames caches and verification output
 videos/**/.hyperframes/
 videos/**/.media/

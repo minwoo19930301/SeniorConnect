@@ -6,4 +6,5 @@
     <color name="action_blue">#2459D3</color>
     <color name="action_blue_pressed">#1744AA</color>
     <color name="button_text">#FFFFFF</color>
+    <color name="status_background">#E8F0FF</color>
 </resources>
