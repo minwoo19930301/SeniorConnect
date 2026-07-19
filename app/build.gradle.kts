@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "org.seniorconnect.app"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 36
         versionCode = 1
         versionName = "0.1.0"
@@ -28,4 +28,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+}
+dependencies {
+    implementation("com.google.mediapipe:tasks-genai:0.10.24")
 }
