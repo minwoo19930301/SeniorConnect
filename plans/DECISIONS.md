@@ -42,6 +42,17 @@
 
 **Reason:** natural-language understanding benefits from a model; external actions require predictable safety behavior.
 
+## D-010: live nearby places require explicit location permission
+
+**Decision:** opening Map requests Android location permission. If granted, the
+app uses device coordinates only for the active lookup, shows the locality
+through Android Geocoder, and finds nearby hospitals, bus stops, and
+supermarkets through OpenStreetMap's public Overpass service.
+
+**Reason:** the person explicitly opens Map. The screen works with approximate
+location, shows an honest unavailable state and retry option, and does not
+retain location history. Directions remain future work.
+
 ## D-008: plan and harness before application code
 
 **Decision:** this repository begins with plans, contracts, fixtures, validation, and CI only.

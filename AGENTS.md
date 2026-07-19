@@ -9,11 +9,16 @@ from planning-only work to a native Android shell on 2026-07-18.
 
 The current implementation scope is intentionally narrow:
 
-- one Android activity;
-- exactly four primary buttons: Call, YouTube, Speak, and Camera;
-- no button behavior yet;
-- no Android permissions;
-- no network, agent, contact, microphone, camera, or external-app integration.
+- a home activity plus a Maps prototype activity;
+- exactly four primary home buttons: Call, YouTube, Speak, and Map;
+- Call, YouTube, and Speak have no behavior yet; Map opens the live nearby-places screen;
+- Map may request location permission only after the person opens it;
+- no agent, contact, microphone, camera, or external-app integration.
+
+The Maps screen uses the granted device location in memory to show the current
+city, state, country and nearby hospitals, bus stops, and supermarkets. It may
+send only the coordinates needed for the active nearby-place query; it must not
+store location data, provide directions, or claim a result when lookup fails.
 
 Contributors may add Android UI code that stays inside this boundary, along
 with plans, contracts, synthetic fixtures, validation scripts, and project
@@ -28,9 +33,9 @@ The product has four primary actions:
 1. **Call** — confirmed dialer handoff for an explicitly paired trusted contact.
 2. **YouTube** — open YouTube and explain a small allowlist of confusing states, such as an advertisement or install prompt.
 3. **Speak** — conversation plus web-grounded answers for current facts.
-4. **Camera** — user-initiated photo capture followed by reading or explanation.
+4. **Map** — current location and nearby hospitals, bus stops, and supermarkets. Directions are future work.
 
-`Repeat Slowly`, `Take Me Home`, and `Stop` must be reachable from every primary action.
+`Repeat Slowly`, `Take Me Home`, and `Stop` must be reachable from every primary action in a future interactive phase.
 
 Mark every capability as `MVP`, `FUTURE`, or `NON_GOAL`. Never describe a plan, mock, fixture, or future capability as implemented.
 

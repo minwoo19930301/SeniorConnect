@@ -4,8 +4,8 @@
 
 The app gives one clear answer or one clear next step. When it is unsure, it helps the person contact someone they trust.
 
-The repository now includes a small Android UI prototype. It has one screen and
-four large buttons. The buttons do not have features yet.
+The repository now includes a small Android UI prototype. It has a home screen
+with four large buttons and a Maps screen opened from the Map button.
 
 ## What the planned home screen looks like
 
@@ -55,11 +55,13 @@ current information and show where the answer came from.
 
 ### Map
 
-Tap **Map** to open a simple map and find a place or get directions without
-sorting through a crowded phone.
+Tap **Map** to request location permission and show the current city, state,
+country, and nearby hospitals, bus stops, and supermarkets in a clear layout.
 
-The map opens only when the person asks. The app explains directions in simple
-words and does not share the person’s location without permission.
+The map opens only when the person asks. It requests location permission then
+uses the granted coordinates for the active lookup only; it does not save them.
+Android Geocoder identifies the locality, and OpenStreetMap's public Overpass
+service returns nearby places. Directions are not included yet.
 
 ## Controls are always close
 
@@ -89,8 +91,9 @@ This repository contains:
 - a three-day hackathon plan;
 - 41 example situations we can use to test the future app.
 
-The Android prototype requests no permissions and contains no integrations. It
-does not call anyone, open YouTube, record speech, or use the camera yet.
+The Android prototype requests location permission only from the Map screen. It
+does not call anyone, open YouTube, record speech, use the camera, save location
+history, or provide directions.
 
 ## Run the Android prototype
 
@@ -104,7 +107,7 @@ After setup:
 ```bash
 ./gradlew :app:assembleDebug          # Windows: gradlew.bat :app:assembleDebug
 adb install -r app/build/outputs/apk/debug/app-debug.apk
-adb shell am start -n org.anagentforelders.app/.MainActivity
+adb shell am start -n org.seniorconnect.app/.MainActivity
 ```
 
 The debug APK will be created at
@@ -147,9 +150,9 @@ If Node.js 20 or newer is installed, run:
 npm test
 ```
 
-This checks the planning fixtures and confirms that the Android screen has
-exactly four buttons, no permissions, and no click handlers. It does **not**
-test an agent or any future integration.
+This checks the planning fixtures and confirms that the Android home screen has
+exactly four buttons, the Map tile opens the live Maps screen, and its required
+permissions are declared. It does **not** test live location or nearby-place results.
 
 ## Project name
 

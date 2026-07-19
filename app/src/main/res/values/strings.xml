@@ -6,4 +6,20 @@
     <string name="action_youtube">YOUTUBE</string>
     <string name="action_speak">SPEAK</string>
     <string name="action_map">MAP</string>
+    <string name="maps_title">Maps</string>
+    <string name="current_location_label">Your current location</string>
+    <string name="location_loading">Finding your location…</string>
+    <string name="places_loading">Finding nearby places…</string>
+    <string name="blank"></string>
+    <string name="nearby_places_title">Nearby places</string>
+    <string name="place_hospital_category">Hospital</string>
+    <string name="place_bus_stop_category">Bus stop</string>
+    <string name="place_supermarket_category">Supermarket</string>
+    <string name="back_to_home">Back to home</string>
+    <string name="try_again">Try again</string>
+    <string name="location_permission_needed">Location permission is needed to show nearby places.</string>
+    <string name="location_unavailable">We could not find your location.</string>
+    <string name="places_unavailable">We could not find nearby places right now.</string>
+    <string name="no_place_found">No nearby place found</string>
+    <string name="distance_away">%1$.1f km away</string>
 </resources>
