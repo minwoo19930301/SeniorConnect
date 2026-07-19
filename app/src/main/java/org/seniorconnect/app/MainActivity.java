@@ -24,6 +24,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import org.seniorconnect.app.dialing.DialingActivity;
+
 public final class MainActivity extends Activity {
     private static final int RECORD_AUDIO_REQUEST = 41;
     private static final String MODEL_FILE_NAME = "gemma.task";
@@ -44,8 +46,27 @@ public final class MainActivity extends Activity {
     }
 
     private void showHome() {
+        stopConversationIfNeeded();
         setContentView(R.layout.activity_main);
+        findViewById(R.id.action_call).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, DialingActivity.class));
+            }
+        });
+        findViewById(R.id.action_youtube).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, YouTubeActivity.class));
+            }
+        });
         findViewById(R.id.action_speak).setOnClickListener(view -> showSpeakScreen());
+        findViewById(R.id.action_map).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MapsActivity.class));
+            }
+        });
     }
 
     private void showSpeakScreen() {
@@ -171,8 +192,17 @@ public final class MainActivity extends Activity {
         handler.removeCallbacksAndMessages(null);
         if (speechRecognizer != null) speechRecognizer.cancel();
         if (textToSpeech != null) textToSpeech.stop();
-        speakButton.setText(R.string.speak_start);
-        status.setText(R.string.speak_stopped);
+        if (speakButton != null) speakButton.setText(R.string.speak_start);
+        if (status != null) status.setText(R.string.speak_stopped);
+    }
+
+    private void stopConversationIfNeeded() {
+        if (conversationActive || speechRecognizer != null || textToSpeech != null) {
+            conversationActive = false;
+            handler.removeCallbacksAndMessages(null);
+            if (speechRecognizer != null) speechRecognizer.cancel();
+            if (textToSpeech != null) textToSpeech.stop();
+        }
     }
 
     private void askLocalGemma(String question) {
