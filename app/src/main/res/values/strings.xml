@@ -6,4 +6,11 @@
     <string name="action_youtube">YOUTUBE</string>
     <string name="action_speak">SPEAK</string>
     <string name="action_map">MAP</string>
+    <string name="trusted_call_title">Who do you want to call?</string>
+    <string name="trusted_call_speak_name">Speak Name</string>
+    <string name="trusted_call_take_me_home">Take Me Home</string>
+    <string name="trusted_call_stop">Stop</string>
+    <string name="trusted_call_repeat_slowly">Repeat Slowly</string>
+    <string name="trusted_call_yes_call">Yes, Call</string>
+    <string name="trusted_call_no">No</string>
 </resources>
