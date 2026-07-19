@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- YouTube TV-mode playback + Maps Overpass lookup (see AGENTS.md). -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -18,6 +19,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".MapsActivity" />
+        <!-- No supportsPictureInPicture: PiP is intentionally unavailable.
+             Sessions keep no state; each entry starts fresh. -->
+        <activity
+            android:name=".YouTubeActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
     </application>
 
 </manifest>

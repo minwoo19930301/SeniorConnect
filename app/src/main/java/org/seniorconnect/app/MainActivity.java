@@ -11,6 +11,14 @@ public final class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Active in this phase: YouTube TV-mode + Maps nearby places.
+        // Call and Speak remain behavior-free (see AGENTS.md).
+        findViewById(R.id.action_youtube).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, YouTubeActivity.class));
+            }
+        });
         findViewById(R.id.action_map).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
