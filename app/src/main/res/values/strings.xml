@@ -12,6 +12,7 @@
     <string name="places_loading">Finding nearby places...</string>
     <string name="blank"></string>
     <string name="nearby_places_title">Nearby places</string>
+    <string name="map_marker_you_are_here">You are here</string>
     <string name="place_hospital_category">Hospital</string>
     <string name="place_bus_stop_category">Bus stop</string>
     <string name="place_supermarket_category">Supermarket</string>
