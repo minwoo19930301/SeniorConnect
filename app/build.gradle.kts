@@ -31,4 +31,5 @@ android {
 }
 dependencies {
     implementation("com.google.mediapipe:tasks-genai:0.10.24")
+    implementation("org.maplibre.gl:android-sdk:11.11.0")
 }

@@ -26,7 +26,7 @@ The current implementation scope is intentionally narrow:
   confirmation and dialer handoff.
 
 The Maps screen uses the granted device location in memory to show the current
-city, state, country and nearby hospitals, bus stops, and supermarkets. It may
+precise reverse-geocoded address and nearby hospitals, bus stops, and supermarkets. It may
 send only the coordinates needed for the active nearby-place query; it must not
 store location data, provide directions, or claim a result when lookup fails.
 

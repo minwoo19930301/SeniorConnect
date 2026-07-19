@@ -1,92 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/screen_background"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="24dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/maps_title"
+        android:textColor="@color/text_primary"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/location_card"
         android:orientation="vertical"
-        android:paddingStart="24dp"
-        android:paddingTop="32dp"
-        android:paddingEnd="24dp"
-        android:paddingBottom="24dp">
+        android:padding="16dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/maps_title"
-            android:textColor="@color/text_primary"
-            android:textSize="30sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/location_card"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/current_location_label"
-                android:textColor="@color/text_secondary"
-                android:textSize="17sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:fontFamily="sans-serif-medium"
-                android:id="@+id/current_location_value"
-                android:text="@string/location_loading"
-                android:textColor="@color/text_primary"
-                android:textSize="22sp" />
-        </LinearLayout>
+            android:text="@string/current_location_label"
+            android:textColor="@color/text_secondary"
+            android:textSize="17sp" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/current_location_value"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/nearby_places_title"
+            android:text="@string/location_loading"
             android:textColor="@color/text_primary"
-            android:textSize="22sp" />
-
-        <include layout="@layout/item_nearby_hospital" />
-        <include layout="@layout/item_nearby_bus_stop" />
-        <include layout="@layout/item_nearby_supermarket" />
-
-        <Button
-            android:id="@+id/retry_locations"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/large_action_button"
-            android:fontFamily="sans-serif-medium"
-            android:minHeight="56dp"
-            android:text="@string/try_again"
-            android:textAllCaps="false"
-            android:textColor="@color/button_text"
-            android:textSize="18sp"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/back_to_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/large_action_button"
-            android:fontFamily="sans-serif-medium"
-            android:minHeight="60dp"
-            android:text="@string/back_to_home"
-            android:textAllCaps="false"
-            android:textColor="@color/button_text"
             android:textSize="20sp" />
     </LinearLayout>
-</ScrollView>
+
+    <org.maplibre.android.maps.MapView
+        android:id="@+id/nearby_map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/retry_locations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/large_action_button"
+        android:fontFamily="sans-serif-medium"
+        android:minHeight="56dp"
+        android:text="@string/try_again"
+        android:textAllCaps="false"
+        android:textColor="@color/button_text"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/back_to_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/large_action_button"
+        android:fontFamily="sans-serif-medium"
+        android:minHeight="60dp"
+        android:text="@string/back_to_home"
+        android:textAllCaps="false"
+        android:textColor="@color/button_text"
+        android:textSize="20sp" />
+</LinearLayout>
