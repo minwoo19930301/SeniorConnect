@@ -21,6 +21,9 @@
     <string name="location_unavailable">We could not find your location.</string>
     <string name="places_unavailable">We could not find nearby places right now.</string>
     <string name="no_place_found">No nearby place found</string>
+    <string name="nearby_hospital">Nearby hospital</string>
+    <string name="nearby_bus_stop">Nearby bus stop</string>
+    <string name="nearby_supermarket">Nearby supermarket</string>
     <string name="distance_away">%1$.1f km away</string>
     <string name="yt_ad_notice">An ad may be playing. Please wait.</string>
     <string name="yt_unavailable">Videos are not available right now.</string>
