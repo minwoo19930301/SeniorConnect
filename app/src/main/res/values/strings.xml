@@ -22,6 +22,10 @@
     <string name="location_unavailable">We could not find your location.</string>
     <string name="places_unavailable">We could not find nearby places right now.</string>
     <string name="no_place_found">No nearby place found</string>
+    <string name="place_details_message">%1$.1f km away\n\nDirections will open Google Maps. Google Maps will use your current location and receive this place’s location.</string>
+    <string name="directions_button">Directions</string>
+    <string name="directions_cancel">Cancel</string>
+    <string name="google_maps_unavailable">Google Maps is not available on this phone.</string>
     <string name="nearby_hospital">Nearby hospital</string>
     <string name="nearby_bus_stop">Nearby bus stop</string>
     <string name="nearby_supermarket">Nearby supermarket</string>
