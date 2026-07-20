@@ -1,15 +1,16 @@
-# An Agent for Elders
+# SeniorConnect
 
-**An Agent for Elders** is a simple Android app concept that helps older people use a phone with less confusion.
+**SeniorConnect** is a simple Android app concept that helps older people use a phone with less confusion.
 
 The app gives one clear answer or one clear next step. When it is unsure, it helps the person contact someone they trust.
 
-The repository now includes a small Android UI prototype. It has one screen and
-four large buttons. The buttons do not have features yet.
+The repository includes a small Android UI prototype with four large buttons.
+The Speak button runs Gemma locally on the phone. Android speech recognition
+transcribes the user's words and text-to-speech reads the answer.
 
 ## What the planned home screen looks like
 
-![Concept home screen with four large buttons: Call, YouTube, Speak, and Camera](assets/planned-home-screen.png)
+![Concept home screen with four large buttons: Call, YouTube, Speak, and Map](assets/planned-home-screen.png)
 
 This is a concept image. The Android prototype follows the same simple
 two-by-two home-screen layout.
@@ -18,9 +19,9 @@ two-by-two home-screen layout.
 
 This 9:16 video shows how the app could help an older person. It is a concept demonstration, not footage of a finished app.
 
-[![Watch the vertical concept trailer](assets/an-agent-for-elders-trailer-poster.jpg)](assets/an-agent-for-elders-trailer.mp4)
+[![Watch the vertical concept trailer](assets/seniorconnect-trailer-poster.jpg)](assets/seniorconnect-trailer.mp4)
 
-[Watch the vertical concept trailer](assets/an-agent-for-elders-trailer.mp4)
+[Watch the vertical concept trailer](assets/seniorconnect-trailer.mp4)
 
 ## Why we want to build it
 
@@ -53,13 +54,15 @@ Tap **Speak** and talk normally.
 The agent can have a simple conversation, answer a question, or search for
 current information and show where the answer came from.
 
-### Camera
+### Map
 
-Tap **Camera** to take a photo of a letter, sign, menu, label, or appliance
-button. The app can read it aloud and explain it in simple words.
+Tap **Map** to open a simple map and find a nearby place without sorting through
+a crowded phone. Tapping a place marker can open Google Maps directions after a
+clear confirmation.
 
-The camera opens only when the person asks. The app says when a photo is
-unclear, and it does not identify people or give medical advice.
+The map opens only when the person asks. The app does not provide in-app
+directions; it shares only the chosen-place coordinate with Google Maps after
+confirmation. Google Maps determines the current origin itself.
 
 ## Controls are always close
 
@@ -89,22 +92,80 @@ This repository contains:
 - a three-day hackathon plan;
 - 41 example situations we can use to test the future app.
 
-The Android prototype requests no permissions and contains no integrations. It
-does not call anyone, open YouTube, record speech, or use the camera yet.
+The Android prototype includes Call, YouTube, Speak (local Gemma; mic only for
+that path), and Map. Network is used for YouTube playback and Map place/tile
+lookups; Speak does not require a cloud API key.
+
+## Install the local Gemma model
+
+The model weights are intentionally not committed to GitHub. Download a
+compatible Gemma 3 `.task` model, name it `gemma.task`, and copy it into the
+app's private storage:
+
+```powershell
+$adb = "C:\Users\ACB\AppData\Local\Android\Sdk\platform-tools\adb.exe"
+& $adb push .\gemma.task /data/local/tmp/gemma.task
+& $adb shell run-as org.seniorconnect.app mkdir -p files
+& $adb shell run-as org.seniorconnect.app cp /data/local/tmp/gemma.task files/gemma.task
+```
+
+Open **SPEAK**. Gemma starts listening automatically, reads its answer aloud,
+and listens for the next question. Press **STOP** to end the conversation.
 
 ## Run the Android prototype
 
-Open the repository folder in Android Studio and run the `app` configuration on
-an Android phone or emulator.
+Android Studio is **not** required. The supported lightweight path uses JDK 17
+plus the Android command-line tools, with either a USB-connected phone (the
+lightest option) or the standalone emulator.
 
-To build from the command line after installing Android SDK Platform 36:
+**One-time setup (macOS / Windows):** [docs/DEV_SETUP.md](docs/DEV_SETUP.md)
+
+### Quick run (macOS / Linux)
 
 ```bash
+# env (Homebrew paths on Apple Silicon)
+export JAVA_HOME=/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+export ANDROID_HOME=/opt/homebrew/share/android-commandlinetools
+export PATH="$JAVA_HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+
+# boot the shared AVD (create once via docs/DEV_SETUP.md)
+emulator -avd senior -no-snapshot &
+adb wait-for-device
+adb shell 'while [ "$(getprop sys.boot_completed)" != "1" ]; do sleep 2; done'
+
+# build, install, launch
 ./gradlew :app:assembleDebug
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+adb shell am start -n org.seniorconnect.app/.MainActivity
+```
+
+You should see **"What would you like to do?"** with **CALL / YOUTUBE / SPEAK / MAP**.
+
+### Windows PowerShell shortcut
+
+```powershell
+.\scripts\run-android.ps1
+```
+
+That script boots AVD `senior` if needed, sets a simulated Islamabad location,
+builds, installs, and launches the app.
+
+### Useful adb helpers
+
+```bash
+adb devices
+adb exec-out screencap -p > screen.png
+adb shell media volume --stream 3 --set 15          # media volume
+adb emu geo fix 73.05756 33.71921                   # lon lat (Islamabad)
+adb emu kill                                        # stop emulator
 ```
 
 The debug APK will be created at
-`app/build/outputs/apk/debug/app-debug.apk`.
+`app/build/outputs/apk/debug/app-debug.apk`. Note this is a native Kotlin app,
+so Expo and other React Native tooling do not apply.
+
+If you prefer Android Studio, opening the repository folder and running the
+`app` configuration also works.
 
 ## For teammates
 
@@ -114,10 +175,18 @@ Start here:
 2. Read [the small first version](plans/MVP.md).
 3. Follow [the contributor rules](AGENTS.md).
 4. Check [the three-day team plan](plans/THREE_DAY_PLAN.md).
+5. Install local git hooks so **everyone** (including admins) uses PRs, not direct pushes to `main`:
+
+   ```bash
+   ./scripts/install-dev-hooks.sh
+   ```
+
+6. Read [PR workflow](docs/PR_WORKFLOW.md) (Mac/Windows daily flow + optional Mac hourly Grok PR checker via crontab).
 
 Other useful documents:
 
 - [Safety and privacy](plans/SAFETY_AND_PRIVACY.md)
+- [PR workflow](docs/PR_WORKFLOW.md)
 - [How family pairing works](plans/PAIRING_PROTOCOL.md)
 - [Ideas for later](plans/IDEA_BACKLOG.md)
 - [Demo plan](plans/DEMO_PLAN.md)
@@ -132,12 +201,12 @@ npm test
 ```
 
 This checks the planning fixtures and confirms that the Android screen has
-exactly four buttons, no permissions, and no click handlers. It does **not**
-test an agent or any future integration.
+exactly four primary buttons and that the Speak voice flow is present. It does
+not test a real microphone, device speech recognizer, or Gemma inference.
 
 ## Project name
 
-Use `an-agent-for-elders` as the name inside code, packages, test files, and documentation. The GitHub repository itself can keep its current name.
+Use `seniorconnect` as the name inside code, packages, test files, and documentation. The GitHub repository itself can keep its current name.
 
 ## License
 

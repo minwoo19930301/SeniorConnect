@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/place_card"
+    android:orientation="vertical"
+    android:padding="18dp">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/place_supermarket_category" android:textColor="@color/action_blue" android:textSize="17sp" />
+    <TextView android:id="@+id/supermarket_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:fontFamily="sans-serif-medium" android:text="@string/places_loading" android:textColor="@color/text_primary" android:textSize="20sp" />
+    <TextView android:id="@+id/supermarket_distance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/blank" android:textColor="@color/text_secondary" android:textSize="17sp" />
+</LinearLayout>

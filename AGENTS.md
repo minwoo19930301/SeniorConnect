@@ -4,16 +4,59 @@ These instructions apply to the entire repository.
 
 ## Current phase
 
-This is now an **Android UI prototype repository**. The team explicitly moved
-from planning-only work to a native Android shell on 2026-07-18.
+This is now a **limited Android integration repository**. The team explicitly
+moved from planning-only work to a native Android shell on 2026-07-18, then
+expanded the phase to three working features: the **trusted Call dialer
+handoff** (`MVP`), the **YouTube TV-style video screen** (`MVP`), and the
+**Maps live nearby-places screen** (`MVP`).
 
 The current implementation scope is intentionally narrow:
 
-- one Android activity;
-- exactly four primary buttons: Call, YouTube, Speak, and Camera;
-- no button behavior yet;
-- no Android permissions;
-- no network, agent, contact, microphone, camera, or external-app integration.
+- the four-button home activity (Call, YouTube, Speak, and Map);
+- the Call button opens the trusted-contact dialing flow and may hand off to
+  the system dialer via `ACTION_DIAL` only (never direct `ACTION_CALL`);
+- the YouTube button opens an in-app, full-screen, TV-style video screen
+  backed by the official YouTube embedded player in a WebView;
+- the Map button opens the live nearby-places screen and may request location
+  permission only after the person opens it; a selected nearby marker may, after
+  an explicit confirmation, hand off the destination coordinate to the
+  installed Google Maps app for directions;
+- `INTERNET` is allowed for YouTube playback and Maps nearby-place lookup;
+- location permissions are allowed only for the Maps screen;
+- Speak still has no behavior;
+- no camera integration; no automatic family discovery; no direct call without
+  confirmation and dialer handoff.
+
+The Maps screen uses the granted device location in memory to show the current
+precise reverse-geocoded address and nearby hospitals, bus stops, and supermarkets. It may
+send only the coordinates needed for the active nearby-place query; it must not
+store location data, provide in-app directions, or claim a result when lookup fails.
+
+### YouTube TV-mode rules (MVP)
+
+- Video plays full screen from entry, auto-plays, and auto-advances to the
+  next video when one ends. Picture-in-picture is not supported.
+- Playback source per country (`app/src/main/assets/playlists/`): preferably
+  a reviewed **public YouTube playlist ID** maintained by the team — editable
+  on YouTube without shipping an app update, shuffled by the player — with a
+  bundled reviewed video list as fallback. The live YouTube recommendation
+  algorithm is `FUTURE`; arbitrary search is `FUTURE`.
+- A touch-protection layer swallows all touches on the video. There are no
+  on-screen controls: the user leaves with the system back gesture, and
+  screen lock / home / task switch also end the session.
+- Ad handling: **never** block, remove, mute, or auto-skip an advertisement,
+  and never click anything on the user's behalf. The only allowed behaviors
+  are passive: keep the touch shield up and show a calm notice such as
+  "An ad is playing. Please wait." Install or purchase screens are handled
+  the same way — the user cannot tap them through the shield.
+- The WebView must not navigate anywhere except the embedded player: block
+  all page navigation, external links, `intent://` and app deep links, and
+  never launch the YouTube app or a browser.
+- Videos that refuse embedding (player errors 101/150) or fail to play are
+  skipped silently; if every video fails, show a simple "Videos are not
+  available right now" message.
+- The screen keeps no state: leaving destroys it, and re-entering starts a
+  fresh session with a fresh random video.
 
 Contributors may add Android UI code that stays inside this boundary, along
 with plans, contracts, synthetic fixtures, validation scripts, and project
@@ -28,9 +71,9 @@ The product has four primary actions:
 1. **Call** — confirmed dialer handoff for an explicitly paired trusted contact.
 2. **YouTube** — open YouTube and explain a small allowlist of confusing states, such as an advertisement or install prompt.
 3. **Speak** — conversation plus web-grounded answers for current facts.
-4. **Camera** — user-initiated photo capture followed by reading or explanation.
+4. **Map** — current location and nearby hospitals, bus stops, and supermarkets, plus a confirmed Google Maps directions handoff. In-app directions are future work.
 
-`Repeat Slowly`, `Take Me Home`, and `Stop` must be reachable from every primary action.
+`Repeat Slowly`, `Take Me Home`, and `Stop` must be reachable from every primary action in a future interactive phase.
 
 Mark every capability as `MVP`, `FUTURE`, or `NON_GOAL`. Never describe a plan, mock, fixture, or future capability as implemented.
 
@@ -103,6 +146,15 @@ Keep these phases machine-readable and separate:
 - A trusted-contact proposal must name an existing `contact_*` ID and require confirmation.
 - A YouTube-guidance case may explain or point; it may not click, cover, block, approve, purchase, or install.
 - High-stakes medical, legal, financial, or emergency requests must produce a limitation plus a safe human escalation.
+
+## Development environment
+
+Use the lightweight command-line toolchain: JDK 17 + Android command-line
+tools + `adb`, with a USB phone or the standalone emulator. Android Studio is
+optional. Setup for macOS and Windows is in [docs/DEV_SETUP.md](docs/DEV_SETUP.md);
+agents should follow the `run-app` skill (`.claude/skills/run-app/SKILL.md`)
+to build, install, and launch the app. This is a native Kotlin app — do not
+suggest Expo or React Native tooling.
 
 ## Validation and commits
 

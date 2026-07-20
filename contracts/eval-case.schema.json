@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.invalid/an-agent-for-elders/eval-case.schema.json",
+  "$id": "https://example.invalid/seniorconnect/eval-case.schema.json",
   "title": "HarnessEvalCase",
   "type": "object",
   "additionalProperties": false,

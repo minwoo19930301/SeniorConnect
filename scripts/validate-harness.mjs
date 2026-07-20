@@ -46,6 +46,7 @@ const validIntents = new Set([
   "OPEN_ALLOWED_APP",
   "OPEN_DIALER_FOR_TRUSTED_CONTACT",
   "OPEN_TRUSTED_CHAT",
+  "OPEN_GOOGLE_MAPS_DIRECTIONS",
   "REQUEST_CALLBACK",
   "EXPLAIN_SCREEN",
   "ASK_FAMILY",
@@ -196,7 +197,7 @@ function validateCase(item, location, expectedSuite) {
     if (!trustedIds.has(targetId)) errors.push(`${location}: target ${targetId} is not in context.trusted_contacts`);
   }
 
-  const appTools = new Set(["open_allowed_app", "capture_photo", "go_home"]);
+  const appTools = new Set(["open_allowed_app", "capture_photo", "go_home", "open_google_maps_directions"]);
   if (allExpectedTools.some((tool) => appTools.has(tool))) {
     const targetId = expected.target_id;
     const allowedAppIds = new Set(item.context?.allowed_apps ?? []);

@@ -11,7 +11,19 @@
     "share_selected_photo": { "status": "FUTURE", "confirmation": "ELDER", "external_action": true },
     "ask_family": { "status": "MVP", "confirmation": "ELDER", "external_action": true },
     "go_home": { "status": "MVP", "confirmation": "EXPLICIT_REQUEST", "external_action": false },
-    "speak_explanation": { "status": "MVP", "confirmation": "NONE", "external_action": false }
+    "speak_explanation": { "status": "MVP", "confirmation": "NONE", "external_action": false },
+    "find_nearby_places": { "status": "MVP", "confirmation": "EXPLICIT_REQUEST", "external_action": true },
+    "open_google_maps_directions": {
+      "status": "MVP",
+      "confirmation": "ELDER",
+      "external_action": true,
+      "user_benefit": "Lets a person use familiar turn-by-turn navigation after choosing a nearby place.",
+      "minimum_data": "Selected destination coordinates only; Google Maps determines its own current origin and nothing is stored.",
+      "target": "app_google_maps",
+      "channel": "google_maps_navigation",
+      "confirmation_receipt": "Single-use, expires after 120 seconds, and is retained only in memory.",
+      "success_result": "DIRECTIONS_HANDOFF_OPENED"
+    }
   },
   "forbidden_tools": [
     "discover_family",

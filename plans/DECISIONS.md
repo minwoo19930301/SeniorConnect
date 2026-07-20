@@ -2,7 +2,7 @@
 
 ## D-001: keep the home screen to four clear actions
 
-**Decision:** the four primary actions are Call, YouTube, Speak, and Camera.
+**Decision:** the four primary actions are Call, YouTube, Speak, and Map.
 
 **Reason:** these labels match the tasks the user asked for and remain readable on a simple four-button screen.
 
@@ -41,6 +41,17 @@
 **Decision:** GPT produces a structured proposal. Deterministic code validates targets, confirmation, and tool policy.
 
 **Reason:** natural-language understanding benefits from a model; external actions require predictable safety behavior.
+
+## D-010: live nearby places require explicit location permission
+
+**Decision:** opening Map requests Android location permission. If granted, the
+app uses device coordinates only for the active map session, shows the precise
+reverse-geocoded address through Android Geocoder, and finds nearby hospitals,
+bus stops, and supermarkets through OpenStreetMap's public Overpass service.
+
+**Reason:** the person explicitly opens Map. The screen shows the exact address
+only while Map is open, has an honest unavailable state and retry option, and
+does not retain location history or address data. Directions remain future work.
 
 ## D-008: plan and harness before application code
 

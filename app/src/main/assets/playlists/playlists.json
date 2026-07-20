@@ -1,0 +1,52 @@
+{
+  "_note": "Per-country content for the TV-style YouTube screen. Preferred: set 'playlist_id' to a PUBLIC YouTube playlist you maintain — edit it on YouTube and the app picks up changes with no app update (playlists hold up to 5,000 videos; the player shuffles and auto-advances). Until a playlist_id is set, the bundled 'videos' list below is used, shuffled per session. Videos that refuse embedding are skipped automatically.",
+  "default_country": "US",
+  "countries": {
+    "US": {
+      "label": "United States (English)",
+      "playlist_id": "",
+      "videos": [
+        { "id": "yrOFuMDBA28", "title": "Oldies greatest hits 50s-60s" },
+        { "id": "6dMbI2wbXnQ", "title": "Beautiful nature 4K relaxing" },
+        { "id": "q24JRC9dzz0", "title": "Oldies greatest hits collection" },
+        { "id": "GskHIA3iE5Q", "title": "Gentle chair exercise for seniors" },
+        { "id": "UV0mhY2Dxr0", "title": "Nature 4K relaxing scenery" },
+        { "id": "gzt24Jr4PfI", "title": "Oldies hits" }
+      ]
+    },
+    "KR": {
+      "label": "대한민국 (한국어)",
+      "playlist_id": "",
+      "videos": [
+        { "id": "5GO9R1-U5OM", "title": "트로트 메들리" },
+        { "id": "imECMymNsjQ", "title": "한국 자연 4K 힐링" },
+        { "id": "-CV7fVPaG20", "title": "트로트 메들리 모음" },
+        { "id": "Ks9LW7jpT3I", "title": "7080 옛날가요 모음" },
+        { "id": "VGkoaHyVUdg", "title": "자연 힐링 영상" },
+        { "id": "rxPNVkPBHNU", "title": "7080 옛날가요" }
+      ]
+    },
+    "IN": {
+      "label": "India (Hindi)",
+      "playlist_id": "",
+      "videos": [
+        { "id": "sCIiVN0zIGE", "title": "Old Hindi songs golden collection" },
+        { "id": "lE56rEKIwcE", "title": "Morning bhajan peaceful" },
+        { "id": "osw-DRWFFJE", "title": "Old Hindi songs" },
+        { "id": "kSs7KPz-0fk", "title": "Peaceful bhajan" },
+        { "id": "S-5GG2dpKxA", "title": "Golden Hindi collection" }
+      ]
+    },
+    "PK": {
+      "label": "Pakistan (Urdu)",
+      "playlist_id": "",
+      "videos": [
+        { "id": "d4JRtrA1arM", "title": "Old Pakistani songs collection" },
+        { "id": "WkM_xkgX-IM", "title": "Beautiful naat sharif" },
+        { "id": "78NL8OxFxho", "title": "Old Pakistani songs" },
+        { "id": "5RBfAHlIbTU", "title": "Naat sharif" },
+        { "id": "Wh-aqPSMVHc", "title": "Old Urdu songs" }
+      ]
+    }
+  }
+}

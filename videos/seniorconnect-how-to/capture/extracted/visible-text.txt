@@ -6,15 +6,15 @@ for example, elders dont know how to call their grandchildren so the agent needs
 
 and for example youtube. most elderlys dont have youtube premium and they accidently install games or apps that they arent really intended to install. So the agent blocks or lets the elder user to wait for the ad to stop and telling that this is an ad just wait."
 
-"replace it with the name 'an-agent-for-elders' and only add plans and harnesses like AGENTS.md and so forth. Can you add more ideas? Lets use one as search API or chat talker just a simple app to talk, then another button uses to take photos. (if there are better ideas, feel free to tell)"
+"replace it with the name 'seniorconnect' and only add plans and harnesses like AGENTS.md and so forth. Can you add more ideas? Lets use one as search API or chat talker just a simple app to talk, then another button uses to take photos. (if there are better ideas, feel free to tell)"
 
-"an-agent-for-elders for all the codes then not the repo itself.
+"seniorconnect for all the codes then not the repo itself.
 I want the README.md file to be understandable, so make it simple andin human language. spawn subagents in 5.3 codex spark and publish only if they all passed to understand. and no need to review. just push as an initiaive"
 
 "make a video clip for how to use this project
 in the readme make a simple image that also shows how the ui looks like"
 
-"I dont understand. I wanted a demonstration video of our project, an-agent-for-elders not some random video. show the problem where elders having difficulties in using mobile phone covered of tons of apps then downloading this app connects other apps or helps them out."
+"I dont understand. I wanted a demonstration video of our project, seniorconnect not some random video. show the problem where elders having difficulties in using mobile phone covered of tons of apps then downloading this app connects other apps or helps them out."
 
 "I wanted in vertical shorts and I wanted a video not just only hyperframes. I wanted something more like a movie trial"
 
