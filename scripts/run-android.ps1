@@ -39,7 +39,9 @@ Require-Command "emulator"
 
 if (-not (Test-EmulatorRunning)) {
     Write-Host "Starting emulator '$AvdName'..."
-    Start-Process -FilePath "emulator" -ArgumentList "-avd", $AvdName, "-no-snapshot", "-no-audio" -WindowStyle Hidden
+    # Use the host GPU on this Windows development setup. It avoids the
+    # software OpenGL fallback that can leave Android's System UI unresponsive.
+    Start-Process -FilePath "emulator" -ArgumentList "-avd", $AvdName, "-no-snapshot", "-no-audio", "-gpu", "host" -WindowStyle Hidden
 } else {
     Write-Host "Using the running emulator."
 }
