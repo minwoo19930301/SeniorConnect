@@ -12,7 +12,7 @@ class TrustedContactRepository(context: Context) {
         ContactSlot("contact_son", "son", "Son"),
         ContactSlot("contact_daughter", "daughter", "Daughter"),
         ContactSlot("contact_doctor", "doctor", "Doctor"),
-        ContactSlot("contact_caregiver", "caregiver", "Caregiver"),
+        ContactSlot("contact_caregiver", "caregiver", "Care taker"),
     )
 
     fun all(): List<TrustedContact> = slots.map { slot ->

@@ -57,7 +57,17 @@ for (const [id, stringName, label] of expected) {
 }
 
 if (manifest.includes("<uses-permission")) {
-  throw new Error("The UI-only prototype must not request Android permissions.");
+  // INTERNET is allowed for the Gemini AI integration.
+  // All other permissions (CALL_PHONE, READ_CONTACTS, RECORD_AUDIO, etc.) remain forbidden.
+  const permissionMatches = manifest.match(/<uses-permission[^>]*android:name="([^"]+)"[^>]*>/g) ?? [];
+  const allowedPermissions = ["android.permission.INTERNET"];
+  for (const perm of permissionMatches) {
+    const nameMatch = perm.match(/android:name="([^"]+)"/);
+    const name = nameMatch ? nameMatch[1] : "";
+    if (!allowedPermissions.includes(name)) {
+      throw new Error(`Forbidden Android permission: ${name}`);
+    }
+  }
 }
 
 if (layout.includes("android:onClick")) {
