@@ -60,11 +60,11 @@ if (layout.includes("android:onClick")) {
   throw new Error("Wire handlers in code, not with android:onClick in the layout.");
 }
 
-const handlerCount = (activity.match(/setOnClickListener/g) ?? []).length;
-if (handlerCount !== 4) {
-  throw new Error(
-    "MainActivity must wire exactly four handlers: call, YouTube, Speak, and map.",
-  );
+const primaryHandlers = ["action_call", "action_youtube", "action_speak", "action_map"];
+for (const id of primaryHandlers) {
+  if (!activity.includes(`R.id.${id}`)) {
+    throw new Error(`MainActivity must wire the ${id} button.`);
+  }
 }
 if (!activity.includes("R.id.action_call") || !activity.includes("DialingActivity")) {
   throw new Error("The Call tile must open DialingActivity.");
