@@ -56,11 +56,13 @@ current information and show where the answer came from.
 
 ### Map
 
-Tap **Map** to open a simple map and find a place or get directions without
-sorting through a crowded phone.
+Tap **Map** to open a simple map and find a nearby place without sorting through
+a crowded phone. Tapping a place marker can open Google Maps directions after a
+clear confirmation.
 
-The map opens only when the person asks. The app explains directions in simple
-words and does not share the person’s location without permission.
+The map opens only when the person asks. The app does not provide in-app
+directions; it shares only the chosen-place coordinate with Google Maps after
+confirmation. Google Maps determines the current origin itself.
 
 ## Controls are always close
 

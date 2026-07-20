@@ -18,7 +18,9 @@ The current implementation scope is intentionally narrow:
 - the YouTube button opens an in-app, full-screen, TV-style video screen
   backed by the official YouTube embedded player in a WebView;
 - the Map button opens the live nearby-places screen and may request location
-  permission only after the person opens it;
+  permission only after the person opens it; a selected nearby marker may, after
+  an explicit confirmation, hand off the destination coordinate to the
+  installed Google Maps app for directions;
 - `INTERNET` is allowed for YouTube playback and Maps nearby-place lookup;
 - location permissions are allowed only for the Maps screen;
 - Speak still has no behavior;
@@ -28,7 +30,7 @@ The current implementation scope is intentionally narrow:
 The Maps screen uses the granted device location in memory to show the current
 precise reverse-geocoded address and nearby hospitals, bus stops, and supermarkets. It may
 send only the coordinates needed for the active nearby-place query; it must not
-store location data, provide directions, or claim a result when lookup fails.
+store location data, provide in-app directions, or claim a result when lookup fails.
 
 ### YouTube TV-mode rules (MVP)
 
@@ -69,7 +71,7 @@ The product has four primary actions:
 1. **Call** — confirmed dialer handoff for an explicitly paired trusted contact.
 2. **YouTube** — open YouTube and explain a small allowlist of confusing states, such as an advertisement or install prompt.
 3. **Speak** — conversation plus web-grounded answers for current facts.
-4. **Map** — current location and nearby hospitals, bus stops, and supermarkets. Directions are future work.
+4. **Map** — current location and nearby hospitals, bus stops, and supermarkets, plus a confirmed Google Maps directions handoff. In-app directions are future work.
 
 `Repeat Slowly`, `Take Me Home`, and `Stop` must be reachable from every primary action in a future interactive phase.
 

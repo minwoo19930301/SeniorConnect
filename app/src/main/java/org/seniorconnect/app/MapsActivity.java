@@ -2,6 +2,7 @@ package org.seniorconnect.app;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.maplibre.android.MapLibre;
 import org.maplibre.android.annotations.Icon;
@@ -60,6 +62,7 @@ public final class MapsActivity extends Activity {
     private MapLibreMap map;
     private Location currentLocation;
     private Place[] currentPlaces;
+    private final DirectionsHandoffLifecycle directionsHandoff = new DirectionsHandoffLifecycle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,12 @@ public final class MapsActivity extends Activity {
             map = loadedMap;
             map.getUiSettings().setAttributionEnabled(true);
             map.getUiSettings().setLogoEnabled(false);
+            map.setOnMarkerClickListener(marker -> {
+                Place place = placeFor(marker.getPosition());
+                if (place == null) return false;
+                confirmDirections(place);
+                return true;
+            });
             map.setStyle(new Style.Builder().fromUri(OPEN_STREET_MAP_STYLE), style -> drawMap());
         });
         retryButton = findViewById(R.id.retry_locations);
@@ -322,6 +331,39 @@ public final class MapsActivity extends Activity {
         if (category == 0) return bitmapIcon(R.drawable.ic_map_hospital, icons);
         if (category == 1) return bitmapIcon(R.drawable.ic_map_bus_stop, icons);
         return bitmapIcon(R.drawable.ic_map_supermarket, icons);
+    }
+
+    /** A marker tap shows place details; navigation never starts without the Directions choice. */
+    private void confirmDirections(Place place) {
+        if (currentLocation == null) return;
+        DirectionsHandoffLifecycle.Proposal proposal = directionsHandoff.propose(place.latitude, place.longitude);
+        if (directionsHandoff.evaluate(proposal) != DirectionsHandoffLifecycle.PolicyDecision.CONFIRM) return;
+        new AlertDialog.Builder(this)
+                .setTitle(place.name)
+                .setMessage(getString(R.string.place_details_message, place.distanceKm))
+                .setNegativeButton(R.string.directions_cancel, null)
+                .setPositiveButton(R.string.directions_button,
+                        (dialog, which) -> openGoogleMapsDirections(proposal))
+                .show();
+    }
+
+    private void openGoogleMapsDirections(DirectionsHandoffLifecycle.Proposal proposal) {
+        DirectionsHandoffLifecycle.ConfirmationReceipt receipt = directionsHandoff.confirm(
+                proposal, DirectionsHandoffLifecycle.PolicyDecision.CONFIRM);
+        DirectionsHandoffLifecycle.ToolResult result = directionsHandoff.invoke(
+                proposal, receipt, this::startActivity);
+        if (!"success".equals(result.status)) {
+            Toast.makeText(this, R.string.google_maps_unavailable, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private Place placeFor(LatLng position) {
+        if (currentPlaces == null) return null;
+        for (Place place : currentPlaces) {
+            if (place != null && Double.compare(place.latitude, position.getLatitude()) == 0
+                    && Double.compare(place.longitude, position.getLongitude()) == 0) return place;
+        }
+        return null;
     }
 
     /** MapLibre 11 accepts bitmaps for marker icons; app marker art is kept as scalable vector drawables. */
