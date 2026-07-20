@@ -92,9 +92,9 @@ This repository contains:
 - a three-day hackathon plan;
 - 41 example situations we can use to test the future app.
 
-The Android prototype requests microphone access for Speak and does not use an
-internet connection or API key. The other three primary buttons remain visual
-placeholders.
+The Android prototype includes Call, YouTube, Speak (local Gemma; mic only for
+that path), and Map. Network is used for YouTube playback and Map place/tile
+lookups; Speak does not require a cloud API key.
 
 ## Install the local Gemma model
 
@@ -116,15 +116,48 @@ and listens for the next question. Press **STOP** to end the conversation.
 
 Android Studio is **not** required. The supported lightweight path uses JDK 17
 plus the Android command-line tools, with either a USB-connected phone (the
-lightest option) or the standalone emulator. One-time setup for macOS and
-Windows is in [docs/DEV_SETUP.md](docs/DEV_SETUP.md).
+lightest option) or the standalone emulator.
 
-After setup:
+**One-time setup (macOS / Windows):** [docs/DEV_SETUP.md](docs/DEV_SETUP.md)
+
+### Quick run (macOS / Linux)
 
 ```bash
-./gradlew :app:assembleDebug          # Windows: gradlew.bat :app:assembleDebug
+# env (Homebrew paths on Apple Silicon)
+export JAVA_HOME=/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+export ANDROID_HOME=/opt/homebrew/share/android-commandlinetools
+export PATH="$JAVA_HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+
+# boot the shared AVD (create once via docs/DEV_SETUP.md)
+emulator -avd senior -no-snapshot &
+adb wait-for-device
+adb shell 'while [ "$(getprop sys.boot_completed)" != "1" ]; do sleep 2; done'
+
+# build, install, launch
+./gradlew :app:assembleDebug
 adb install -r app/build/outputs/apk/debug/app-debug.apk
-    adb shell am start -n org.seniorconnect.app/.MainActivity
+adb shell am start -n org.seniorconnect.app/.MainActivity
+```
+
+You should see **"What would you like to do?"** with **CALL / YOUTUBE / SPEAK / MAP**.
+
+### Windows PowerShell shortcut
+
+```powershell
+.\scripts\run-android.ps1
+```
+
+That script boots AVD `senior` if needed, sets a simulated Islamabad location,
+builds, installs, and launches the app.
+
+### Useful adb helpers
+
+```bash
+adb devices
+adb exec-out screencap -p > screen.png
+adb shell media volume --stream 3 --set 15          # media volume
+adb emu geo fix 73.05756 33.71921                   # lon lat (Islamabad)
+adb emu kill                                        # stop emulator
 ```
 
 The debug APK will be created at
