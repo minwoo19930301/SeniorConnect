@@ -60,10 +60,18 @@ if (layout.includes("android:onClick")) {
   throw new Error("Wire handlers in code, not with android:onClick in the layout.");
 }
 
-const primaryHandlers = ["action_call", "action_youtube", "action_speak", "action_map"];
-for (const id of primaryHandlers) {
-  if (!activity.includes(`R.id.${id}`)) {
-    throw new Error(`MainActivity must wire the ${id} button.`);
+// Count only home-tile handlers. Speak screen adds extra listeners on the same
+// activity (stop/start + take-me-home), so a raw setOnClickListener count is wrong.
+const homeHandlerIds = [
+  "R.id.action_call",
+  "R.id.action_youtube",
+  "R.id.action_speak",
+  "R.id.action_map",
+];
+for (const id of homeHandlerIds) {
+  const occurrences = activity.split(id).length - 1;
+  if (occurrences < 1) {
+    throw new Error(`MainActivity must reference home tile ${id}.`);
   }
 }
 if (!activity.includes("R.id.action_call") || !activity.includes("DialingActivity")) {
@@ -77,6 +85,9 @@ if (!activity.includes("R.id.action_map") || !activity.includes("MapsActivity"))
 }
 if (!activity.includes("R.id.action_speak") || !activity.includes("SpeechRecognizer")) {
   throw new Error("The Speak tile must open the local voice conversation.");
+}
+if (!activity.includes("showSpeakScreen") || !activity.includes("showHome")) {
+  throw new Error("Speak must use showSpeakScreen/showHome navigation on MainActivity.");
 }
 
 const permissions = manifest.match(/<uses-permission[^>]*android:name="([^"]+)"/g) ?? [];
