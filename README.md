@@ -5,8 +5,10 @@
 The app gives one clear answer or one clear next step. When it is unsure, it helps the person contact someone they trust.
 
 The repository includes a small Android UI prototype with four large buttons.
-The Speak button runs Gemma locally on the phone. Android speech recognition
-transcribes the user's words and text-to-speech reads the answer.
+The Speak button starts a simple conversation for company. Android speech
+recognition transcribes the user's words and text-to-speech reads the answer.
+If a local Gemma model is installed, it gives richer answers; without Gemma,
+SeniorConnect uses a small offline small-talk fallback.
 
 ## What the planned home screen looks like
 
@@ -92,9 +94,9 @@ This repository contains:
 - a three-day hackathon plan;
 - 41 example situations we can use to test the future app.
 
-The Android prototype includes Call, YouTube, Speak (local Gemma; mic only for
-that path), and Map. Network is used for YouTube playback and Map place/tile
-lookups; Speak does not require a cloud API key.
+The Android prototype includes Call, YouTube, Speak, and Map. Network is used
+for YouTube playback and Map place/tile lookups. Speak works with the Android
+microphone and text-to-speech; Gemma is optional.
 
 ## Install the local Gemma model
 

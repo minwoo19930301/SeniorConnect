@@ -84,7 +84,7 @@ public final class MainActivity extends Activity {
         subtitle.setGravity(Gravity.CENTER);
         content.addView(subtitle, params(0, 4));
 
-        status = label(modelFile().exists() ? R.string.speak_ready_to_talk : R.string.speak_model_missing, 19);
+        status = label(modelFile().exists() ? R.string.speak_ready_to_talk : R.string.speak_fallback_ready, 19);
         status.setGravity(Gravity.CENTER);
         status.setPadding(16, 18, 16, 18);
         status.setBackgroundColor(getColor(R.color.status_background));
@@ -95,7 +95,7 @@ public final class MainActivity extends Activity {
         transcript.setPadding(12, 18, 12, 18);
         content.addView(transcript, new LinearLayout.LayoutParams(-1, 0, 1));
 
-        speakButton = actionButton(R.string.speak_stop, true);
+        speakButton = actionButton(R.string.speak_start, true);
         speakButton.setOnClickListener(view -> {
             if (conversationActive) stopConversation(); else startListening();
         });
@@ -136,7 +136,6 @@ public final class MainActivity extends Activity {
             public void onEvent(int eventType, Bundle params) { }
         });
 
-        if (modelFile().exists()) handler.postDelayed(this::startListening, 700);
     }
 
     private TextView label(int text, float size) {
@@ -169,12 +168,6 @@ public final class MainActivity extends Activity {
     }
 
     private void startListening() {
-        if (!modelFile().exists()) {
-            conversationActive = false;
-            speakButton.setText(R.string.speak_start);
-            status.setText(R.string.speak_model_missing);
-            return;
-        }
         if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, RECORD_AUDIO_REQUEST);
             return;
@@ -210,7 +203,7 @@ public final class MainActivity extends Activity {
         status.setText(R.string.speak_thinking);
         new Thread(() -> {
             try {
-                String answer = generateWithGemma(question);
+                String answer = modelFile().exists() ? generateWithGemma(question) : fallbackAnswer(question);
                 runOnUiThread(() -> {
                     transcript.setText(getString(R.string.speak_answer, question, answer));
                     status.setText(R.string.speak_done);
@@ -227,6 +220,23 @@ public final class MainActivity extends Activity {
                 runOnUiThread(() -> status.setText(R.string.speak_model_error));
             }
         }).start();
+    }
+
+    private String fallbackAnswer(String question) {
+        String normalized = question.toLowerCase(Locale.getDefault());
+        if (normalized.contains("hello") || normalized.contains("hi") || normalized.contains("안녕")) {
+            return "Hello. I am here with you. How is your day going?";
+        }
+        if (normalized.contains("thank") || normalized.contains("고마")) {
+            return "You are welcome. I am happy to keep you company.";
+        }
+        if (normalized.contains("sad") || normalized.contains("lonely") || normalized.contains("외롭") || normalized.contains("슬프")) {
+            return "I am sorry you feel that way. We can talk, or you can call someone you trust.";
+        }
+        if (normalized.contains("weather") || normalized.contains("날씨")) {
+            return "I cannot check live weather yet, but I can keep you company.";
+        }
+        return "I am here to keep you company. Tell me about your day, your family, or something you enjoy.";
     }
 
     private String generateWithGemma(String question) throws Exception {
