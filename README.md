@@ -7,6 +7,9 @@ control.
 The app currently has four large actions: trusted-contact dialer handoff, an
 in-app YouTube TV screen, local voice conversation, and live nearby places.
 
+**Submitted on Devpost:**
+[https://devpost.com/software/seniorconnect](https://devpost.com/software/seniorconnect?ref_content=contribution-prompt&ref_feature=engagement&ref_medium=email&utm_campaign=contribution-prompt&utm_content=contribution_reminder&utm_medium=email&utm_source=transactional#app-team)
+
 ## Home screen
 
 ![Concept home screen with four large buttons: Call, YouTube, Speak, and Map](assets/planned-home-screen.png)
