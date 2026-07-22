@@ -23,7 +23,8 @@ The current implementation scope is intentionally narrow:
   installed Google Maps app for directions;
 - `INTERNET` is allowed for YouTube playback and Maps nearby-place lookup;
 - location permissions are allowed only for the Maps screen;
-- Speak still has no behavior;
+- Speak starts Android speech recognition and TTS; it uses local Gemma when the
+  model is installed and a short offline small-talk fallback otherwise;
 - no camera integration; no automatic family discovery; no direct call without
   confirmation and dialer handoff.
 

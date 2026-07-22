@@ -46,6 +46,7 @@
     <string name="speak_ready">I am listening.</string>
     <string name="speak_thinking">I am thinking.</string>
     <string name="speak_model_missing">Copy a Gemma .task model to the phone, then try again.</string>
+    <string name="speak_fallback_ready">Conversation mode is ready. Gemma adds richer answers when installed.</string>
     <string name="speak_permission">Please allow microphone access so you can speak.</string>
     <string name="speak_subtitle">Tap SPEAK once. Gemma listens and answers aloud.</string>
     <string name="speak_ready_to_talk">Gemma is ready. You can speak now.</string>
